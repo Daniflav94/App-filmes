@@ -1,0 +1,93 @@
+/*LISTA DE FILMES*/
+.container{
+    display: flex;
+    flex-direction: column;
+    padding: 50px 0;
+    height: 100vh;
+    color: white;
+    box-sizing: border-box;
+}
+
+.titulo-lista{
+    color:rgb(255, 235, 83)
+}
+
+.sub{
+    color: rgb(205, 205, 205);
+}
+
+.subtitulo-lista{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    margin: 20px 0;
+    width: 100vw;
+}
+
+.seta{
+    background-color: rgb(12, 12, 12);
+    width: 40px;
+    height: 400px;
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.card-filme{
+    background-color: rgb(40, 40, 40);
+    border: none;
+    width: 200px;
+    height: 400px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin: 10px;
+}
+
+.poster{
+    width: 100%;
+    height: 70%;
+    border-radius: 5px 5px 0 0;
+}
+
+.conteudo-card{
+    height: 30%;
+}
+
+.avaliacao{
+    display: flex;
+    width: 90%;
+    height: 20px;
+    align-items: center;
+    color: white;
+    padding: 0 10px;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.titulo-e-favoritar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    padding: 0 10px;
+    margin: 0;
+}
+
+.titulo-filme{
+    font-size: 14px;
+    color: white;
+}
+
+.icone-estrela{
+    margin-right: 10px;
+}
+
+.icone-coracao:hover{
+    cursor: pointer;
+}

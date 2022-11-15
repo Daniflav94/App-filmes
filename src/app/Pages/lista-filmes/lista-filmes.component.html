@@ -1,0 +1,51 @@
+<main class="container">
+    <h1 class="titulo-lista">O que assistir</h1>
+    <p class="sub">Está em busca de um novo filme para assistir? Encontre nas listas abaixo:</p>
+    <section class="subtitulo-lista">
+        <img src="../../../assets/barra.png" height="25px">
+        <h2>Melhores Avaliados</h2>
+    </section>
+    <section class="cards">
+        <button class="seta"><img src="../../../assets/seta-esquerda.png" width="35px" (click)="voltar()"></button>
+        <div class="card-filme" *ngFor="let filme of listaTopFilmes.results | slice: inicio:final">
+
+            <img [src]="'https://image.tmdb.org/t/p/original/' + filme.poster_path" class="poster">
+            <div class="conteudo-card">
+                <div class="avaliacao">
+                    <img src="../../../assets/estrela.png" width="15px" height="15px" class="icone-estrela">
+                    <p>{{filme.vote_average}}</p>
+                </div>
+                <div class="titulo-e-favoritar">
+                    <p class="titulo-filme">{{filme.title}}</p>
+                    <img src="../assets/coracaoVazio.png" width="18px">
+                </div>
+            </div>
+        </div>
+        <button class="seta"><img src="../../../assets/seta-direita.png" width="35px" (click)="avancar()"></button>
+    </section>
+    <section class="subtitulo-lista">
+        <img src="../../../assets/barra.png" height="25px">
+        <h2>Os Mais Populares</h2>
+    </section>
+
+    <!--LISTA POPULARES-->
+    <section class="cards">
+        <button class="seta"><img src="../../../assets/seta-esquerda.png" width="35px" (click)="voltar2()"></button>
+        <div class="card-filme" *ngFor="let filme of listaPopulares.results | slice: inicio2:final2">
+            <img [src]="'https://image.tmdb.org/t/p/original/' + filme.poster_path" class="poster">
+            <div class="conteudo-card">
+                <div class="avaliacao">
+                    <img src="../../../assets/estrela.png" width="15px" height="15px" class="icone-estrela">
+                    <p>{{filme.vote_average}}</p>
+                </div>
+                <div class="titulo-e-favoritar">
+                    <p class="titulo-filme">{{ filme.title }}</p>
+                    <img src="../assets/coracaoVazio.png" width="21px" height="21px" class="icone-coracao">
+                </div>
+            </div>
+        </div>
+        <button class="seta"><img src="../../../assets/seta-direita.png" width="35px" (click)="avancar2()"></button>
+    </section>
+
+
+</main>
