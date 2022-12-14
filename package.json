@@ -15,11 +15,13 @@
     "@angular/common": "^14.2.0",
     "@angular/compiler": "^14.2.0",
     "@angular/core": "^14.2.0",
+    "@angular/fire": "^7.5.0",
     "@angular/forms": "^14.2.0",
     "@angular/material": "^14.2.7",
     "@angular/platform-browser": "^14.2.0",
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
+    "firebase": "^9.14.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

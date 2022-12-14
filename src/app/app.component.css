@@ -1,0 +1,153 @@
+/*NAVBAR*/
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    z-index: 2;
+
+}
+
+nav{
+    height: 70px;
+    background-color: rgb(40, 40, 40);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    position: relative;
+}
+
+ul{
+    display: flex;
+}
+
+li{
+    display: flex;
+    align-items: center;
+    list-style: none; 
+}
+
+.favoritos{
+   color: rgb(255, 255, 255);
+   font-weight: bold;
+   background-color: rgb(40, 40, 40);
+   display: flex;
+   border: none;
+   border-radius: 20px;
+   align-items: center;
+   width: 160px;
+   justify-content: space-between;
+}
+
+.favoritos:hover{
+    cursor: pointer;
+    background-color: rgb(49, 49, 49);
+}
+
+input{
+    width: 600px;
+    background-color: black;
+    border: none;
+    border-radius: 15px;
+    color: rgb(209, 207, 207);
+    height: 28px;
+    padding: 0 30px;
+}
+
+form{
+    margin: 0 100px;
+    display: flex;
+    align-items: center;
+}
+
+.botao-pesquisa{
+    background-color: rgb(40, 40, 40);
+    border: none;
+    color: aliceblue;
+    cursor: pointer;
+}
+
+input:focus{
+    outline: 1px solid rgb(255, 233, 154);
+}
+
+/*LISTA DE FILMES PESQUISA*/
+
+.container{
+    margin: 50px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.titulo-pesquisa{
+    color: white;
+    margin-bottom: 20px;
+    padding: 50px 100px;
+}
+
+.lista-filmes-pesquisa{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    padding: 0 50px;
+
+}
+
+.card-filme{
+    background-color: rgb(40, 40, 40);
+    border: none;
+    width: 200px;
+    height: 400px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin: 10px;
+}
+
+.poster{
+    width: 100%;
+    height: 70%;
+    border-radius: 5px 5px 0 0;
+}
+
+.conteudo-card{
+    height: 30%;
+}
+
+.avaliacao{
+    display: flex;
+    width: 90%;
+    height: 20px;
+    align-items: center;
+    color: white;
+    padding: 0 10px;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.titulo-e-favoritar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    padding: 0 10px;
+    margin: 0;
+}
+
+.titulo-filme{
+    font-size: 14px;
+    color: white;
+}
+
+.icone-estrela{
+    margin-right: 10px;
+}
+
+.icone-coracao:hover{
+    cursor: pointer;
+}

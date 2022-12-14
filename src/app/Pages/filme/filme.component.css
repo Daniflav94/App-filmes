@@ -1,0 +1,54 @@
+.container{
+    width: 100vw;
+    height: auto;
+    background-size: cover;
+
+}
+
+.fundo-poster{
+    object-fit: cover;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+   
+}
+
+.caixa{
+    position: relative;
+    z-index: 2;
+    display: flex;
+    margin: 100px 200px;
+    width: 70%;
+}
+
+.titulo{
+    color: white;
+    z-index: 2;
+    position: relative;
+    font-size: 40px;
+    
+}
+
+.conteudo{
+    color: white;
+    z-index: 2;
+    position: relative;
+    font-size: 17px;
+    margin-left: 50px;
+}
+
+.generos{
+    display: flex;
+    width: 100%;
+}
+
+.genero ~ .genero::before{
+    content: ", ";
+}
+
+.poster{
+    border-radius: 8px;
+}

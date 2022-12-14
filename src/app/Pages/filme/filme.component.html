@@ -1,0 +1,20 @@
+<section class="container" *ngIf="filme != undefined" >
+    <img [src]="'https://image.tmdb.org/t/p/original' + filme.backdrop_path" class="fundo-poster">
+    <div class="caixa">
+        <img [src]="'https://image.tmdb.org/t/p/original/' + filme.poster_path" width="250px" class="poster">
+        <div class="conteudo">
+            <h1 class="titulo">{{filme.title}} ({{filme.release_date | date: 'yyyy'}})</h1>
+            <div class="generos"> 
+                <p *ngFor="let genero of filme.genres" class="genero" >{{genero.name}} </p>
+            </div>
+            
+            <p>Lançamento: {{filme.release_date}}</p>
+            <h3>Sinopse</h3>
+            <p>{{filme.overview}}</p>
+        </div>
+    </div>
+    
+    
+
+</section>
+
