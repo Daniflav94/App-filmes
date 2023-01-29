@@ -35,21 +35,23 @@
     <div class="card-filme" *ngFor="let filme of listaPesquisa.results">
       <a [routerLink]="'/filmes/' + filme.id"><img [src]="'https://image.tmdb.org/t/p/original/' + filme.poster_path" class="poster" (click)="limparPesquisa()"></a>
       <div class="conteudo-card">
-        <div class="avaliacao">
-          <img src="../../../assets/estrela.png" width="15px" height="15px" class="icone-estrela">
-          <p>{{filme.vote_average}}</p>
-        </div>
-        <div class="titulo-e-favoritar">
-          <p class="titulo-filme">{{ filme.title }}</p>
-        </div>
-      </div>
+        <div class="avaliacao-e-favoritar">
+            <div class="avaliacao">
+                <img src="/assets/estrela.png"class="icone-estrela">
+                <p>{{filme.vote_average}}</p>               
+            </div>
+            <img src="/assets/coracaoVazio.png" width="23px" class="icone-coracao" (click)="favoritar(filme)">
+        </div>           
+        <p class="titulo-filme">{{ filme.title }}</p>              
+        <button class="assistir-mais-tarde"><img src="/assets/salvar.png" width="16px"> Assistir depois</button>
+    </div>
   </div>
   </section> 
 </main>
 
 <main class="container" *ngIf="pesquisa == false">
     <router-outlet></router-outlet><!--É responsável por ler a URL que o usuário está acessando e alternar o componente dependendo da URL que ele acessa-->
-    <!--A partir do componente principal (app component), tudo na tela será rendeizado, incluindo as rotas que foram declaradas-->
+    <!--A partir do componente principal (app component), tudo na tela será rendenizado, incluindo as rotas que foram declaradas-->
 </main>
 
 

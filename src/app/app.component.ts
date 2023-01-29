@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
+import { FilmeLista } from './Interfaces/FilmeLista';
 import { Results } from './Interfaces/Results';
 import { ApiFilmesService } from './Services/api-filmes.service';
+import { FavoritosService } from './Services/favoritos.service';
+import { NotificationService } from './Services/notificacao.service';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +15,8 @@ export class AppComponent {
 
   constructor(
     private filmeService: ApiFilmesService,
+    private favoritosService: FavoritosService,
+    private notificacao: NotificationService
   ) { }
 
   listaPesquisa!: Results
@@ -34,4 +39,12 @@ export class AppComponent {
     this.pesquisa = false
     this.nomeFilme = ''
   }
+
+  favoritar(filme: FilmeLista): void{
+    this.favoritosService.adicionarFavorito(filme).subscribe(
+     (resposta) => {
+       this.notificacao.showmessage("Filme inserido na lista de favoritos!")
+     }
+    )
+   }
 }

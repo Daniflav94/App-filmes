@@ -12,4 +12,19 @@ export interface Filme {
     runtime: number
     title: string
     vote_count: number
+    cast?: [
+        {
+          name: string,
+          profile_path: string,
+          character: string,
+          known_for_department: string 
+        }
+    ]
+    crew?: [
+        {
+            name: string,
+            known_for_department: string,
+            job: string
+        }
+    ]
 }

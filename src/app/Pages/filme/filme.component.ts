@@ -16,22 +16,36 @@ export class FilmeComponent implements OnInit {
     private filmesService: ApiFilmesService,
     private snackbar: MatSnackBar
   ) { }
-  
+
   filme!: Filme
- 
+  creditos!: Filme
+  diretor!: string
+
 
   ngOnInit(): void {
     const idFilme = this.rota.snapshot.paramMap.get('idFilme') as string
-      this.filmesService.getFilmeById(parseInt(idFilme)).subscribe(
-        (filme) => {
-          this.filme = filme
-          
-        },
-        (erro) => {
-          this.snackbar.open("Erro ao encontrar filme", 'ok')
-        }
-      )
-    }
+    this.filmesService.getFilmeById(parseInt(idFilme)).subscribe(
+      (filme) => {
+        this.filme = filme
+
+      },
+      (erro) => {
+        this.snackbar.open("Erro ao encontrar filme", 'ok')
+      }
+    )
+
+    this.filmesService.getCreditsFilme(parseInt(idFilme)).subscribe(
+      (credits) => {
+        this.creditos = credits
+        credits.crew?.forEach(element => {
+          if(element.job == "Director"){
+            this.diretor = element.name
+          }
+        });
+      }
+    )
+  }
+
 
 }
 

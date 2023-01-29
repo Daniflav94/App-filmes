@@ -1,48 +1,75 @@
 .container{
-    width: 100vw;
+    width: 100%;
     height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-size: cover;
-
+    margin: 0;
 }
 
 .fundo-poster{
     object-fit: cover;
+    object-position: top;
     position: absolute;
     left: 0;
     top: 0;
-    width: 100%;
+    margin: 0;
+    width: 105%;
     height: 100%;
-    opacity: 0.3;
-   
+    opacity: 0.4; 
+    -webkit-mask-image: linear-gradient(to top, transparent 25%, black 100%); 
 }
 
 .caixa{
     position: relative;
     z-index: 2;
     display: flex;
-    margin: 100px 200px;
-    width: 70%;
+    align-items: center;
+    justify-content: center;
+    width: 75%;
+    height: 60%;
+    margin: 90px;
 }
 
 .titulo{
     color: white;
     z-index: 2;
     position: relative;
-    font-size: 40px;
-    
+    font-size: 40px; 
+    margin-bottom: 25px;   
 }
 
 .conteudo{
     color: white;
     z-index: 2;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     font-size: 17px;
-    margin-left: 50px;
+    margin-left: 80px;
+}
+
+.conteudo h3{
+    margin-bottom: 10px;
+}
+
+.detalhes{
+    display: flex;
+    width: 100%;
+    margin-bottom: 25px;
+    font-size: 16px;
+}
+
+.separador{
+    margin: 0 10px;
 }
 
 .generos{
     display: flex;
-    width: 100%;
+    width: auto;
 }
 
 .genero ~ .genero::before{
@@ -51,4 +78,54 @@
 
 .poster{
     border-radius: 8px;
+    width: 15rem;
+    height: 22rem;
+    z-index: 2;
+}
+
+.atores{
+    display: flex;
+    justify-content: center;
+    color: white;
+    width: 100%;
+}
+
+.elenco{
+    display: flex;
+    align-items: center;
+    color: aliceblue;
+    width: 100vw;
+    margin: 50px 0 30px 100px;
+}
+
+.ator{
+    display: flex;
+    flex-direction: column;
+    margin-right: 30px;
+    width: 100px;
+    height: 250px;
+    border-radius: 5px;
+}
+
+.ator_info{
+    padding: 10px 0;
+    text-align: center;
+}
+
+.nome-ator{
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.papel{
+    font-size: 12px;
+}
+
+.fotos-atores{
+    border-radius: 50%;
+    object-fit: cover;
+    width: 100px;
+    height: 100px;
+    z-index: 2;
 }

@@ -33,6 +33,10 @@ export class ApiFilmesService {
     return this.http.get<Filme>(this.baseURL + idFilme + '?' + this.apiKey)
   }
 
+  getCreditsFilme(idFilme: number){
+    return this.http.get<Filme>(this.baseURL + idFilme + '/credits?' + this.apiKey)
+  }
+
 
 }
 

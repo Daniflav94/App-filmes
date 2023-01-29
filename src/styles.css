@@ -1,12 +1,12 @@
-html, body { height: 100%; }
-body { 
+*{
+    margin: 0;
+}
+
+html, body { 
     margin: 0; 
     font-family: Roboto, "Helvetica Neue", sans-serif;
     background-color: rgb(12, 12, 12);
     width: 100vw;
-    height: 100vh;
-    
-    
-
+    height: (100vh - 70px);
 }
 

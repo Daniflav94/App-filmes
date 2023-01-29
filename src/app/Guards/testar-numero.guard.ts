@@ -12,9 +12,9 @@ export class TestarNumeroGuard implements CanActivate {
      //saber se o id informado é um num ou nao, se for pode seguir
     
 
-     const idProduto = route.paramMap.get('idProduto') //recuperar o parametro que guarda o valor do id
+     const id = route.paramMap.get('id') //recuperar o parametro que guarda o valor do id
       
-     if(isNaN(Number(idProduto))){
+     if(isNaN(Number(id))){
        return false
      }else {
        return true
