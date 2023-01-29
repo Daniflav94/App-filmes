@@ -1,4 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogVotoComponent } from 'src/app/Components/dialogs/dialog-voto/dialog-voto.component';
 import { FilmeLista } from 'src/app/Interfaces/FilmeLista';
 import { Results } from 'src/app/Interfaces/Results';
 import { ApiFilmesService } from 'src/app/Services/api-filmes.service';
@@ -15,7 +17,8 @@ export class ListaFilmesComponent implements OnInit {
   constructor(
     private filmesService: ApiFilmesService,
     private favoritosService: FavoritosService,
-    private notificacao: NotificationService
+    private notificacao: NotificationService,
+    public dialog: MatDialog
   ) { }
 
   
@@ -77,6 +80,14 @@ export class ListaFilmesComponent implements OnInit {
           this.listaPopulares = lista
         }
       )
+    }
+
+    public openDialog(filme: FilmeLista) {
+      this.dialog.open(DialogVotoComponent, {
+        width: "500px", 
+        height: "280px",
+        data: filme
+      })
     }
 
 }

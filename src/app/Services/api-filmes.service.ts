@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Filme } from '../Interfaces/Filme';
+import { FilmeLista } from '../Interfaces/FilmeLista';
 import { Results } from '../Interfaces/Results';
 
 @Injectable({
@@ -35,6 +36,10 @@ export class ApiFilmesService {
 
   getCreditsFilme(idFilme: number){
     return this.http.get<Filme>(this.baseURL + idFilme + '/credits?' + this.apiKey)
+  }
+
+  avaliarFilme(idFilme: number, nota: number){
+    return this.http.post<FilmeLista>(this.baseURL + idFilme + '/rating?' + this.apiKey, nota)
   }
 
 

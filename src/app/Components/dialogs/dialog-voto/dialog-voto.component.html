@@ -1,0 +1,19 @@
+<div class="dialog-container">
+    <img src="/assets/estrela-azul-arredondada.png" width="100px" class="icone-estrela-grande">
+    <h2>{{nota}}</h2>
+    <h5>SUA AVALIAÇÃO</h5>
+    <h3>{{filme.title}}</h3>
+    <div class="estrelas">
+        <img [src]="estrela" class="estrela" (mouseover)="mudarEstrela1()" (click)="receberNota1()">
+        <img [src]="estrela2" class="estrela" (mouseover)="mudarEstrela2()" (click)="receberNota2()">
+        <img [src]="estrela3" class="estrela" (mouseover)="mudarEstrela3()" (click)="receberNota3()">
+        <img [src]="estrela4" class="estrela" (mouseover)="mudarEstrela4()" (click)="receberNota4()">
+        <img [src]="estrela5" class="estrela" (mouseover)="mudarEstrela5()" (click)="receberNota5()">
+        <img [src]="estrela6" class="estrela" (mouseover)="mudarEstrela6()" (click)="receberNota6()">
+        <img [src]="estrela7" class="estrela" (mouseover)="mudarEstrela7()" (click)="receberNota7()">
+        <img [src]="estrela8" class="estrela" (mouseover)="mudarEstrela8()" (click)="receberNota8()">
+        <img [src]="estrela9" class="estrela" (mouseover)="mudarEstrela9()" (click)="receberNota9()">
+        <img [src]="estrela10" class="estrela" (mouseover)="mudarEstrela10()" (click)="receberNota10()">
+    </div>
+    <button id="btn-avaliar" (click)="avaliar()">Avaliar</button>
+</div>

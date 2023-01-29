@@ -1,3 +1,5 @@
+@import './variaveis.css';
+
 *{
     margin: 0;
 }
@@ -8,5 +10,9 @@ html, body {
     background-color: rgb(12, 12, 12);
     width: 100vw;
     height: (100vh - 70px);
+}
+
+.mat-dialog-container{
+    background-color: rgb(36, 35, 35);
 }
 

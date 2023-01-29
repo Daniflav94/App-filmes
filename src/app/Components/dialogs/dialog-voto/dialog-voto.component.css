@@ -1,0 +1,66 @@
+.dialog-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 22px;
+    position: absolute;
+    left: 0;
+    top: 30%;
+    width: 100%;
+    height: 220px;
+    box-sizing: border-box;
+}
+
+.icone-estrela-grande{
+    position: relative;
+    top: -10px;   
+}
+
+h5{
+    color: var(--yellow);
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+h3{
+    color: aliceblue;
+    font-size: 20px;
+}
+
+h2{
+    position: relative;
+    top: -65px; 
+    color: aliceblue;
+}
+
+.estrela{
+    width: 27px;
+    margin-right: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button{
+    width: 320px;
+    color: rgb(197, 197, 197);
+    font-size: 13px;
+    font-weight: bold;
+    background-color: var(--gray1);
+    padding: 10px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.btn-ativo{
+    background-color: var(--yellow);
+    color: var(--gray1);
+}
+
+.btn-ativo:hover{
+    background-color: rgb(252, 209, 35);
+    color: var(--gray1);
+}
+
