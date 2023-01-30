@@ -36,15 +36,21 @@ li{
    background-color: rgb(40, 40, 40);
    display: flex;
    border: none;
-   border-radius: 20px;
+   border-radius: 5px;
    align-items: center;
-   width: 160px;
+   width: 110px;
    justify-content: space-between;
+   padding: 10px;
+}
+
+a{
+    text-decoration: none;
 }
 
 .favoritos:hover{
     cursor: pointer;
-    background-color: rgb(49, 49, 49);
+    background-color: var(--gray1);
+    color: var(--yellow);
 }
 
 input{
