@@ -9,7 +9,7 @@
 }
 
 .titulo-lista{
-    color:rgb(247, 216, 61);
+    color:var(--yellow);
     margin-bottom: 20px;
 }
 
@@ -46,7 +46,7 @@
 }
 
 .card-filme{
-    background-color: rgb(37, 37, 37);
+    background-color: var(--gray2);
     border: none;
     width: 180px;
     height: 400px;
@@ -87,7 +87,7 @@
     cursor: pointer;
     display: flex;
     justify-content: center;
-    background-color: rgb(37, 37, 37);
+    background-color: var(--gray2);
     border: none;
     border-radius: 4px;
     padding: 5px;
@@ -100,7 +100,7 @@
 }
 
 .icone-estrela-azul:hover{
-    background-color: rgb(54, 54, 54);
+    background-color: var(--gray1);
 }
 
 .avaliacao-e-favoritar{
@@ -134,8 +134,8 @@
 .assistir-mais-tarde{
     display: flex;
     justify-content: space-around;
-    background-color: rgb(55, 53, 53);
-    color: #5198fc;
+    background-color: var(--gray1);
+    color: var(--blue);
     font-weight: bold;
     font-size: 12px;
     border: none;
