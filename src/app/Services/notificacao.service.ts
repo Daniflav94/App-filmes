@@ -11,7 +11,7 @@ export class NotificationService {
   showmessage(message:string){
     this.snackbar.open(message,'fechar',{
       duration:3000,
-      horizontalPosition:'right',
+      horizontalPosition:'center',
       verticalPosition:"top",
 
     })
