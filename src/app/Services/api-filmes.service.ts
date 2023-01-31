@@ -49,7 +49,7 @@ export class ApiFilmesService {
   }
 
   createSession(token: Token){
-    return this.http.post('https://api.themoviedb.org/3/authentication/session/new?' + this.apiKey, token)
+    return this.http.post<Session>('https://api.themoviedb.org/3/authentication/session/new?' + this.apiKey, token)
   }
 
   accountStates(idFilme: number){

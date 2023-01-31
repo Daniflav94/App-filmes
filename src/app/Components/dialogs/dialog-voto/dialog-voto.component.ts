@@ -288,12 +288,12 @@ export class DialogVotoComponent implements OnInit {
   avaliar(){
     this.apiFilmesService.avaliarFilme(this.filme.id, this.nota).subscribe()
     
-    /* this.apiFilmesService.accountStates(this.filme.id).subscribe(() => {
+    this.apiFilmesService.accountStates(this.filme.id).subscribe(() => {
       if(this.nota != undefined){
         this.notaFinal.rated.value = this.nota
       }
      
-    }) */
+    }) 
     
   }
 

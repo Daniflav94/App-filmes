@@ -74,6 +74,7 @@ export class ListaFilmesComponent implements OnInit {
 
 
   ngOnInit(): void {
+    localStorage.getItem('session')
 
     this.filmesService.listarMelhoresAvaliados().subscribe(
       (lista) => {
