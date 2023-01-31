@@ -1,16 +1,21 @@
-<div id="login-container">
+<div class="background"></div>
+<div class="login-container">
     <div class="login-form">
         <h1>Entrar</h1>
+        <img src="../../../assets/pipoca.png" width="50px">
         <form [formGroup]="formLogin">
             <input type="email" placeholder="E-mail" formControlName="email">
             <input type="password" placeholder="Senha" formControlName="senha">
-            <button class="btn" >Entrar</button>
+            <button class="btn" (click)="entrar()">Entrar</button>
+            <button  class="btn-google" (click)="entrarComGoogle()">
+                <img src="/assets/google.png" width="20px">
+                <p class="titulo-google">Fazer login</p>
+            </button>
         </form>
-        <button  class="btn-google">
-            <img src="../../../assets/icons/icons8-google-logo.svg" width="20px">
-            <p class="titulo-google">Fazer login com o Google</p>
-        </button>
-        
-        <span>Ainda não é cadastrado? <a routerLink="/cadastrar">Cadastre-se</a></span>
+              
+        <div class="cadastre-se">
+            <span>Ainda não é cadastrado? </span>
+            <a routerLink="/cadastrar">Cadastre-se</a>
+        </div>
     </div>
 </div>
