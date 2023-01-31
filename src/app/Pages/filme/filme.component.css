@@ -18,8 +18,8 @@
     margin: 0;
     width: 105%;
     height: 100%;
-    opacity: 0.4; 
-    -webkit-mask-image: linear-gradient(to top, transparent 25%, black 100%); 
+    opacity: 0.6; 
+    mask-image: linear-gradient(to top, transparent 25%, black 100%); 
 }
 
 .caixa{

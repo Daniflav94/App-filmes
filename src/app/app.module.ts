@@ -12,7 +12,10 @@ import { ListaFavoritosComponent } from './Pages/lista-favoritos/lista-favoritos
 import { MaterialModule } from './material/material.module';
 import { environment } from 'src/environments/environment'
 import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth'
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { LoginComponent } from './Pages/login/login.component';
+import { HeaderComponent } from './Components/header/header.component';
 
 
 @NgModule({
@@ -21,6 +24,8 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     ListaFilmesComponent,
     FilmeComponent,
     ListaFavoritosComponent,
+    LoginComponent,
+    HeaderComponent,
 
   ],
   imports: [
@@ -31,7 +36,8 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     FormsModule,
     MaterialModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    AngularFireAuthModule
 
   ],
   providers: [],

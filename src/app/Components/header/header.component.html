@@ -1,0 +1,55 @@
+<header>
+    <nav>
+        <ul>
+            <a [routerLink]="'/filmes'" (click)="limparPesquisa()">
+                <img src="../assets/pipoca.png" width="50px">
+            </a>
+            <li>
+                <form (ngSubmit)="pesquisar(nomeFilme)">
+                    <input type="text" placeholder="Buscar por Filme" [(ngModel)]="nomeFilme" name="nomeFilme">
+                    <button type="submit" class="botao-pesquisa">
+                        <mat-icon>search</mat-icon>
+                    </button>
+
+                </form>
+            </li>
+            <li>
+                <a [routerLink]="'/favoritos'">
+                    <button class="favoritos">
+                        <img src="../assets/coracaoVazio.png" width="20px">
+                        <p>Favoritos</p>
+                    </button>
+                </a>
+
+            </li>
+        </ul>
+
+    </nav>
+</header>
+
+<main class="container" *ngIf="pesquisa">
+    <section>
+        <h3 class="titulo-pesquisa">{{listaPesquisa.results.length}} resultados encontrados para "{{nomeFilme}}"</h3>
+    </section>
+    <section class="lista-filmes-pesquisa">
+        <div class="card-filme" *ngFor="let filme of listaPesquisa.results">
+            <a [routerLink]="'/filmes/' + filme.id"><img
+                    [src]="'https://image.tmdb.org/t/p/original/' + filme.poster_path" class="poster"
+                    (click)="limparPesquisa()"></a>
+            <div class="conteudo-card">
+                <div class="avaliacao-e-favoritar">
+                    <div class="avaliacao">
+                        <img src="/assets/estrela.png" class="icone-estrela">
+                        <p>{{filme.vote_average}}</p>
+                    </div>
+                    <img src="/assets/coracaoVazio.png" width="23px" class="icone-coracao" (click)="favoritar(filme)">
+                </div>
+                <p class="titulo-filme">{{ filme.title }}</p>
+                <button class="assistir-mais-tarde"><img src="/assets/salvar.png" width="16px"> Assistir depois</button>
+            </div>
+        </div>
+    </section>
+</main>
+<div class="container">
+    <ng-content></ng-content>
+</div>

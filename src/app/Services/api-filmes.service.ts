@@ -1,15 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Account } from '../Interfaces/account';
 import { Filme } from '../Interfaces/Filme';
 import { FilmeLista } from '../Interfaces/FilmeLista';
 import { Results } from '../Interfaces/Results';
+import { Session } from '../Interfaces/session';
+import { Token } from '../Interfaces/token';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiFilmesService {
-
-  
+ 
   private readonly filtroURL: string = 'https://api.themoviedb.org/3/search/movie?api_key=d0d17cbea03e1e751061b001e857b4fb&language=pt-BR&query='
   private readonly baseURL = 'https://api.themoviedb.org/3/movie/'
   private readonly apiKey = 'api_key=818306944e112ccf75d496086ac6c42e&language=pt-BR/'
@@ -39,7 +41,19 @@ export class ApiFilmesService {
   }
 
   avaliarFilme(idFilme: number, nota: number){
-    return this.http.post<FilmeLista>(this.baseURL + idFilme + '/rating?' + this.apiKey, nota)
+    return this.http.post(this.baseURL + idFilme + '/rating?' + this.apiKey, nota)
+  }
+
+  autenticarUsuarioPorToken(){
+    return this.http.get<Token>('https://api.themoviedb.org/3/authentication/token/new?' + this.apiKey)
+  }
+
+  createSession(token: Token){
+    return this.http.post<Session>('https://api.themoviedb.org/3/authentication/session/new?' + this.apiKey, token.request_token)
+  }
+
+  accountStates(idFilme: number){
+    return this.http.get<Account>(this.baseURL + idFilme + '/account_states?' + this.apiKey)
   }
 
 
