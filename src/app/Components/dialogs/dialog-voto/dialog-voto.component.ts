@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Account } from 'src/app/Interfaces/account';
 import { FilmeLista } from 'src/app/Interfaces/FilmeLista';
 import { ApiFilmesService } from 'src/app/Services/api-filmes.service';
 
@@ -16,6 +17,11 @@ export class DialogVotoComponent implements OnInit {
   ) { }
 
   nota: any = "?"
+  notaFinal: Account = {
+    rated: {
+        value: 0
+    }
+  }
   estrelaContorno: string = '/assets/estrela-cinza.png'
   estrelaCheia: string = '/assets/estrela-azul-cheia.png'
 
@@ -280,8 +286,15 @@ export class DialogVotoComponent implements OnInit {
   }
 
   avaliar(){
-    this.apiFilmesService.avaliarFilme(this.filme.id, this.nota)
-    this.filme.voto = this.nota
+    this.apiFilmesService.avaliarFilme(this.filme.id, this.nota).subscribe()
+    
+    /* this.apiFilmesService.accountStates(this.filme.id).subscribe(() => {
+      if(this.nota != undefined){
+        this.notaFinal.rated.value = this.nota
+      }
+     
+    }) */
+    
   }
 
 }

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TestarNumeroGuard } from './Guards/testar-numero.guard';
+import { CadastroComponent } from './Pages/cadastro/cadastro.component';
 import { FilmeComponent } from './Pages/filme/filme.component';
 import { ListaFavoritosComponent } from './Pages/lista-favoritos/lista-favoritos.component';
 import { ListaFilmesComponent } from './Pages/lista-filmes/lista-filmes.component';
@@ -30,6 +31,10 @@ const rotas: Routes = [
 {
   path: 'login',
   component: LoginComponent,
+},
+{
+  path: 'cadastro',
+  component: CadastroComponent,
 }
 
 ];

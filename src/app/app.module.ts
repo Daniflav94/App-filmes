@@ -16,6 +16,7 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth'
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { LoginComponent } from './Pages/login/login.component';
 import { HeaderComponent } from './Components/header/header.component';
+import { CadastroComponent } from './Pages/cadastro/cadastro.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { HeaderComponent } from './Components/header/header.component';
     ListaFavoritosComponent,
     LoginComponent,
     HeaderComponent,
+    CadastroComponent,
 
   ],
   imports: [

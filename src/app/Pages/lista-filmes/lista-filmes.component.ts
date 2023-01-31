@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogVotoComponent } from 'src/app/Components/dialogs/dialog-voto/dialog-voto.component';
+import { Account } from 'src/app/Interfaces/account';
 import { FilmeLista } from 'src/app/Interfaces/FilmeLista';
 import { Results } from 'src/app/Interfaces/Results';
 import { ApiFilmesService } from 'src/app/Services/api-filmes.service';
@@ -21,47 +22,52 @@ export class ListaFilmesComponent implements OnInit {
     public dialog: MatDialog
   ) { }
 
-  
+
   listaTopFilmes!: Results
   listaPopulares!: Results
+  film: Account = {
+    rated: {
+        value: 0
+    }
+  }
 
   coracaoVazio: string = "../../../assets/coracaoVazio.png"
   coracaoCheio: string = "../../../assets/coracaoCheio.png"
 
-  inicio = 0 
+  inicio = 0
   final = 6
-  inicio2 = 0 
+  inicio2 = 0
   final2 = 6
 
 
-  favoritar(filme: FilmeLista): void{
-   this.favoritosService.adicionarFavorito(filme).subscribe(
-    (resposta) => {
-      this.notificacao.showmessage("Filme inserido na lista de favoritos!")
-    }
-   )
+  favoritar(filme: FilmeLista): void {
+    this.favoritosService.adicionarFavorito(filme).subscribe(
+      (resposta) => {
+        this.notificacao.showmessage("Filme inserido na lista de favoritos!")
+      }
+    )
   }
 
-  voltar(){
-    if(this.inicio != 0 && this.final != 6){
+  voltar() {
+    if (this.inicio != 0 && this.final != 6) {
       this.inicio -= 6
       this.final -= 6
     }
   }
 
-  avancar(){
+  avancar() {
     this.inicio += 6
     this.final += 6
   }
 
-  voltar2(){
-    if(this.inicio2 != 0 && this.final2 != 6){
+  voltar2() {
+    if (this.inicio2 != 0 && this.final2 != 6) {
       this.inicio2 -= 6
       this.final2 -= 6
     }
   }
 
-  avancar2(){
+  avancar2() {
     this.inicio2 += 6
     this.final2 += 6
   }
@@ -69,26 +75,36 @@ export class ListaFilmesComponent implements OnInit {
 
   ngOnInit(): void {
 
-      this.filmesService.listarMelhoresAvaliados().subscribe(
-        (lista) => {
-          this.listaTopFilmes = lista
-        }
-      )
-    
-      this.filmesService.listarFilmesPopulares().subscribe(
-        (lista) => {
-          this.listaPopulares = lista
-        }
-      )
-    }
+    this.filmesService.listarMelhoresAvaliados().subscribe(
+      (lista) => {
+        this.listaTopFilmes = lista
+        /* lista.results.forEach(element => {
+          this.verificarFilme(element.id)
+          
+        });  */      
+      }
+    )
 
-    public openDialog(filme: FilmeLista) {
-      this.dialog.open(DialogVotoComponent, {
-        width: "500px", 
-        height: "280px",
-        data: filme
-      })
-    }
+    this.filmesService.listarFilmesPopulares().subscribe(
+      (lista) => {
+        this.listaPopulares = lista
+      }
+    )
+  }
+
+  public openDialog(filme: FilmeLista) {
+    this.dialog.open(DialogVotoComponent, {
+      width: "500px",
+      height: "280px",
+      data: filme
+    })
+  }
+
+  public verificarFilme(id: number): void{
+    this.filmesService.accountStates(id).subscribe(resposta => {
+      console.log(resposta)
+    })
+  }
 
 }
 

@@ -6,11 +6,11 @@ import { AuthService } from 'src/app/Services/auth.service';
 import { NotificationService } from 'src/app/Services/notificacao.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-cadastro',
+  templateUrl: './cadastro.component.html',
+  styleUrls: ['./cadastro.component.css']
 })
-export class LoginComponent implements OnInit {
+export class CadastroComponent implements OnInit {
 
   public formLogin: FormGroup;
 
@@ -27,25 +27,17 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    localStorage.getItem('token')
   }
 
-  public entrar(): void{
+  cadastrar():void{
     if(this.formLogin.valid){
-      const credenciais: User = this.formLogin.value
-      this.authService.autenticarPorEmaileSenha(credenciais).subscribe(resposta => {
-        
+      const user: User = this.formLogin.value
+      this.authService.criarUsuarioEmaileSenha(user).subscribe(resposta => {
+        this.notification.showmessage("Cadastro realizado!")
+        this.router.navigate(["/login"])
       })
     }
-    else{
-      this.notification.showmessage("Verifique os dados digitados e tente novamente!")
-    }
-  }
-
-  public entrarComGoogle(): void{
-    this.authService.autenticarPeloGoogle().subscribe(resposta => {
-      this.router.navigate(["/filmes"])
-    })
+    
   }
 
 }

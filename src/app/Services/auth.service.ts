@@ -21,7 +21,9 @@ export class AuthService {
     private router: Router
   ) { }
 
-  token!: Token
+  token: Token = {
+    request_token: ''
+  }
 
   public autenticarPeloGoogle(): Observable<any>{
     const provider = new GoogleAuthProvider()
@@ -39,14 +41,21 @@ export class AuthService {
     const { email, senha } = user;
     const promise = this.firebaseAuth.signInWithEmailAndPassword(email, senha)
     
-    this.apiTMDB.autenticarUsuarioPorToken().subscribe(resposta => {
-      this.token = resposta
-      this.router.navigateByUrl('https://www.themoviedb.org/authenticate/' + this.token)
-    })
-    this.apiTMDB.createSession(this.token).subscribe(resposta => {
-      this.notification.showmessage("Bem vindo!!")
-    })
-    
+    console.log(this.token)
+    if(this.token.request_token != ''){
+      this.apiTMDB.createSession(this.token).subscribe(resposta => {
+        this.notification.showmessage("Bem vindo!!")
+        this.router.navigate(["/filmes"])     
+      })
+    }else{
+      this.apiTMDB.autenticarUsuarioPorToken().subscribe(resposta => {
+        this.token = resposta
+        window.open('https://www.themoviedb.org/authenticate/' + this.token.request_token)
+        localStorage.setItem('token', this.token.request_token)
+        
+      })
+    }
+       
     return from(promise).pipe(
       catchError(error => {
         if(error.code == "auth/user-not-found"){
@@ -60,11 +69,13 @@ export class AuthService {
         return EMPTY        
       })
     )
+    
   }
 
   public criarUsuarioEmaileSenha(user: User): Observable<any>{
     const { email, senha } = user;
     const promise = this.firebaseAuth.createUserWithEmailAndPassword(email, senha)
+    
     return from(promise).pipe(
       catchError(error => {
         this.notification.showmessage("Erro ao cadastrar usuário!")

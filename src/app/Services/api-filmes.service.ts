@@ -41,7 +41,7 @@ export class ApiFilmesService {
   }
 
   avaliarFilme(idFilme: number, nota: number){
-    return this.http.post(this.baseURL + idFilme + '/rating?' + this.apiKey, nota)
+    return this.http.post(this.baseURL + idFilme + '/rating?' + this.apiKey, 'value:' + nota)
   }
 
   autenticarUsuarioPorToken(){
@@ -49,7 +49,7 @@ export class ApiFilmesService {
   }
 
   createSession(token: Token){
-    return this.http.post<Session>('https://api.themoviedb.org/3/authentication/session/new?' + this.apiKey, token.request_token)
+    return this.http.post('https://api.themoviedb.org/3/authentication/session/new?' + this.apiKey, token)
   }
 
   accountStates(idFilme: number){

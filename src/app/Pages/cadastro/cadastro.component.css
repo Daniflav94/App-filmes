@@ -74,20 +74,6 @@ input{
     cursor: pointer;
 }
 
-.btn-google{
-    display: flex;
-    padding: 5px;
-    height: 42px;
-    border-radius: 5px;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.btn-google img{
-    margin-right: 15px;
-}
 
 .cadastre-se{
     display: flex;
