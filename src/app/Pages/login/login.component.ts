@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { User } from 'src/app/Interfaces/user';
+import { AuthService } from 'src/app/Services/auth.service';
+import { NotificationService } from 'src/app/Services/notificacao.service';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +12,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  public formLogin: FormGroup;
+
+  constructor(
+    fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router,
+    private notification: NotificationService
+  ) { 
+    this.formLogin = fb.group({
+      email: ["", [Validators.required, Validators.email]],
+      senha: ["", [Validators.required]]
+    })
+  }
 
   ngOnInit(): void {
+  }
+
+  public entrar(): void{
+    if(this.formLogin.valid){
+      const credenciais: User = this.formLogin.value
+      this.authService.autenticarPorEmaileSenha(credenciais).subscribe(resposta => {
+        this.router.navigate(["/filmes"])
+      })
+    }
+    else{
+      this.notification.showmessage("Verifique os dados digitados e tente novamente!")
+    }
+  }
+
+  public entrarComGoogle(): void{
+    this.authService.autenticarPeloGoogle().subscribe(resposta => {
+      this.router.navigate(["/filmes"])
+    })
   }
 
 }

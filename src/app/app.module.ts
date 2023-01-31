@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListaFilmesComponent } from './Pages/lista-filmes/lista-filmes.component';
 import { FilmeComponent } from './Pages/filme/filme.component';
 import { ListaFavoritosComponent } from './Pages/lista-favoritos/lista-favoritos.component';
@@ -37,8 +37,8 @@ import { HeaderComponent } from './Components/header/header.component';
     MaterialModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
-    AngularFireAuthModule
-
+    AngularFireAuthModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

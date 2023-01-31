@@ -1,16 +1,16 @@
 <div id="login-container">
     <div class="login-form">
-        <img src="../../../assets/icons/conecte-se.png" class="img-usuario">
-        <h1>Login</h1>
-        <button  class="btn-google">
-            <img src="../../../assets/icons/icons8-google-logo.svg" width="20px">
-            <p class="titulo-google">Fazer login com o Google</p>
-        </button>
-        <form >
+        <h1>Entrar</h1>
+        <form [formGroup]="formLogin">
             <input type="email" placeholder="E-mail" formControlName="email">
             <input type="password" placeholder="Senha" formControlName="senha">
             <button class="btn" >Entrar</button>
         </form>
+        <button  class="btn-google">
+            <img src="../../../assets/icons/icons8-google-logo.svg" width="20px">
+            <p class="titulo-google">Fazer login com o Google</p>
+        </button>
+        
         <span>Ainda não é cadastrado? <a routerLink="/cadastrar">Cadastre-se</a></span>
     </div>
 </div>
