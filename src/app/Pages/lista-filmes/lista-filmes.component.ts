@@ -25,11 +25,16 @@ export class ListaFilmesComponent implements OnInit {
 
   listaTopFilmes!: Results
   listaPopulares!: Results
-  film: Account = {
+  conta: Account = {
+    id: 0,
+    favorite: false,
     rated: {
         value: 0
-    }
+    },
+    watchlist: false
   }
+
+  session: any = ''
 
   coracaoVazio: string = "../../../assets/coracaoVazio.png"
   coracaoCheio: string = "../../../assets/coracaoCheio.png"
@@ -74,21 +79,30 @@ export class ListaFilmesComponent implements OnInit {
 
 
   ngOnInit(): void {
-    localStorage.getItem('session')
+    this.session = localStorage.getItem('session')
 
     this.filmesService.listarMelhoresAvaliados().subscribe(
       (lista) => {
         this.listaTopFilmes = lista
-        /* lista.results.forEach(element => {
-          this.verificarFilme(element.id)
-          
-        });  */      
+        lista.results.forEach(element => {
+          this.filmesService.accountStates(element.id, this.session).subscribe(resposta => {
+            this.conta = resposta
+           console.log(resposta)
+          })
+        });       
       }
     )
 
     this.filmesService.listarFilmesPopulares().subscribe(
       (lista) => {
         this.listaPopulares = lista
+        lista.results.forEach(element => {
+          this.filmesService.accountStates(element.id, this.session).subscribe(resposta => {
+            this.conta = resposta
+           console.log(resposta)
+          })
+          
+        }); 
       }
     )
   }
@@ -98,12 +112,6 @@ export class ListaFilmesComponent implements OnInit {
       width: "500px",
       height: "280px",
       data: filme
-    })
-  }
-
-  public verificarFilme(id: number): void{
-    this.filmesService.accountStates(id).subscribe(resposta => {
-      console.log(resposta)
     })
   }
 

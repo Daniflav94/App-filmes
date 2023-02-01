@@ -44,7 +44,7 @@ export class AuthService {
     console.log(this.token)
     if(this.token.request_token != ''){
       this.apiTMDB.createSession(this.token).subscribe(resposta => {
-        localStorage.setItem('session_id', resposta.session_id)
+        localStorage.setItem('session', resposta.session_id)
         this.notification.showmessage("Bem vindo!!")
         this.router.navigate(["/filmes"])     
       })

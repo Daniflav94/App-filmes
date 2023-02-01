@@ -27,12 +27,13 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    localStorage.getItem('token')
+   
   }
 
   public entrar(): void{
     if(this.formLogin.valid){
       const credenciais: User = this.formLogin.value
+      localStorage.getItem('token')
       this.authService.autenticarPorEmaileSenha(credenciais).subscribe(resposta => {
         
       })

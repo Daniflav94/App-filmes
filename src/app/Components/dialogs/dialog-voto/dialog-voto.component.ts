@@ -2,7 +2,9 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Account } from 'src/app/Interfaces/account';
 import { FilmeLista } from 'src/app/Interfaces/FilmeLista';
+import { Rating } from 'src/app/Interfaces/rating';
 import { ApiFilmesService } from 'src/app/Services/api-filmes.service';
+import { NotificationService } from 'src/app/Services/notificacao.service';
 
 @Component({
   selector: 'app-dialog-voto',
@@ -13,15 +15,17 @@ export class DialogVotoComponent implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA)
   public filme: FilmeLista,
-  private apiFilmesService: ApiFilmesService
+  private apiFilmesService: ApiFilmesService,
+  private notification: NotificationService
   ) { }
 
+  session: any = ''
   nota: any = "?"
-  notaFinal: Account = {
-    rated: {
-        value: 0
-    }
+
+  notaFinal: Rating = {
+    value: 0
   }
+  
   estrelaContorno: string = '/assets/estrela-cinza.png'
   estrelaCheia: string = '/assets/estrela-azul-cheia.png'
 
@@ -38,6 +42,7 @@ export class DialogVotoComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.session = localStorage.getItem('session')
   }
 
   mudarEstrela1(){
@@ -128,7 +133,7 @@ export class DialogVotoComponent implements OnInit {
   receberNota1(){
     let botao = document.querySelector('#btn-avaliar')
     botao?.classList.add('btn-ativo')
-    this.nota = 1
+    this.nota = 1.0
     this.estrela = this.estrelaCheia
     this.estrela2 = this.estrelaContorno
     this.estrela3 = this.estrelaContorno
@@ -144,7 +149,7 @@ export class DialogVotoComponent implements OnInit {
   receberNota2(){
     let botao = document.querySelector('#btn-avaliar')
     botao?.classList.add('btn-ativo')
-    this.nota = 2
+    this.nota = 2.0
     this.estrela = this.estrelaCheia
     this.estrela2 = this.estrelaCheia
     this.estrela3 = this.estrelaContorno
@@ -160,7 +165,7 @@ export class DialogVotoComponent implements OnInit {
   receberNota3(){
     let botao = document.querySelector('#btn-avaliar')
     botao?.classList.add('btn-ativo')
-    this.nota = 3
+    this.nota = 3.0
     this.estrela = this.estrelaCheia
     this.estrela2 = this.estrelaCheia
     this.estrela3 = this.estrelaCheia
@@ -176,7 +181,7 @@ export class DialogVotoComponent implements OnInit {
   receberNota4(){
     let botao = document.querySelector('#btn-avaliar')
     botao?.classList.add('btn-ativo')
-    this.nota = 4
+    this.nota = 4.0
     this.estrela = this.estrelaCheia
     this.estrela2 = this.estrelaCheia
     this.estrela3 = this.estrelaCheia
@@ -192,7 +197,7 @@ export class DialogVotoComponent implements OnInit {
   receberNota5(){
     let botao = document.querySelector('#btn-avaliar')
     botao?.classList.add('btn-ativo')
-    this.nota = 5
+    this.nota = 5.0
     this.estrela = this.estrelaCheia
     this.estrela2 = this.estrelaCheia
     this.estrela3 = this.estrelaCheia
@@ -208,7 +213,7 @@ export class DialogVotoComponent implements OnInit {
   receberNota6(){
     let botao = document.querySelector('#btn-avaliar')
     botao?.classList.add('btn-ativo')
-    this.nota = 6
+    this.nota = 6.0
     this.estrela = this.estrelaCheia
     this.estrela2 = this.estrelaCheia
     this.estrela3 = this.estrelaCheia
@@ -224,7 +229,7 @@ export class DialogVotoComponent implements OnInit {
   receberNota7(){
     let botao = document.querySelector('#btn-avaliar')
     botao?.classList.add('btn-ativo')
-    this.nota = 7
+    this.nota = 7.0
     this.estrela = this.estrelaCheia
     this.estrela2 = this.estrelaCheia
     this.estrela3 = this.estrelaCheia
@@ -240,7 +245,7 @@ export class DialogVotoComponent implements OnInit {
   receberNota8(){
     let botao = document.querySelector('#btn-avaliar')
     botao?.classList.add('btn-ativo')
-    this.nota = 8
+    this.nota = 8.0
     this.estrela = this.estrelaCheia
     this.estrela2 = this.estrelaCheia
     this.estrela3 = this.estrelaCheia
@@ -256,7 +261,7 @@ export class DialogVotoComponent implements OnInit {
   receberNota9(){
     let botao = document.querySelector('#btn-avaliar')
     botao?.classList.add('btn-ativo')
-    this.nota = 9
+    this.nota = 9.0
     this.estrela = this.estrelaCheia
     this.estrela2 = this.estrelaCheia
     this.estrela3 = this.estrelaCheia
@@ -272,7 +277,7 @@ export class DialogVotoComponent implements OnInit {
   receberNota10(){
     let botao = document.querySelector('#btn-avaliar')
     botao?.classList.add('btn-ativo')
-    this.nota = 10
+    this.nota = 10.0
     this.estrela = this.estrelaCheia
     this.estrela2 = this.estrelaCheia
     this.estrela3 = this.estrelaCheia
@@ -286,14 +291,20 @@ export class DialogVotoComponent implements OnInit {
   }
 
   avaliar(){
-    this.apiFilmesService.avaliarFilme(this.filme.id, this.nota).subscribe()
-    
-    this.apiFilmesService.accountStates(this.filme.id).subscribe(() => {
-      if(this.nota != undefined){
-        this.notaFinal.rated.value = this.nota
-      }
-     
-    }) 
+      
+    if(this.nota != 0){
+      this.notaFinal = this.nota
+              
+      this.apiFilmesService.avaliarFilme(this.filme.id, this.session, this.notaFinal).subscribe(resposta => {
+        this.notification.showmessage("Filme avaliado!")
+        location.reload()
+        
+      })
+        
+        
+      
+      
+    }
     
   }
 

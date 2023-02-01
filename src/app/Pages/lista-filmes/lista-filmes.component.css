@@ -91,6 +91,7 @@
     border: none;
     border-radius: 4px;
     padding: 5px;
+    width: auto;
 }
 
 .icone-estrela-azul p{
