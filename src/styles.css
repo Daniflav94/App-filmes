@@ -1,20 +1,22 @@
 @import './variaveis.css';
 
-*{
+* {
     margin: 0;
 }
 
-html, body { 
-    margin: 0; 
+html,
+body {
+    margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
     background-color: rgb(12, 12, 12);
     width: 100vw;
     height: (100vh - 70px);
 }
 
-.mat-dialog-container{
+.mat-dialog-container {
     background-color: rgb(36, 35, 35);
 }
 
-
-
+.mat-simple-snackbar-action {
+    color: var(--yellow) !important;
+}

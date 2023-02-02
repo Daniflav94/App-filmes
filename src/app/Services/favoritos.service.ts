@@ -51,6 +51,17 @@ export class FavoritosService {
     )
   }
 
+  public editarFilmeFavorito(filme: FilmeLista): Observable<any>{
+    const promise = this.firestore.collection("filmesFavoritos").doc(filme.idBanco).update(filme)
+    return from(promise).pipe(
+      catchError(error => {       
+        this.notificacao.showmessage("Erro ao editar filme")
+        console.error(error)
+        return EMPTY
+      })
+    )
+  }
+
   public deletarFilmeFavorito(id: string){
     const promise = this.firestore.collection("filmesFavoritos").doc(id).delete()
     return from(promise).pipe(

@@ -4,7 +4,6 @@ import { catchError, EMPTY, Observable } from 'rxjs';
 import { Account } from '../Interfaces/account';
 import { Filme } from '../Interfaces/Filme';
 import { FilmeLista } from '../Interfaces/FilmeLista';
-import { Rating } from '../Interfaces/rating';
 import { RatingResponse } from '../Interfaces/rating-response';
 import { Results } from '../Interfaces/Results';
 import { Session } from '../Interfaces/session';
@@ -45,7 +44,7 @@ export class ApiFilmesService {
     return this.http.get<Filme>(this.baseURL + idFilme + '/credits?' + this.apiKey)
   }
 
-  avaliarFilme(idFilme: number, session: string, value: Rating): Observable<any> {
+  avaliarFilme(idFilme: number, session: string, value: number): Observable<any> {
     
     const headers= new HttpHeaders()
     .set('Content-Type', 'default: application/json;charset=utf-8')

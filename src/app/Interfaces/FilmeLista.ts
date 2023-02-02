@@ -7,6 +7,5 @@ export interface FilmeLista {
     overview: string;
     id: number;
     idBanco?: any;
-    voto?: number;
-    
+    voto?: number;   
 }
