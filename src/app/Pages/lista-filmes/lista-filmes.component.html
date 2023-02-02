@@ -21,7 +21,10 @@
                             <div *ngIf="filme.isFavorite == true"><img src="/assets/coracaoCheio.png" width="23px" class="icone-coracao"></div>
                         </div>           
                         <p class="titulo-filme">{{ filme.title }}</p>              
-                        <button class="assistir-mais-tarde"><img src="/assets/salvar.png" width="16px"> Assistir depois</button>
+                        <button class="assistir-mais-tarde" (click)="salvar(filme)">
+                            <div *ngIf="filme.isSave == undefined"><img src="/assets/salvar.png" width="16px"> Assistir depois</div>
+                            <div *ngIf="filme.isSave == true"><img src="/assets/salvar-cheio.png" width="16px"> Assistir depois</div>
+                        </button>
                     </div>
                 </div>
                 <button class="seta" (click)="avancar()"><img src="/assets/seta-direita.png" width="35px"></button>
@@ -42,10 +45,14 @@
                                 <img src="/assets/estrela.png"class="icone-estrela">
                                 <p>{{filme.vote_average}}</p>                                          
                             </div>
-                            <img src="/assets/coracaoVazio.png" width="23px" class="icone-coracao" (click)="favoritar(filme)">
+                            <div *ngIf="filme.isFavorite == undefined"><img src="/assets/coracaoVazio.png" width="23px" class="icone-coracao" (click)="favoritar(filme)"></div>
+                            <div *ngIf="filme.isFavorite == true"><img src="/assets/coracaoCheio.png" width="23px" class="icone-coracao"></div>
                         </div>           
                         <p class="titulo-filme">{{ filme.title }}</p>              
-                        <button class="assistir-mais-tarde"><img src="/assets/salvar.png" width="16px"> Assistir depois</button>
+                        <button class="assistir-mais-tarde" (click)="salvar(filme)">
+                            <div *ngIf="filme.isSave == undefined"><img src="/assets/salvar.png" width="16px"> Assistir depois</div>
+                            <div *ngIf="filme.isSave == true"><img src="/assets/salvar-cheio.png" width="16px"> Assistir depois</div>
+                        </button>
                     </div>
                 </div>
                 <button class="seta" (click)="avancar2()"><img src="/assets/seta-direita.png" width="35px" ></button>

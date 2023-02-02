@@ -111,9 +111,7 @@
     cursor: pointer;
 }
 
-.assistir-mais-tarde{
-    display: flex;
-    justify-content: space-around;
+.assistir-mais-tarde{   
     background-color: var(--gray1);
     color: var(--blue);
     font-weight: bold;
@@ -123,6 +121,12 @@
     padding: 8px;
     margin: 10px;
     cursor: pointer;
+}
+
+.assistir-mais-tarde div{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .assistir-mais-tarde:hover{

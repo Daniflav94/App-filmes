@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { TestarNumeroGuard } from './Guards/testar-numero.guard';
 import { CadastroComponent } from './Pages/cadastro/cadastro.component';
 import { FilmeComponent } from './Pages/filme/filme.component';
+import { ListaAssistirDepoisComponent } from './Pages/lista-assistir-depois/lista-assistir-depois.component';
 import { ListaFavoritosComponent } from './Pages/lista-favoritos/lista-favoritos.component';
 import { ListaFilmesComponent } from './Pages/lista-filmes/lista-filmes.component';
 import { LoginComponent } from './Pages/login/login.component';
@@ -27,6 +28,10 @@ const rotas: Routes = [
 {
   path: 'favoritos',
   component: ListaFavoritosComponent,
+},
+{
+  path: 'salvos',
+  component: ListaAssistirDepoisComponent,
 },
 {
   path: 'login',

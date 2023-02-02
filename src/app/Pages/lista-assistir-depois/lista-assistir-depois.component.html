@@ -1,0 +1,46 @@
+<app-header>
+    <ng-container>
+        <section *ngIf="listaAssistirDepois.length == 0">
+            <h1>Nenhum filme por aqui...</h1>
+        </section>
+        <section class="lista-filmes" *ngIf="listaAssistirDepois.length > 0">
+            <section class="subtitulo-lista">
+                <img src="/assets/barra.png" height="25px">
+                <h2>Salvos para assistir depois</h2>
+            </section>
+            <div class="card-filme" *ngFor="let filme of listaAssistirDepois">
+                <a [routerLink]="'/filmes/' + filme.id"><img
+                        [src]="'https://image.tmdb.org/t/p/original/' + filme.poster_path" class="poster"></a>
+                <div class="conteudo-card">
+                    <div class="header">
+                        <div class="titulo-filme">
+                            <p>{{ filme.title }}</p>
+                            <span>( {{filme.release_date | date: "yyyy"}} )</span>
+                        </div>
+                        
+                    </div>
+                    <div>
+                        <div class="avaliacao">
+                            <img src="/assets/estrela.png" width="15px" height="15px" class="icone-estrela">
+                            <p>{{filme.vote_average}}</p>
+                            <button class="icone-estrela-azul" (click)="openDialog(filme)" matTooltip="Avaliar"
+                                matTooltipPosition="right">
+                                <div *ngIf="filme.voto == undefined"><img src="/assets/estrela-azul.png" width="15px">
+                                </div>
+                                <div *ngIf="filme.voto != undefined"><img src="/assets/estrela-azul-cheia.png"
+                                        width="15px"></div>
+                                <p>{{filme.voto}}</p>
+                            </button>
+
+                        </div>
+                        <div class="informacoes">
+                            <p>{{filme.overview}}</p>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </ng-container>
+</app-header>

@@ -17,6 +17,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { LoginComponent } from './Pages/login/login.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { CadastroComponent } from './Pages/cadastro/cadastro.component';
+import { ListaAssistirDepoisComponent } from './Pages/lista-assistir-depois/lista-assistir-depois.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { CadastroComponent } from './Pages/cadastro/cadastro.component';
     LoginComponent,
     HeaderComponent,
     CadastroComponent,
+    ListaAssistirDepoisComponent,
 
   ],
   imports: [

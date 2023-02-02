@@ -3,7 +3,7 @@
         <section *ngIf="listaFavoritos.length == 0">
             <h1>Nenhum filme por aqui...</h1>
         </section>
-        <section class="lista-filmes" *ngIf="listaFavoritos != undefined">
+        <section class="lista-filmes" *ngIf="listaFavoritos.length > 0">
             <section class="subtitulo-lista">
                 <img src="/assets/barra.png" height="25px">
                 <h2>Lista de favoritos</h2>

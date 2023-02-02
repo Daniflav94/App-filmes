@@ -8,5 +8,6 @@ export interface FilmeLista {
     id: number;
     idBanco?: any;
     voto?: number;
-    isFavorite?: boolean;   
+    isFavorite?: boolean;  
+    isSave?: boolean; 
 }

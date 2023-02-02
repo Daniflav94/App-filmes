@@ -53,6 +53,29 @@ a{
     color: var(--yellow);
 }
 
+.salvos{
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    background-color: rgb(40, 40, 40);
+    display: flex;
+    border: none;
+    border-radius: 5px;
+    align-items: center;
+    width: 150px;
+    justify-content: space-between;
+    padding: 10px;
+ }
+ 
+ a{
+     text-decoration: none;
+ }
+ 
+ .salvos:hover{
+     cursor: pointer;
+     background-color: var(--gray1);
+     color: var(--yellow);
+ }
+
 input{
     width: 600px;
     background-color: black;

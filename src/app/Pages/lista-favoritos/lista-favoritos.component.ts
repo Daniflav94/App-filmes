@@ -23,7 +23,6 @@ export class ListaFavoritosComponent implements OnInit {
   ) { }
 
   listaFavoritos!: FilmeLista[]
-  lista: boolean = false
 
   ngOnInit(): void {
     this.listarFavoritos()

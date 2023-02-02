@@ -7,6 +7,7 @@ import { Results } from 'src/app/Interfaces/Results';
 import { ApiFilmesService } from 'src/app/Services/api-filmes.service';
 import { FavoritosService } from 'src/app/Services/favoritos.service';
 import { NotificationService } from 'src/app/Services/notificacao.service';
+import { SalvosService } from 'src/app/Services/salvos.service';
 
 @Component({
   selector: 'app-lista-filmes',
@@ -19,14 +20,17 @@ export class ListaFilmesComponent implements OnInit {
     private filmesService: ApiFilmesService,
     private favoritosService: FavoritosService,
     private notificacao: NotificationService,
+    private salvosService: SalvosService
 
   ) { }
 
   listaTopFilmes!: Results
   listaPopulares!: Results
   listaFavoritos: FilmeLista[] = []
+  listaSalvos: FilmeLista[] = []
 
   filmeJaAdicionado: boolean = false
+  filmeJaSalvo: boolean = false
 
   session: any = ''
 
@@ -41,9 +45,9 @@ export class ListaFilmesComponent implements OnInit {
   ngOnInit(): void {
     this.session = localStorage.getItem('session')
     this.listarFavoritos()
+    this.listarSalvos()
     this.listarMelhoresAvaliados()
     this.listarPopulares()
-
   }
 
   public favoritar(filmeFavorito: FilmeLista): void {
@@ -63,7 +67,6 @@ export class ListaFilmesComponent implements OnInit {
         }
       )
     }
-
   }
 
   public listarFavoritos(): void {
@@ -76,11 +79,50 @@ export class ListaFilmesComponent implements OnInit {
   public verificarFavoritos(listaFilmes: Results): void {
     this.favoritosService.listarFavoritos().subscribe(
       (lista) => {
-        this.listaFavoritos = lista
         for(let filme of lista){
           for(let listaFilme of listaFilmes.results){
             if(filme.id === listaFilme.id){
               listaFilme.isFavorite = true
+            }            
+          }
+          
+        }
+      })    
+  }
+
+  public salvar(filmeSalvo: FilmeLista): void {
+    filmeSalvo.isSave = true
+    this.listaSalvos.forEach(filme => {
+      if (filme.id == filmeSalvo.id) {
+        this.filmeJaSalvo = true
+      }
+    })
+
+    if (this.filmeJaSalvo) {
+      this.notificacao.showmessage("Ops! Filme já consta na lista de assistir depois!")
+    } else {
+      this.salvosService.adicionarFilme(filmeSalvo).subscribe(
+        (resposta) => {
+          this.notificacao.showmessage("Filme inserido na lista!")       
+        }
+      )
+    }
+  }
+
+  public listarSalvos(): void {
+    this.salvosService.listarFilmesSalvos().subscribe(
+      (lista) => {
+        this.listaSalvos = lista
+      })
+  }
+
+  public verificarSalvos(listaFilmes: Results): void {
+    this.salvosService.listarFilmesSalvos().subscribe(
+      (lista) => {
+        for(let filme of lista){
+          for(let listaFilme of listaFilmes.results){
+            if(filme.id === listaFilme.id){
+              listaFilme.isSave = true
             }            
           }
           
@@ -93,6 +135,7 @@ export class ListaFilmesComponent implements OnInit {
       (lista) => {        
         this.listaTopFilmes = lista
         this.verificarFavoritos(lista)
+        this.verificarSalvos(lista)
       }
     )
   }
@@ -102,6 +145,7 @@ export class ListaFilmesComponent implements OnInit {
       (lista) => {
         this.listaPopulares = lista
         this.verificarFavoritos(lista)
+        this.verificarSalvos(lista)
       }
     )
   }
