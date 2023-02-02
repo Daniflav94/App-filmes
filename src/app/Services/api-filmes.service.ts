@@ -47,11 +47,12 @@ export class ApiFilmesService {
 
   avaliarFilme(idFilme: number, session: string, value: Rating): Observable<any> {
     
-    let headers = new HttpHeaders({
-    'Content-Type': 'application/json;charset=utf-8'
-    })
-    let options = { headers: headers };
-      return this.http.post<RatingResponse>(this.baseURL + idFilme + '/rating?api_key=818306944e112ccf75d496086ac6c42e&language=pt-BR&session_id=' + session, value, options).pipe(
+    const headers= new HttpHeaders()
+    .set('Content-Type', 'default: application/json;charset=utf-8')
+    
+    
+    
+      return this.http.post<RatingResponse>(this.baseURL + idFilme + '/rating?api_key=818306944e112ccf75d496086ac6c42e&language=pt-BR&session_id=' + session, value, {'headers':headers}).pipe(
       catchError(error => {
         console.error(error)
         return EMPTY

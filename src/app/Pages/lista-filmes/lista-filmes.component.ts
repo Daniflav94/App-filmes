@@ -19,7 +19,7 @@ export class ListaFilmesComponent implements OnInit {
     private filmesService: ApiFilmesService,
     private favoritosService: FavoritosService,
     private notificacao: NotificationService,
-    public dialog: MatDialog
+
   ) { }
 
 
@@ -107,13 +107,7 @@ export class ListaFilmesComponent implements OnInit {
     )
   }
 
-  public openDialog(filme: FilmeLista) {
-    this.dialog.open(DialogVotoComponent, {
-      width: "500px",
-      height: "280px",
-      data: filme
-    })
-  }
+  
 
 }
 

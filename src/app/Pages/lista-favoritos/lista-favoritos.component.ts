@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogVotoComponent } from 'src/app/Components/dialogs/dialog-voto/dialog-voto.component';
 import { Filme } from 'src/app/Interfaces/Filme';
 import { FilmeLista } from 'src/app/Interfaces/FilmeLista';
 import { Results } from 'src/app/Interfaces/Results';
@@ -16,7 +18,8 @@ export class ListaFavoritosComponent implements OnInit {
 
   constructor(
     private favoritosService: FavoritosService,
-    private notificacao: NotificationService
+    private notificacao: NotificationService,
+    public dialog: MatDialog
   ) { }
 
   listaFavoritos!: FilmeLista[]
@@ -42,6 +45,14 @@ export class ListaFavoritosComponent implements OnInit {
         this.listarFavoritos()
       }
     )
+  }
+
+  public openDialog(filme: FilmeLista) {
+    this.dialog.open(DialogVotoComponent, {
+      width: "500px",
+      height: "280px",
+      data: filme
+    })
   }
 }
 

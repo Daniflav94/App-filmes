@@ -28,6 +28,21 @@ export class AuthService {
   public autenticarPeloGoogle(): Observable<any>{
     const provider = new GoogleAuthProvider()
     const promise = this.firebaseAuth.signInWithPopup(provider)
+
+    if(this.token.request_token != ''){
+      this.apiTMDB.createSession(this.token).subscribe(resposta => {
+        localStorage.setItem('session', resposta.session_id)
+        this.notification.showmessage("Bem vindo(a)!")   
+      })
+    }else{
+      this.apiTMDB.autenticarUsuarioPorToken().subscribe(resposta => {
+        this.token = resposta
+        window.open('https://www.themoviedb.org/authenticate/' + this.token.request_token)
+        localStorage.setItem('token', this.token.request_token)
+        
+      })
+    }
+
     return from(promise).pipe(
       catchError(error => {
         this.notification.showmessage("Erro ao autenticar com o Google!")

@@ -83,27 +83,6 @@
     margin-right: 20px;
 }
 
-.icone-estrela-azul{
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    background-color: var(--gray2);
-    border: none;
-    border-radius: 4px;
-    padding: 5px;
-    width: auto;
-}
-
-.icone-estrela-azul p{
-    color: rgb(215, 215, 215);
-    font-size: 15px;
-    margin: 0 0 0 5px;
-}
-
-.icone-estrela-azul:hover{
-    background-color: var(--gray1);
-}
-
 .avaliacao-e-favoritar{
     display: flex;
     align-items: center;

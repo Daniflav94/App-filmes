@@ -18,13 +18,15 @@
                             <span>( {{filme.release_date | date: "yyyy"}} )</span>
                         </div>
                         <button mat-icon-button (click)="deletarFilmeFavorito(filme.idBanco)" class="iconeLixeira">
-                            <img src="/assets/lixeira-de-reciclagem.png" width="23px">
+                            <img src="/assets/lixeira-de-reciclagem.png" width="21px">
                         </button>
                     </div>
                     <div>
                         <div class="avaliacao">
                             <img src="../../../assets/estrela.png" width="15px" height="15px" class="icone-estrela">
                             <p>{{filme.vote_average}}</p>
+                            <button class="icone-estrela-azul" (click)="openDialog(filme)"><img src="/assets/estrela-azul.png" width="15px"></button>
+                            <p>{{filme.voto}}</p>    
                         </div>
                         <div class="informacoes">
                             <p>{{filme.overview}}</p>

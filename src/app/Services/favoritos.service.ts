@@ -23,7 +23,8 @@ export class FavoritosService {
   }
 
   public listarFavoritos(): Observable<any>{
-    const promise = this.firestore.collection("filmesFavoritos").get()
+    const uidUser = localStorage.getItem('uidUser')
+    const promise = this.firestore.collection("filmesFavoritos",ref => ref.where('uidUser', '==', uidUser)).get()
     return from(promise).pipe(
       map(resposta => {
         return resposta.docs.map(doc => {

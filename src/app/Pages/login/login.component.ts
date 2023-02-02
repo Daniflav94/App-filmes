@@ -35,7 +35,8 @@ export class LoginComponent implements OnInit {
       const credenciais: User = this.formLogin.value
       localStorage.getItem('token')
       this.authService.autenticarPorEmaileSenha(credenciais).subscribe(resposta => {
-        
+        const usuario = resposta.user
+        localStorage.setItem("uidUser", usuario.uid)
       })
     }
     else{

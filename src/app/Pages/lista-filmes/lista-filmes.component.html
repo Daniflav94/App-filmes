@@ -16,8 +16,7 @@
                             <div class="avaliacao">
                                 <img src="/assets/estrela.png"class="icone-estrela">
                                 <p>{{filme.vote_average}}</p> 
-                                <button class="icone-estrela-azul" (click)="openDialog(filme)"><img src="/assets/estrela-azul.png" width="16px"></button>
-                                <p>{{conta.rated?.value}}</p>    
+                                
                                          
                             </div>
                             <img src="/assets/coracaoVazio.png" width="23px" class="icone-coracao" (click)="favoritar(filme)">
@@ -42,9 +41,7 @@
                         <div class="avaliacao-e-favoritar">
                             <div class="avaliacao">
                                 <img src="/assets/estrela.png"class="icone-estrela">
-                                <p>{{filme.vote_average}}</p> 
-                                <button class="icone-estrela-azul" (click)="openDialog(filme)"><img src="/assets/estrela-azul.png" width="16px"><p>{{filme.voto}}</p> </button>    
-                                         
+                                <p>{{filme.vote_average}}</p>                                          
                             </div>
                             <img src="/assets/coracaoVazio.png" width="23px" class="icone-coracao" (click)="favoritar(filme)">
                         </div>           
