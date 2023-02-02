@@ -24,18 +24,9 @@ export class ListaFilmesComponent implements OnInit {
 
   listaTopFilmes!: Results
   listaPopulares!: Results
-  listaFavoritos!: FilmeLista[]
+  listaFavoritos: FilmeLista[] = []
 
   filmeJaAdicionado: boolean = false
-
-  conta: Account = {
-    id: 0,
-    favorite: false,
-    rated: {
-      value: 0
-    },
-    watchlist: false
-  }
 
   session: any = ''
 
@@ -49,34 +40,14 @@ export class ListaFilmesComponent implements OnInit {
 
   ngOnInit(): void {
     this.session = localStorage.getItem('session')
-
     this.listarFavoritos()
+    this.listarMelhoresAvaliados()
+    this.listarPopulares()
 
-    this.filmesService.listarMelhoresAvaliados().subscribe(
-      (lista) => {
-        this.listaTopFilmes = lista
-        lista.results.forEach(element => {
-          this.filmesService.accountStates(element.id, this.session).subscribe(resposta => {
-            this.conta = resposta
-          })
-        });
-      }
-    )
-
-    this.filmesService.listarFilmesPopulares().subscribe(
-      (lista) => {
-        this.listaPopulares = lista
-        lista.results.forEach(element => {
-          this.filmesService.accountStates(element.id, this.session).subscribe(resposta => {
-            this.conta = resposta
-          })
-
-        });
-      }
-    )
   }
 
-  public favoritar(filmeFavorito: FilmeLista): void {    
+  public favoritar(filmeFavorito: FilmeLista): void {
+    filmeFavorito.isFavorite = true
     this.listaFavoritos.forEach(filme => {
       if (filme.id == filmeFavorito.id) {
         this.filmeJaAdicionado = true
@@ -88,7 +59,7 @@ export class ListaFilmesComponent implements OnInit {
     } else {
       this.favoritosService.adicionarFavorito(filmeFavorito).subscribe(
         (resposta) => {
-          this.notificacao.showmessage("Filme inserido na lista de favoritos!")
+          this.notificacao.showmessage("Filme inserido na lista de favoritos!")       
         }
       )
     }
@@ -99,8 +70,40 @@ export class ListaFilmesComponent implements OnInit {
     this.favoritosService.listarFavoritos().subscribe(
       (lista) => {
         this.listaFavoritos = lista
-        console.log(this.listaFavoritos)
       })
+  }
+
+  public verificarFavoritos(listaFilmes: Results): void {
+    this.favoritosService.listarFavoritos().subscribe(
+      (lista) => {
+        this.listaFavoritos = lista
+        for(let filme of lista){
+          for(let listaFilme of listaFilmes.results){
+            if(filme.id === listaFilme.id){
+              listaFilme.isFavorite = true
+            }            
+          }
+          
+        }
+      })    
+  }
+
+  public listarMelhoresAvaliados(): void { 
+    this.filmesService.listarMelhoresAvaliados().subscribe(
+      (lista) => {        
+        this.listaTopFilmes = lista
+        this.verificarFavoritos(lista)
+      }
+    )
+  }
+
+  public listarPopulares(): void {
+    this.filmesService.listarFilmesPopulares().subscribe(
+      (lista) => {
+        this.listaPopulares = lista
+        this.verificarFavoritos(lista)
+      }
+    )
   }
 
   voltar() {
