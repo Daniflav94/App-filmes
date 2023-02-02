@@ -18,8 +18,17 @@ export class FavoritosService {
 
 
   public adicionarFavorito(filme: FilmeLista): Observable<any>{
-    const promise = this.firestore.collection("filmesFavoritos").add(filme)
-    return from(promise)
+    const promise = this.firestore.collection("filmesFavoritos").add({
+      uidUser:localStorage.getItem('uidUser'),
+        ...filme
+      })
+    return from(promise).pipe(
+      catchError(error => {
+        this.notificacao.showmessage("Erro ao favoritar")
+        console.error(error)
+        return EMPTY
+      })
+    )
   }
 
   public listarFavoritos(): Observable<any>{
@@ -33,6 +42,11 @@ export class FavoritosService {
           return filme
           
         })
+      }),
+      catchError(error => {
+        this.notificacao.showmessage("Erro ao listar")
+        console.error(error)
+        return EMPTY
       })
     )
   }

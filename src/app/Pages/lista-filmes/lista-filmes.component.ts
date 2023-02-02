@@ -22,14 +22,15 @@ export class ListaFilmesComponent implements OnInit {
 
   ) { }
 
-
   listaTopFilmes!: Results
   listaPopulares!: Results
+  listaFavoritos!: FilmeLista[]
+
   conta: Account = {
     id: 0,
     favorite: false,
     rated: {
-        value: 0
+      value: 0
     },
     watchlist: false
   }
@@ -44,13 +45,61 @@ export class ListaFilmesComponent implements OnInit {
   inicio2 = 0
   final2 = 6
 
+  ngOnInit(): void {
+    this.session = localStorage.getItem('session')
 
-  favoritar(filme: FilmeLista): void {
-    this.favoritosService.adicionarFavorito(filme).subscribe(
-      (resposta) => {
-        this.notificacao.showmessage("Filme inserido na lista de favoritos!")
+    this.listarFavoritos()
+
+    this.filmesService.listarMelhoresAvaliados().subscribe(
+      (lista) => {
+        this.listaTopFilmes = lista
+        lista.results.forEach(element => {
+          this.filmesService.accountStates(element.id, this.session).subscribe(resposta => {
+            this.conta = resposta
+          })
+        });
       }
     )
+
+    this.filmesService.listarFilmesPopulares().subscribe(
+      (lista) => {
+        this.listaPopulares = lista
+        lista.results.forEach(element => {
+          this.filmesService.accountStates(element.id, this.session).subscribe(resposta => {
+            this.conta = resposta
+          })
+
+        });
+      }
+    )
+  }
+
+  public favoritar(filmeFavorito: FilmeLista): void {
+    let filmeJaAdicionado: boolean = false
+    this.listaFavoritos.forEach(filme => {
+      if (filme.id == filmeFavorito.id) {
+        filmeJaAdicionado = true
+      }
+    })
+
+    if (filmeJaAdicionado) {
+      this.notificacao.showmessage("Filme já consta na lista de favoritos!")
+    } else {
+      this.favoritosService.adicionarFavorito(filmeFavorito).subscribe(
+        (resposta) => {
+          this.notificacao.showmessage("Filme inserido na lista de favoritos!")
+        }
+      )
+    }
+
+  }
+
+  public listarFavoritos(): void {
+    this.favoritosService.listarFavoritos().subscribe(
+      (lista) => {
+        this.listaFavoritos = lista
+        console.log(this.listaFavoritos)
+      })
   }
 
   voltar() {
@@ -76,38 +125,6 @@ export class ListaFilmesComponent implements OnInit {
     this.inicio2 += 6
     this.final2 += 6
   }
-
-
-  ngOnInit(): void {
-    this.session = localStorage.getItem('session')
-
-    this.filmesService.listarMelhoresAvaliados().subscribe(
-      (lista) => {
-        this.listaTopFilmes = lista
-        lista.results.forEach(element => {
-          this.filmesService.accountStates(element.id, this.session).subscribe(resposta => {
-            this.conta = resposta
-           console.log(resposta)
-          })
-        });       
-      }
-    )
-
-    this.filmesService.listarFilmesPopulares().subscribe(
-      (lista) => {
-        this.listaPopulares = lista
-        lista.results.forEach(element => {
-          this.filmesService.accountStates(element.id, this.session).subscribe(resposta => {
-            this.conta = resposta
-           console.log(resposta)
-          })
-          
-        }); 
-      }
-    )
-  }
-
-  
 
 }
 

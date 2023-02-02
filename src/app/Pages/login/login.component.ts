@@ -36,6 +36,7 @@ export class LoginComponent implements OnInit {
       localStorage.getItem('token')
       this.authService.autenticarPorEmaileSenha(credenciais).subscribe(resposta => {
         const usuario = resposta.user
+        console.log(usuario)
         localStorage.setItem("uidUser", usuario.uid)
       })
     }
@@ -47,6 +48,8 @@ export class LoginComponent implements OnInit {
   public entrarComGoogle(): void{
     this.authService.autenticarPeloGoogle().subscribe(resposta => {
       this.router.navigate(["/filmes"])
+      const usuario = resposta.user
+      localStorage.setItem("uidUser", usuario.uid)
     })
   }
 
