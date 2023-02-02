@@ -1,6 +1,6 @@
 <app-header>
     <ng-container>
-        <section *ngIf="listaFavoritos == undefined">
+        <section *ngIf="listaFavoritos.length == 0">
             <h1>Nenhum filme por aqui...</h1>
         </section>
         <section class="lista-filmes" *ngIf="listaFavoritos != undefined">
@@ -23,10 +23,14 @@
                     </div>
                     <div>
                         <div class="avaliacao">
-                            <img src="../../../assets/estrela.png" width="15px" height="15px" class="icone-estrela">
+                            <img src="/assets/estrela.png" width="15px" height="15px" class="icone-estrela">
                             <p>{{filme.vote_average}}</p>
-                            <button class="icone-estrela-azul" (click)="openDialog(filme)"><img src="/assets/estrela-azul.png" width="15px"></button>
-                            <p>{{filme.voto}}</p>    
+                            <button class="icone-estrela-azul" (click)="openDialog(filme)" matTooltip="Avaliar" matTooltipPosition="right">
+                                <div *ngIf="filme.voto == undefined"><img src="/assets/estrela-azul.png" width="15px"></div>
+                                <div *ngIf="filme.voto != undefined"><img src="/assets/estrela-azul-cheia.png" width="15px"></div>
+                                <p>{{filme.voto}}</p>
+                            </button>
+                                
                         </div>
                         <div class="informacoes">
                             <p>{{filme.overview}}</p>

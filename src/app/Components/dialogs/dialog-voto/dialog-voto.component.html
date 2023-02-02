@@ -1,6 +1,9 @@
 <div class="dialog-container">
-    <img src="/assets/estrela-azul-arredondada.png" width="100px" class="icone-estrela-grande">
-    <h2>{{nota}}</h2>
+    <button mat-button (click)="onNoClick()" class="btn-close">X</button>
+    <div class="avaliacao">
+        <img src="/assets/estrela-azul-arredondada.png" width="110px" class="icone-estrela-grande" id="estrela-grande">
+        <span><h2 id="nota">{{nota}}</h2></span>
+    </div>    
     <h5>SUA AVALIAÇÃO</h5>
     <h3>{{filme.title}}</h3>
     <div class="estrelas">

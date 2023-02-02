@@ -26,6 +26,8 @@ export class ListaFilmesComponent implements OnInit {
   listaPopulares!: Results
   listaFavoritos!: FilmeLista[]
 
+  filmeJaAdicionado: boolean = false
+
   conta: Account = {
     id: 0,
     favorite: false,
@@ -74,16 +76,15 @@ export class ListaFilmesComponent implements OnInit {
     )
   }
 
-  public favoritar(filmeFavorito: FilmeLista): void {
-    let filmeJaAdicionado: boolean = false
+  public favoritar(filmeFavorito: FilmeLista): void {    
     this.listaFavoritos.forEach(filme => {
       if (filme.id == filmeFavorito.id) {
-        filmeJaAdicionado = true
+        this.filmeJaAdicionado = true
       }
     })
 
-    if (filmeJaAdicionado) {
-      this.notificacao.showmessage("Filme já consta na lista de favoritos!")
+    if (this.filmeJaAdicionado) {
+      this.notificacao.showmessage("Ops! Filme já consta na lista de favoritos!")
     } else {
       this.favoritosService.adicionarFavorito(filmeFavorito).subscribe(
         (resposta) => {

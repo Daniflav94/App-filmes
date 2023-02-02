@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Account } from 'src/app/Interfaces/account';
 import { FilmeLista } from 'src/app/Interfaces/FilmeLista';
 import { ApiFilmesService } from 'src/app/Services/api-filmes.service';
@@ -13,8 +13,10 @@ import { NotificationService } from 'src/app/Services/notificacao.service';
 })
 export class DialogVotoComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA)
-  public filme: FilmeLista,
+  constructor(
+    public dialogRef: MatDialogRef<DialogVotoComponent>,
+    @Inject(MAT_DIALOG_DATA)
+    public filme: FilmeLista,
     private favoritosService: FavoritosService,
     private notification: NotificationService
   ) { }
@@ -36,9 +38,12 @@ export class DialogVotoComponent implements OnInit {
   estrela9: string = this.estrelaContorno
   estrela10: string = this.estrelaContorno
 
-
   ngOnInit(): void {
     this.session = localStorage.getItem('session')
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 
   mudarEstrela1() {
@@ -291,10 +296,10 @@ export class DialogVotoComponent implements OnInit {
       this.filme.voto = this.nota
       this.favoritosService.editarFilmeFavorito(this.filme).subscribe(resposta => {
         this.notification.showmessage("Filme avaliado!")
-        setTimeout(function() {
+        setTimeout(function () {
           location.reload();
         }, 2000)
-        })
-      }     
+      })
     }
+  }
 }
