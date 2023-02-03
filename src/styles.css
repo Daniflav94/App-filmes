@@ -8,7 +8,7 @@ html,
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
-    background-color: rgb(12, 12, 12);
+    background-color: var(--black);
     width: 100vw;
     height: (100vh - 70px);
     display: flex;

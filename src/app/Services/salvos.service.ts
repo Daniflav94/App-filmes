@@ -53,7 +53,7 @@ export class SalvosService {
     const promise = this.firestore.collection("assistirDepois").doc(filme.idBanco).update(filme)
     return from(promise).pipe(
       catchError(error => {       
-        this.notificacao.showmessage("Erro ao editar filme")
+
         console.error(error)
         return EMPTY
       })

@@ -1,46 +1,95 @@
 <app-header>
     <ng-container>
-        <section *ngIf="listaAssistirDepois.length == 0">
-            <h1>Nenhum filme por aqui...</h1>
-        </section>
-        <section class="lista-filmes" *ngIf="listaAssistirDepois.length > 0">
-            <section class="subtitulo-lista">
-                <img src="/assets/barra.png" height="25px">
-                <h2>Salvos para assistir depois</h2>
-            </section>
-            <div class="card-filme" *ngFor="let filme of listaAssistirDepois">
-                <a [routerLink]="'/filmes/' + filme.id"><img
-                        [src]="'https://image.tmdb.org/t/p/original/' + filme.poster_path" class="poster"></a>
-                <div class="conteudo-card">
-                    <div class="header">
-                        <div class="titulo-filme">
-                            <p>{{ filme.title }}</p>
-                            <span>( {{filme.release_date | date: "yyyy"}} )</span>
-                        </div>
-                        
-                    </div>
-                    <div>
-                        <div class="avaliacao">
-                            <img src="/assets/estrela.png" width="15px" height="15px" class="icone-estrela">
-                            <p>{{filme.vote_average}}</p>
-                            <button class="icone-estrela-azul" (click)="openDialog(filme)" matTooltip="Avaliar"
-                                matTooltipPosition="right">
-                                <div *ngIf="filme.voto == undefined"><img src="/assets/estrela-azul.png" width="15px">
-                                </div>
-                                <div *ngIf="filme.voto != undefined"><img src="/assets/estrela-azul-cheia.png"
-                                        width="15px"></div>
-                                <p>{{filme.voto}}</p>
-                            </button>
-
-                        </div>
-                        <div class="informacoes">
-                            <p>{{filme.overview}}</p>
-
-                        </div>
-                    </div>
+        <section class="lista-filmes" >
+            <section class="header-section">
+                <div class="subtitulo-lista">
+                    <img src="/assets/barra.png" height="25px">
+                    <h2 *ngIf="!verAssistidos">Salvos para assistir depois</h2>
+                    <h2 *ngIf="verAssistidos">Assistidos</h2>
+                </div>               
+                <div>
+                    <button class="btn-acoes" (click)="visualizarAssistidos()" *ngIf="!verAssistidos">Ver assistidos</button>
+                    <button class="btn-acoes" (click)="visualizarAssistidos()" *ngIf="verAssistidos">Voltar</button>
                 </div>
-
-            </div>
+            </section>
+            <section *ngIf="!verAssistidos">
+                <div *ngIf="listaAssistirDepois.length == 0 || listaAssistirDepois undefined">
+                    <h1>Nenhum filme por aqui...</h1>
+                </div>
+                <div class="card-filme" *ngFor="let filme of listaAssistirDepois">
+                    <a [routerLink]="'/filmes/' + filme.id"><img
+                            [src]="'https://image.tmdb.org/t/p/original/' + filme.poster_path" class="poster"></a>
+                    <div class="conteudo-card">
+                        <div class="header">
+                            <div class="titulo-filme">
+                                <p>{{ filme.title }}</p>
+                                <span>( {{filme.release_date | date: "yyyy"}} )</span>
+                            </div>
+                            <div class="botoes">
+                                <button class="btn-assistido" (click)="marcarComoAssistido(filme)">
+                                    <img src="/assets/tocar-video.png" width="20px">
+                                    Assistido
+                                </button>
+                                <button class="btn-lixeira" (click)="deletarFilme(filme.idBanco, filme)">
+                                    <img src="/assets/lixeira-de-reciclagem.png" width="23px">
+                                </button>
+                            </div>
+    
+                        </div>
+                        <div>
+                            <div class="avaliacao">
+                                <img src="/assets/estrela.png" width="15px" height="15px" class="icone-estrela">
+                                <p>{{filme.vote_average}}</p>    
+                            </div>
+                            <div class="informacoes">
+                                <p>{{filme.overview}}</p>
+    
+                            </div>
+                        </div>
+                    </div>
+    
+                </div>
+            </section>
+            <section *ngIf="verAssistidos">
+                <div *ngIf="listaAssistidos.length == 0 || listaAssistidos == undefined">
+                    <h1>Nenhum filme por aqui...</h1>
+                </div>
+                <div class="card-filme" *ngFor="let filme of listaAssistidos">
+                    <a [routerLink]="'/filmes/' + filme.id"><img
+                            [src]="'https://image.tmdb.org/t/p/original/' + filme.poster_path" class="poster"></a>
+                    <div class="conteudo-card">
+                        <div class="header">
+                            <div class="titulo-filme">
+                                <p>{{ filme.title }}</p>
+                                <span>( {{filme.release_date | date: "yyyy"}} )</span>
+                            </div>
+    
+                        </div>
+                        <div>
+                            <div class="avaliacao">
+                                <img src="/assets/estrela.png" width="15px" height="15px" class="icone-estrela">
+                                <p>{{filme.vote_average}}</p>
+                                <button class="icone-estrela-azul" (click)="openDialog(filme)" matTooltip="Avaliar"
+                                    matTooltipPosition="right">
+                                    <div *ngIf="filme.voto == undefined"><img src="/assets/estrela-azul.png" width="15px">
+                                    </div>
+                                    <div *ngIf="filme.voto != undefined"><img src="/assets/estrela-azul-cheia.png"
+                                            width="15px"></div>
+                                    <p>{{filme.voto}}</p>
+                                </button>
+    
+                            </div>
+                            <div class="informacoes">
+                                <p>{{filme.overview}}</p>
+    
+                            </div>
+                        </div>
+                    </div>
+    
+                </div>
+            </section>
+            
         </section>
+        
     </ng-container>
 </app-header>

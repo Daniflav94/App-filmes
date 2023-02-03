@@ -4,6 +4,7 @@ import { FilmeLista } from 'src/app/Interfaces/FilmeLista';
 import { ApiFilmesService } from 'src/app/Services/api-filmes.service';
 import { FavoritosService } from 'src/app/Services/favoritos.service';
 import { NotificationService } from 'src/app/Services/notificacao.service';
+import { SalvosService } from 'src/app/Services/salvos.service';
 
 @Component({
   selector: 'app-dialog-voto',
@@ -17,6 +18,7 @@ export class DialogVotoComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA)
     public filme: FilmeLista,
     private favoritosService: FavoritosService,
+    private salvosService: SalvosService,
     private notification: NotificationService
   ) { }
 
@@ -293,12 +295,20 @@ export class DialogVotoComponent implements OnInit {
   avaliar() {
     if (this.nota != 0) {
       this.filme.voto = this.nota
-      this.favoritosService.editarFilmeFavorito(this.filme).subscribe(resposta => {
-        this.notification.showmessage("Filme avaliado!")
-        setTimeout(function () {
-          location.reload();
-        }, 2000)
-      })
+      this.notification.showmessage("Filme avaliado!")
+        this.favoritosService.editarFilmeFavorito(this.filme).subscribe(resposta => {         
+          setTimeout(function () {
+            location.reload();
+          }, 2000)
+        })
+      
+        this.salvosService.editarFilmeSalvo(this.filme).subscribe(resposta => { 
+          setTimeout(function () {
+            location.reload();
+          }, 2000)
+        })
+          
+      
     }
   }
 }

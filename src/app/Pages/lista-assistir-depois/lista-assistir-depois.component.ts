@@ -25,18 +25,42 @@ export class ListaAssistirDepoisComponent implements OnInit {
 
   listaAssistirDepois: FilmeLista[] = []
   listaAssistidos: FilmeLista[] = []
+  verAssistidos: boolean = false
 
 
-  public listarFilmes():void{
+  public listarFilmes(): void {
     this.salvosService.listarFilmesSalvos().subscribe(lista => {
-      this.listaAssistirDepois = lista
+      lista.forEach((filme: FilmeLista) => {
+        if(filme.assistido == true){
+          this.listaAssistidos.push(filme)
+        }else{
+          this.listaAssistirDepois.push(filme)
+        }
+      });
     })
   }
 
-  public marcarComoAssistido(filme: FilmeLista):void{
+  public marcarComoAssistido(filme: FilmeLista): void {
     const index = this.listaAssistirDepois.indexOf(filme)
-    this.listaAssistirDepois.splice(index,1)
-    this.listaAssistidos.push(filme)
+    this.listaAssistirDepois.splice(index, 1)
+    filme.assistido = true
+    this.salvosService.editarFilmeSalvo(filme).subscribe()
+    this.listarFilmes()
+  }
+
+  public deletarFilme(id: string, filme: FilmeLista): void{
+    this.salvosService.deletarFilmeSalvo(id).subscribe(
+      (resposta) => {
+        this.notificacao.showmessage("Filme excluído da sua lista de favoritos!")
+        const index = this.listaAssistirDepois.indexOf(filme)
+      this.listaAssistirDepois.splice(index, 1)
+        this.listarFilmes()
+      }
+    )
+  }
+
+  public visualizarAssistidos(): void{
+    this.verAssistidos = !this.verAssistidos
   }
 
   public openDialog(filme: FilmeLista) {

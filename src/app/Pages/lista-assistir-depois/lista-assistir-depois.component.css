@@ -1,14 +1,30 @@
 h1{
     color: aliceblue;
-    margin-top: 100px;
+    margin-top: 50px;
+    text-align: center;
+    font-size: 18px;
 }
-
 .subtitulo-lista{
     display: flex;
     align-items: center;
     margin-top: 20px;
     color: aliceblue;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
+}
+
+.header-section{
+    margin-bottom: 10px;
+    width: 900px;
+}
+
+.btn-acoes{
+    background-color: var(--black);
+    color: var(--blue);
+    cursor: pointer;
+}
+
+.btn-acoes:hover{
+    color: rgb(8, 88, 209);
 }
 
 .titulo-pesquisa{
@@ -23,15 +39,15 @@ h1{
     width: 100%;
     flex-wrap: wrap;
     box-sizing: border-box;
-    margin: 80px 20px;
+    margin: 80px 0;
 }
 
 .card-filme{
     display: flex;
-    background-color: rgb(40, 40, 40);
+    background-color: var(--gray2);
     border: none;
-    width: 690px;
-    height: 160px;
+    width: 800px;
+    height: 170px;
     border-radius: 5px;
     box-sizing: border-box;
     margin: 10px;
@@ -39,7 +55,7 @@ h1{
 }
 
 .poster{
-    width: 110px;
+    width: 120px;
     height: 100%;
     border-radius: 5px 0 0 5px;
     margin-right: 30px;
@@ -55,12 +71,50 @@ h1{
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    height: 40px;
+    height: 50px;
     margin: 0;
 }
 
 .header span{
     font-size: 15px;
+}
+
+.botoes{
+    display: flex;
+    align-items: flex-start;
+}
+
+.btn-assistido{
+    background-color: var(--gray2);
+    border: none;
+    border-radius: 5px;
+    color: aliceblue;
+    font-size: 10px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+    margin: 10px 5px;
+}
+
+.btn-assistido:hover{
+    background-color: var(--gray1);
+}
+
+.btn-lixeira{
+    background-color: var(--gray2);
+    border: none;
+    border-radius: 5px;
+    color: aliceblue;
+    font-size: 10px;
+    cursor: pointer;
+    padding: 5px;
+    margin: 10px 5px;
+}
+
+.btn-lixeira:hover{
+    background-color: var(--gray1);
 }
 
 .titulo-filme{
@@ -87,7 +141,7 @@ h1{
 .informacoes p{
     font-size: 13px;
     padding: 0 20px 20px 0;
-    width: 540px;
+    width: 97%;
     height: 80px;
     overflow: hidden !important;
     text-overflow: ellipsis;

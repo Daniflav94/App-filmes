@@ -10,4 +10,5 @@ export interface FilmeLista {
     voto?: number;
     isFavorite?: boolean;  
     isSave?: boolean; 
+    assistido?: boolean;
 }
