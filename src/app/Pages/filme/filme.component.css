@@ -7,6 +7,7 @@
     align-items: center;
     background-size: cover;
     margin: 0;
+    align-self: center;
 }
 
 .fundo-poster{
@@ -87,15 +88,14 @@
     display: flex;
     justify-content: center;
     color: white;
-    width: 100%;
 }
 
-.elenco{
+.titulo-section{
     display: flex;
+    width: 75%;
     align-items: center;
     color: aliceblue;
-    width: 100vw;
-    margin: 50px 0 30px 100px;
+    margin: 50px 0 30px 0;
 }
 
 .ator{
@@ -128,4 +128,22 @@
     width: 100px;
     height: 100px;
     z-index: 2;
+}
+
+.onde-assistir{
+    display: flex;
+    flex-direction: row;
+    color: aliceblue;
+}
+
+.logos{
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+img{
+    color: aliceblue;
 }

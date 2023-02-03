@@ -29,7 +29,7 @@ export class AuthService {
     const provider = new GoogleAuthProvider()
     const promise = this.firebaseAuth.signInWithPopup(provider)
 
-    if(this.token.request_token != ''){
+   /*  if(this.token.request_token != ''){
       this.apiTMDB.createSession(this.token).subscribe(resposta => {
         localStorage.setItem('session', resposta.session_id)
         this.notification.showmessage("Bem vindo(a)!")   
@@ -41,7 +41,7 @@ export class AuthService {
         localStorage.setItem('token', this.token.request_token)
         
       })
-    }
+    } */
 
     return from(promise).pipe(
       catchError(error => {
@@ -56,7 +56,7 @@ export class AuthService {
     const { email, senha } = user;
     const promise = this.firebaseAuth.signInWithEmailAndPassword(email, senha)
     
-    console.log(this.token)
+   /*  console.log(this.token)
     if(this.token.request_token != ''){
       this.apiTMDB.createSession(this.token).subscribe(resposta => {
         localStorage.setItem('session', resposta.session_id)
@@ -70,7 +70,7 @@ export class AuthService {
         localStorage.setItem('token', this.token.request_token)
         
       })
-    }
+    } */
        
     return from(promise).pipe(
       catchError(error => {

@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
         const usuario = resposta.user
         console.log(usuario)
         localStorage.setItem("uidUser", usuario.uid)
+        this.router.navigate(["/filmes"])  
       })
     }
     else{

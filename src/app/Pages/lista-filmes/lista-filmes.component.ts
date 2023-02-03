@@ -1,7 +1,4 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { DialogVotoComponent } from 'src/app/Components/dialogs/dialog-voto/dialog-voto.component';
-import { Account } from 'src/app/Interfaces/account';
 import { FilmeLista } from 'src/app/Interfaces/FilmeLista';
 import { Results } from 'src/app/Interfaces/Results';
 import { ApiFilmesService } from 'src/app/Services/api-filmes.service';

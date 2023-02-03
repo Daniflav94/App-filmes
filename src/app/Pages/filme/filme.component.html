@@ -1,44 +1,61 @@
 <app-header>
     <ng-container>
-        <section class="container" *ngIf="filme != undefined" >
+        <section class="container" *ngIf="filme != undefined">
             <img [src]="'https://image.tmdb.org/t/p/original' + filme.backdrop_path" class="fundo-poster">
             <div class="caixa">
                 <img [src]="'https://image.tmdb.org/t/p/original/' + filme.poster_path" class="poster">
                 <div class="conteudo">
                     <h1 class="titulo">{{filme.title}} ({{filme.release_date | date: 'yyyy'}})</h1>
                     <div class="detalhes">
-                        <div class="generos"> 
-                            <p *ngFor="let genero of filme.genres | slice: 0:4" class="genero" >{{genero.name}} </p>
-                        </div>               
+                        <div class="generos">
+                            <p *ngFor="let genero of filme.genres | slice: 0:4" class="genero">{{genero.name}} </p>
+                        </div>
                         <p class="separador">&bull;</p>
                         <p>Lançamento: {{filme.release_date | date: 'dd/MM/yyyy'}}</p>
                         <p class="separador">&bull;</p>
                         <p>Diretor: {{diretor}}</p>
-                        
+
                     </div>
-                    
+
                     <h3>Sinopse</h3>
                     <p>{{filme.overview}}</p>
-                    
-                </div>       
+
+                </div>
             </div>
-            <section class="elenco">
-                <img src="../../../assets/barra.png" height="25px">
+            <section class="titulo-section">
+                <img src="/assets/barra.png" height="25px">
                 <h2>Elenco principal</h2>
             </section>
-            
-            <div class="atores">   
+
+            <div class="atores">
                 <div *ngFor="let credito of creditos.cast  | slice: 0:8" class="ator">
-                    <img [src]="'https://image.tmdb.org/t/p/original/' + credito.profile_path" class="fotos-atores" alt="">
+                    <img [src]="'https://image.tmdb.org/t/p/original/' + credito.profile_path" class="fotos-atores"
+                        alt="">
                     <div class="ator_info">
                         <p class="nome-ator">{{credito.name}}</p>
                         <p class="papel">{{credito.character}}</p>
-                    </div>           
+                    </div>
                 </div>
             </div>
-        
+
+            <section class="titulo-section">
+                <img src="/assets/barra.png" height="25px">
+                <h2>Onde assistir</h2>
+
+            </section>
+            <div>
+                <div *ngIf="ondeAssistir.results.BR == undefined" class="onde-assistir">Ainda não consta em nenhum catálogo!</div>
+                <div *ngIf="ondeAssistir.results.BR != undefined"  class="onde-assistir">
+                    <div *ngFor="let provedor of ondeAssistir.results.BR.flatrate">
+                        <img [src]="'https://image.tmdb.org/t/p/original/' + provedor.logo_path" class="logos"
+                            alt="{{provedor.provider_name}}">
+                    </div>
+                    <div *ngFor="let provedor of ondeAssistir.results.BR.rent">
+                        <img [src]="'https://image.tmdb.org/t/p/original/' + provedor.logo_path" class="logos"
+                            alt="{{provedor.provider_name}}">
+                    </div>
+                </div>
+            </div>
         </section>
     </ng-container>
 </app-header>
-
-

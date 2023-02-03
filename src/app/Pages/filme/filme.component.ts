@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Filme } from 'src/app/Interfaces/Filme';
+import { Provider } from 'src/app/Interfaces/provider';
 import { ApiFilmesService } from 'src/app/Services/api-filmes.service';
 
 @Component({
@@ -20,6 +21,21 @@ export class FilmeComponent implements OnInit {
   filme!: Filme
   creditos!: Filme
   diretor!: string
+  ondeAssistir: Provider = {
+    id: 0,
+    results: {
+      BR:  {
+        flatrate: [{
+          logo_path: '',
+          provider_name: ''
+        }],
+        rent: [{
+          logo_path: '',
+          provider_name: ''
+        }]
+      }
+    }
+  }
 
 
   ngOnInit(): void {
@@ -42,6 +58,12 @@ export class FilmeComponent implements OnInit {
             this.diretor = element.name
           }
         });
+      }
+    )
+
+    this.filmesService.getProviders(parseInt(idFilme)).subscribe(
+      (provedores) => {
+        this.ondeAssistir = provedores
       }
     )
   }
