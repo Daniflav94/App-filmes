@@ -1,6 +1,73 @@
+.container{
+    display: flex;
+    width: 100%;
+    margin-top: 60px;
+}
+
 h1{
     color: aliceblue;
-    margin-top: 100px;
+    
+}
+
+.top{
+    width: 40%;
+    color: aliceblue;
+}
+
+.titulo-top5{
+    display: flex;
+    align-items: center;
+    height: 130px;
+    width: 100%;
+   margin-left: 50px;
+}
+
+.top h1{
+    font-size: 40px;
+    font-family: 'Lilita One', cursive;
+}
+
+.estrela-grande{
+    position: relative;
+    top: 16px;
+    left: 10px;
+    transform: rotate(15deg);
+    transform-origin: left top 0;
+}
+
+.posicao{
+    height: 170px;
+    width: 200px;
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.posicao p{
+    color: aliceblue;
+}
+
+.num-top{
+    position: relative;
+    opacity: 0.6;
+}
+
+.poster-top{
+    width: 130px;
+    height: 100%;
+    border-radius: 5px;
+    position: relative;
+    left: -52px;
+}
+
+.texto-estrela{
+    font-size: 45px;
+    position: relative;
+    top: -45px;
+    left: 35px;
+    font-family: 'Lilita One', cursive;
+    transform: rotate(15deg);
+    transform-origin: left top 0;
+    text-shadow: 0.1em 0.1em 0.3em rgba(0, 0, 0, 0.537)
 }
 
 .subtitulo-lista{
@@ -23,7 +90,7 @@ h1{
     width: 100%;
     flex-wrap: wrap;
     box-sizing: border-box;
-    margin: 80px 20px;
+    margin-right: 150px;
 }
 
 .card-filme{

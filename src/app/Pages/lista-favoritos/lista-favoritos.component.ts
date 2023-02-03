@@ -23,6 +23,7 @@ export class ListaFavoritosComponent implements OnInit {
   ) { }
 
   listaFavoritos!: FilmeLista[]
+  listaTop5: FilmeLista[] = []
 
   ngOnInit(): void {
     this.listarFavoritos()
@@ -32,6 +33,7 @@ export class ListaFavoritosComponent implements OnInit {
     this.favoritosService.listarFavoritos().subscribe(
       (filmes) => {
         this.listaFavoritos = filmes
+        this.listaTop5 = filmes
         console.log(this.listaFavoritos)
       }
     )

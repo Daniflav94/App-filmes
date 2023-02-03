@@ -1,44 +1,103 @@
 <app-header>
     <ng-container>
-        <section *ngIf="listaFavoritos.length == 0">
-            <h1>Nenhum filme por aqui...</h1>
-        </section>
-        <section class="lista-filmes" *ngIf="listaFavoritos.length > 0">
-            <section class="subtitulo-lista">
-                <img src="/assets/barra.png" height="25px">
-                <h2>Lista de favoritos</h2>
+        <div class="container">
+            <section *ngIf="listaFavoritos.length == 0">
+                <h1>Nenhum filme por aqui...</h1>
             </section>
-            <div class="card-filme" *ngFor="let filme of listaFavoritos">
-                <a [routerLink]="'/filmes/' + filme.id"><img [src]="'https://image.tmdb.org/t/p/original/' + filme.poster_path"
-                        class="poster"></a>
-                <div class="conteudo-card">
-                    <div class="header">
-                        <div class="titulo-filme">
-                            <p >{{ filme.title }}</p>
-                            <span>( {{filme.release_date | date: "yyyy"}} )</span>
-                        </div>
-                        <button mat-icon-button (click)="deletarFilmeFavorito(filme.idBanco)" class="iconeLixeira">
-                            <img src="/assets/lixeira-de-reciclagem.png" width="21px">
-                        </button>
-                    </div>
-                    <div>
-                        <div class="avaliacao">
-                            <img src="/assets/estrela.png" width="15px" height="15px" class="icone-estrela">
-                            <p>{{filme.vote_average}}</p>
-                            <button class="icone-estrela-azul" (click)="openDialog(filme)" matTooltip="Avaliar" matTooltipPosition="right">
-                                <div *ngIf="filme.voto == undefined"><img src="/assets/estrela-azul.png" width="15px"></div>
-                                <div *ngIf="filme.voto != undefined"><img src="/assets/estrela-azul-cheia.png" width="15px"></div>
-                                <p>{{filme.voto}}</p>
+            <section class="lista-filmes" *ngIf="listaFavoritos.length > 0">
+                <section class="subtitulo-lista">
+                    <img src="/assets/barra.png" height="25px">
+                    <h2>Lista de favoritos</h2>
+                </section>
+                <div class="card-filme" *ngFor="let filme of listaFavoritos">
+                    <a [routerLink]="'/filmes/' + filme.id"><img
+                            [src]="'https://image.tmdb.org/t/p/original/' + filme.poster_path" class="poster"></a>
+                    <div class="conteudo-card">
+                        <div class="header">
+                            <div class="titulo-filme">
+                                <p>{{ filme.title }}</p>
+                                <span>( {{filme.release_date | date: "yyyy"}} )</span>
+                            </div>
+                            <button mat-icon-button (click)="deletarFilmeFavorito(filme.idBanco)" class="iconeLixeira">
+                                <img src="/assets/lixeira-de-reciclagem.png" width="21px">
                             </button>
-                                
                         </div>
-                        <div class="informacoes">
-                            <p>{{filme.overview}}</p>
-                             
+                        <div>
+                            <div class="avaliacao">
+                                <img src="/assets/estrela.png" width="15px" height="15px" class="icone-estrela">
+                                <p>{{filme.vote_average}}</p>
+                                <button class="icone-estrela-azul" (click)="openDialog(filme)" matTooltip="Avaliar"
+                                    matTooltipPosition="right">
+                                    <div *ngIf="filme.voto == undefined"><img src="/assets/estrela-azul.png"
+                                            width="15px"></div>
+                                    <div *ngIf="filme.voto != undefined"><img src="/assets/estrela-azul-cheia.png"
+                                            width="15px"></div>
+                                    <p>{{filme.voto}}</p>
+                                </button>
+
+                            </div>
+                            <div class="informacoes">
+                                <p>{{filme.overview}}</p>
+
+                            </div>
                         </div>
-                   </div>
-                </div>               
-            </div>
-        </section>
+                    </div>
+                </div>
+            </section>
+            <section class="top">
+                <div class="titulo-top5">
+                    <h1>TOP</h1>
+                    <div>
+                        <img src="/assets/estrela-grande-amarela.png" width="90px" class="estrela-grande">
+                        <p class="texto-estrela">5</p>
+                    </div>
+                </div>
+                <div class="conteudo-top5">
+                    <div class="posicao">
+                        <img src="/assets/img/1.png" width="130px" class="num-top">
+                        <div *ngIf="listaTop5 != undefined"><a [routerLink]="'/filmes/' + listaTop5[0].id"><img
+                                    [src]="'https://image.tmdb.org/t/p/original/' + listaTop5[0].poster_path"
+                                    class="poster-top"></a>
+                        </div>
+                        <p *ngIf="listaTop5 == undefined">Arraste um filme para cá</p>
+                    </div>
+                    <div class="posicao">
+                        <img src="/assets/img/2.png" width="130px" class="num-top">
+                        <div *ngIf="listaTop5 != undefined"><a [routerLink]="'/filmes/' + listaTop5[1].id"><img
+                                    [src]="'https://image.tmdb.org/t/p/original/' + listaTop5[1].poster_path"
+                                    class="poster-top"></a>
+                        </div>
+                        <p *ngIf="listaTop5 == undefined">Arraste um filme para cá</p>
+                    </div>
+                    <div class="posicao">
+                        <img src="/assets/img/3.png" width="130px" class="num-top">
+                        <div *ngIf="listaTop5 != undefined"><a [routerLink]="'/filmes/' + listaTop5[2].id"><img
+                                    [src]="'https://image.tmdb.org/t/p/original/' + listaTop5[2].poster_path"
+                                    class="poster-top"></a>
+                        </div>
+                        <p *ngIf="listaTop5 == undefined">Arraste um filme para cá</p>
+                    </div>
+                    <div class="posicao">
+                        <img src="/assets/img/4.png" width="130px" class="num-top">
+                        <div *ngIf="listaTop5 != undefined"><a [routerLink]="'/filmes/' + listaTop5[3].id"><img
+                                    [src]="'https://image.tmdb.org/t/p/original/' + listaTop5[3].poster_path"
+                                    class="poster-top"></a>
+                        </div>
+                        <p *ngIf="listaTop5 == undefined">Arraste um filme para cá</p>
+                    </div>
+                    <div class="posicao">
+                        <img src="/assets/img/5.png" width="130px" class="num-top">
+                        <div *ngIf="listaTop5 != undefined"><a [routerLink]="'/filmes/' + listaTop5[4].id"><img
+                                    [src]="'https://image.tmdb.org/t/p/original/' + listaTop5[4].poster_path"
+                                    class="poster-top"></a>
+                        </div>
+                        <p *ngIf="listaTop5 == undefined">Arraste um filme para cá</p>
+                    </div>
+                </div>
+
+
+            </section>
+        </div>
+
     </ng-container>
-</app-header>   
+</app-header>
