@@ -21,6 +21,7 @@ h1{
     background-color: var(--black);
     color: var(--blue);
     cursor: pointer;
+    border: none;
 }
 
 .btn-acoes:hover{

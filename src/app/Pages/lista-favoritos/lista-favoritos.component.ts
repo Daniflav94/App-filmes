@@ -3,11 +3,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogVotoComponent } from 'src/app/Components/dialogs/dialog-voto/dialog-voto.component';
 import { Filme } from 'src/app/Interfaces/Filme';
 import { FilmeLista } from 'src/app/Interfaces/FilmeLista';
-import { Results } from 'src/app/Interfaces/Results';
-import { ApiFilmesService } from 'src/app/Services/api-filmes.service';
 import { FavoritosService } from 'src/app/Services/favoritos.service';
 import { NotificationService } from 'src/app/Services/notificacao.service';
-import { ListaFilmesComponent } from '../lista-filmes/lista-filmes.component';
+
 
 @Component({
   selector: 'app-lista-favoritos',
@@ -22,7 +20,7 @@ export class ListaFavoritosComponent implements OnInit {
     public dialog: MatDialog
   ) { }
 
-  listaFavoritos!: FilmeLista[]
+  listaFavoritos: FilmeLista[] = []
   listaTop5: FilmeLista[] = []
 
   ngOnInit(): void {
@@ -33,7 +31,6 @@ export class ListaFavoritosComponent implements OnInit {
     this.favoritosService.listarFavoritos().subscribe(
       (filmes) => {
         this.listaFavoritos = filmes
-        this.listaTop5 = filmes
         console.log(this.listaFavoritos)
       }
     )
@@ -55,6 +52,8 @@ export class ListaFavoritosComponent implements OnInit {
       data: filme
     })
   }
+
+
 }
 
 
