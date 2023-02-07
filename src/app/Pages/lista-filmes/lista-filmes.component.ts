@@ -23,6 +23,7 @@ export class ListaFilmesComponent implements OnInit {
   ) { }
 
   listaTopFilmes!: Results
+  listaTopFilmesCompleta: FilmeLista[] = []
   listaPopulares!: Results
   listaPopularesCompleta: FilmeLista[] = []
   listaFavoritos: FilmeLista[] = []
@@ -30,7 +31,8 @@ export class ListaFilmesComponent implements OnInit {
   listaGeneros!: Genre
   filtrados: FilmeLista[] = []
   listaFilmes!: Results
-  verMais: boolean = false
+  verMaisMelhores: boolean = false
+  verMaisPopulares: boolean = false
  
   filmeJaAdicionado: boolean = false
   filmeJaSalvo: boolean = false
@@ -136,13 +138,25 @@ export class ListaFilmesComponent implements OnInit {
   }
 
   public listarMelhoresAvaliados(): void {
-    this.filmesService.listarMelhoresAvaliados().subscribe(
+    this.filmesService.listarMelhoresAvaliados(1).subscribe(
       (lista) => {
         this.listaTopFilmes = lista
         this.verificarFavoritos(lista)
         this.verificarSalvos(lista)
       }
     )
+  }
+
+  public listarTodosMelhoresAvaliados(): void {
+    this.verMaisMelhores = true
+    for (let index = 1; index < 5; index++) {
+      this.filmesService.listarMelhoresAvaliados(index).subscribe(
+        (lista) => {
+         lista.results.map(filme => {
+          this.listaTopFilmesCompleta.push(filme)
+         })
+        })
+    }
   }
 
   public listarPopulares(): void {
@@ -156,7 +170,7 @@ export class ListaFilmesComponent implements OnInit {
   }
 
   public listarTodosPopulares(): void {
-    this.verMais = true
+    this.verMaisPopulares = true
     for (let index = 1; index < 5; index++) {
       this.filmesService.listarFilmesPopulares(index).subscribe(
         (lista) => {
@@ -166,6 +180,7 @@ export class ListaFilmesComponent implements OnInit {
         })
     }
   }
+
 
   public listarGeneros(): void {
     this.filmesService.getGenres().subscribe((lista) => {

@@ -28,8 +28,8 @@ export class ApiFilmesService {
     return this.http.get<Results>(this.baseURL + 'popular?' + this.apiKey + '&page=' + page)
   }
 
-  listarMelhoresAvaliados() {
-    return this.http.get<Results>(this.baseURL + 'top_rated?' + this.apiKey + '&page=1')
+  listarMelhoresAvaliados(page: number) {
+    return this.http.get<Results>(this.baseURL + 'top_rated?' + this.apiKey + '&page=' + page)
   }
 
   filtrarFilmes(nomeFilme: string) {
