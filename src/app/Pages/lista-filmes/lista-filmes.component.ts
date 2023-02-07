@@ -33,7 +33,7 @@ export class ListaFilmesComponent implements OnInit {
   listaFilmes!: Results
   verMaisMelhores: boolean = false
   verMaisPopulares: boolean = false
- 
+
   filmeJaAdicionado: boolean = false
   filmeJaSalvo: boolean = false
 
@@ -152,21 +152,28 @@ export class ListaFilmesComponent implements OnInit {
     for (let index = 1; index < 5; index++) {
       this.filmesService.listarMelhoresAvaliados(index).subscribe(
         (lista) => {
-         lista.results.map(filme => {
-          this.listaTopFilmesCompleta.push(filme)
-         })
+          this.verificarFavoritos(lista)
+          this.verificarSalvos(lista)
+          lista.results.map(filme => {
+            this.listaTopFilmesCompleta.push(filme)
+          })
         })
     }
   }
 
+  public voltarHome(): void {
+    this.verMaisMelhores = false
+    this.verMaisPopulares = false
+  }
+
   public listarPopulares(): void {
-      this.filmesService.listarFilmesPopulares(1).subscribe(
-        (lista) => {
-          this.listaPopulares = lista
-          this.verificarFavoritos(lista)
-          this.verificarSalvos(lista)         
-        }
-      )           
+    this.filmesService.listarFilmesPopulares(1).subscribe(
+      (lista) => {
+        this.listaPopulares = lista
+        this.verificarFavoritos(lista)
+        this.verificarSalvos(lista)
+      }
+    )
   }
 
   public listarTodosPopulares(): void {
@@ -174,9 +181,11 @@ export class ListaFilmesComponent implements OnInit {
     for (let index = 1; index < 5; index++) {
       this.filmesService.listarFilmesPopulares(index).subscribe(
         (lista) => {
-         lista.results.map(filme => {
-          this.listaPopularesCompleta.push(filme)
-         })
+          this.verificarFavoritos(lista)
+          this.verificarSalvos(lista)
+          lista.results.map(filme => {
+            this.listaPopularesCompleta.push(filme)
+          })
         })
     }
   }
@@ -192,10 +201,10 @@ export class ListaFilmesComponent implements OnInit {
     for (let index = 0; index < 2; index++) {
       this.filmesService.discoverMovies(index).subscribe((lista) => {
         this.listaFilmes = lista
-        
+
       })
+    }
   }
-}
 
   public filtrarGenero(genero: number): void {
     this.filtrados = []
@@ -222,7 +231,7 @@ export class ListaFilmesComponent implements OnInit {
       genero.ativo = false
     })
     genero.ativo = true
-    
+
   }
 
 
