@@ -29,8 +29,7 @@ export class ListaFilmesComponent implements OnInit {
   listaGeneros!: Genre
   filtrados: FilmeLista[] = []
   listaFilmes!: Results
-  changeColor = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]
-
+ 
   filmeJaAdicionado: boolean = false
   filmeJaSalvo: boolean = false
 
