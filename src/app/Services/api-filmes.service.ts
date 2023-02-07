@@ -32,6 +32,10 @@ export class ApiFilmesService {
     return this.http.get<Results>(this.baseURL + 'top_rated?' + this.apiKey + '&page=' + page)
   }
 
+  listarFilmesNosCinemas() {
+    return this.http.get<Results>(this.baseURL + 'now_playing?' + this.apiKey + '&page=1')
+  }
+
   filtrarFilmes(nomeFilme: string) {
     return this.http.get<Results>(this.filtroURL + nomeFilme)
   }
