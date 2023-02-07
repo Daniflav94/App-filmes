@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { PageEvent } from '@angular/material/paginator';
 import { DialogVotoComponent } from 'src/app/Components/dialogs/dialog-voto/dialog-voto.component';
 import { Filme } from 'src/app/Interfaces/Filme';
 import { FilmeLista } from 'src/app/Interfaces/FilmeLista';
@@ -22,6 +23,8 @@ export class ListaFavoritosComponent implements OnInit {
 
   listaFavoritos: FilmeLista[] = []
   listaTop5: FilmeLista[] = []
+  lowValue: number = 0;
+  highValue: number = 5;
 
   ngOnInit(): void {
     this.listarFavoritos()
@@ -53,7 +56,11 @@ export class ListaFavoritosComponent implements OnInit {
     })
   }
 
-
+  public getPaginatorData(event: PageEvent): PageEvent {
+    this.lowValue = event.pageIndex * event.pageSize;
+    this.highValue = this.lowValue + event.pageSize;
+    return event;
+  }
 }
 
 

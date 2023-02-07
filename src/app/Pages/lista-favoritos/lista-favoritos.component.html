@@ -10,7 +10,7 @@
                     <h2>Lista de favoritos</h2>
                 </div>
                 <div class="cards">
-                    <div class="card-filme" *ngFor="let filme of listaFavoritos" cdkDrag [cdkDragData]="filme">
+                    <div class="card-filme" *ngFor="let filme of listaFavoritos | slice: lowValue : highValue">
                         <a [routerLink]="'/filmes/' + filme.id"><img
                                 [src]="'https://image.tmdb.org/t/p/original/' + filme.poster_path" class="poster"></a>
                         <div class="conteudo-card">
@@ -48,6 +48,9 @@
 
                     </div>
                 </div>
+                <mat-paginator [length]="listaFavoritos.length" [pageSizeOptions]="[5, 20, 50]"
+                    aria-label="Select page" (page)="getPaginatorData($event)">   
+                </mat-paginator>
             </section>
             
         </div>

@@ -1,19 +1,20 @@
 <app-header>
     <ng-container>
-        <section class="lista-filmes" >
+        <section class="lista-filmes">
             <section class="header-section">
                 <div class="subtitulo-lista">
                     <img src="/assets/barra.png" height="25px">
                     <h2 *ngIf="!verAssistidos">Salvos para assistir depois</h2>
                     <h2 *ngIf="verAssistidos">Assistidos</h2>
-                </div>               
+                </div>
                 <div>
-                    <button class="btn-acoes" (click)="visualizarAssistidos()" *ngIf="!verAssistidos">Ver assistidos</button>
+                    <button class="btn-acoes" (click)="visualizarAssistidos()" *ngIf="!verAssistidos">Ver
+                        assistidos</button>
                     <button class="btn-acoes" (click)="visualizarAssistidos()" *ngIf="verAssistidos">Voltar</button>
                 </div>
             </section>
-            <section *ngIf="!verAssistidos">
-                <div *ngIf="listaAssistirDepois.length == 0 || listaAssistirDepois undefined">
+            <section *ngIf="verAssistidos == false">
+                <div *ngIf="listaAssistirDepois.length == 0">
                     <h1>Nenhum filme por aqui...</h1>
                 </div>
                 <div class="card-filme" *ngFor="let filme of listaAssistirDepois">
@@ -34,27 +35,27 @@
                                     <img src="/assets/lixeira-de-reciclagem.png" width="23px">
                                 </button>
                             </div>
-    
+
                         </div>
                         <div>
                             <div class="avaliacao">
                                 <img src="/assets/estrela.png" width="15px" height="15px" class="icone-estrela">
-                                <p>{{filme.vote_average}}</p>    
+                                <p>{{filme.vote_average}}</p>
                             </div>
                             <div class="informacoes">
                                 <p>{{filme.overview}}</p>
-    
+
                             </div>
                         </div>
                     </div>
-    
+
                 </div>
             </section>
             <section *ngIf="verAssistidos">
-                <div *ngIf="listaAssistidos.length == 0 || listaAssistidos == undefined">
+                <div *ngIf="listaAssistidos.length == 0">
                     <h1>Nenhum filme por aqui...</h1>
                 </div>
-                <div class="card-filme" *ngFor="let filme of listaAssistidos">
+                <div class="card-filme" *ngFor="let filme of listaAssistidos| slice: lowValue : highValue">
                     <a [routerLink]="'/filmes/' + filme.id"><img
                             [src]="'https://image.tmdb.org/t/p/original/' + filme.poster_path" class="poster"></a>
                     <div class="conteudo-card">
@@ -63,7 +64,11 @@
                                 <p>{{ filme.title }}</p>
                                 <span>( {{filme.release_date | date: "yyyy"}} )</span>
                             </div>
-    
+                            <div *ngIf="filme.isFavorite == undefined || filme.isFavorite == false"><img
+                                    src="/assets/coracaoVazio.png" width="23px" class="icone-coracao"
+                                    (click)="favoritar(filme)"></div>
+                            <div *ngIf="filme.isFavorite == true"><img src="/assets/coracaoCheio.png" width="23px"
+                                    class="icone-coracao"></div>
                         </div>
                         <div>
                             <div class="avaliacao">
@@ -71,25 +76,28 @@
                                 <p>{{filme.vote_average}}</p>
                                 <button class="icone-estrela-azul" (click)="openDialog(filme)" matTooltip="Avaliar"
                                     matTooltipPosition="right">
-                                    <div *ngIf="filme.voto == undefined"><img src="/assets/estrela-azul.png" width="15px">
+                                    <div *ngIf="filme.voto == undefined"><img src="/assets/estrela-azul.png"
+                                            width="15px">
                                     </div>
                                     <div *ngIf="filme.voto != undefined"><img src="/assets/estrela-azul-cheia.png"
                                             width="15px"></div>
                                     <p>{{filme.voto}}</p>
                                 </button>
-    
+
                             </div>
                             <div class="informacoes">
                                 <p>{{filme.overview}}</p>
-    
+
                             </div>
                         </div>
                     </div>
-    
                 </div>
+                <mat-paginator [length]="listaFavoritos.length" [pageSize]="5" [pageSizeOptions]="[5, 20, 50]"
+                    aria-label="Select page" (page)="getPaginatorData($event)">
+                </mat-paginator>
             </section>
-            
+
         </section>
-        
+
     </ng-container>
 </app-header>

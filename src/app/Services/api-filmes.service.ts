@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { catchError, EMPTY, Observable } from 'rxjs';
 import { Filme } from '../Interfaces/Filme';
 import { FilmeLista } from '../Interfaces/FilmeLista';
+import { Genre } from '../Interfaces/genre';
 import { Provider } from '../Interfaces/provider';
 import { Results } from '../Interfaces/Results';
 import { Session } from '../Interfaces/session';
@@ -47,7 +48,14 @@ export class ApiFilmesService {
     return this.http.get<Provider>(this.baseURL + idFilme + '/watch/providers?' + this.apiKey)
   }
 
-  
+  getGenres() {
+    return this.http.get<Genre>('https://api.themoviedb.org/3/genre/movie/list?' + this.apiKey)
+  }
+
+  discoverMovies(page: number) {
+    return this.http.get<Results>('https://api.themoviedb.org/3/discover/movie?' + this.apiKey + '&include_adult=false&sort_by=vote_count.desc&page=' + page)
+  }
+
   autenticarUsuarioPorToken() {
     return this.http.get<Token>('https://api.themoviedb.org/3/authentication/token/new?' + this.apiKey)
   }

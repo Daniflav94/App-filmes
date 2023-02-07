@@ -11,5 +11,5 @@ export interface FilmeLista {
     isFavorite?: boolean;  
     isSave?: boolean; 
     assistido?: boolean;
-    top5?: number;
+    genre_ids?: Number[]
 }

@@ -23,3 +23,7 @@ body {
 .mat-simple-snackbar-action {
     color: var(--yellow) !important;
 }
+
+.mat-select-value{
+    color: aliceblue;
+}

@@ -47,11 +47,11 @@ h1{
     display: flex;
     background-color: var(--gray2);
     border: none;
-    width: 800px;
+    width: 880px;
     height: 170px;
     border-radius: 5px;
     box-sizing: border-box;
-    margin: 10px;
+    margin-bottom: 20px;
     color: aliceblue;
 }
 
@@ -142,7 +142,7 @@ h1{
 .informacoes p{
     font-size: 13px;
     padding: 0 20px 20px 0;
-    width: 97%;
+    width: 98%;
     height: 80px;
     overflow: hidden !important;
     text-overflow: ellipsis;
@@ -176,3 +176,22 @@ h1{
     background-color: var(--gray1);
 }
 
+.icone-coracao{
+    margin-right: 10px;
+}
+
+.icone-coracao:hover{
+    cursor: pointer;
+}
+
+mat-paginator{
+    background-color: var(--black);
+    border: 1px solid var(--gray1);
+    border-radius: 5px;
+    color: aliceblue;
+    width: 890px;
+}
+
+::ng-deep #mat-select-value-1{
+    color: aliceblue;
+}
