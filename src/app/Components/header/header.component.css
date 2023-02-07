@@ -3,7 +3,7 @@ header{
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
     height: 50px;
     z-index: 3;
 
@@ -106,8 +106,8 @@ input:focus{
 /*LISTA DE FILMES PESQUISA*/
 
 .container{
-    margin: 50px;
-    width: 100%;
+    margin: 0;
+    width: 100vw;
     height: auto;
     display: flex;
     flex-direction: column;

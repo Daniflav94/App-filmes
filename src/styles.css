@@ -13,7 +13,6 @@ body {
     width: 100vw;
     height: (100vh - 70px);
     display: flex;
-    justify-content: center;
 }
 
 .mat-dialog-container {

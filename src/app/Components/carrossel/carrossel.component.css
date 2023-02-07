@@ -26,6 +26,7 @@
   .botoes-controle button.ativo {
     background: #ff0000;
     cursor: default;
+    margin-bottom: 50px;
   }
 
   a{
@@ -33,22 +34,28 @@
     color: #ccc;
   }
 
+  .texto{
+    height: 160px;
+    width: 100%;
+    position: relative;
+    top: 68%;
+    padding: 20px 0 20px 50px;
+    background-color: rgba(0, 0, 0, 0.335); 
+    box-sizing: border-box;
+  }
+
   .titulo{
     font-size: 30px;
     font-weight: bold;
     text-align: start;
-    height: 110px;
-    width: 100%;
-    position: relative;
-    top: 70%;
-    padding: 20px 50px;
-    background-color: rgba(0, 0, 0, 0.335);
+    margin-bottom: 10px;
   }
 
   .resenha{
-    position: relative;
-    top: 55%;
     width: 90%;
-    margin-left: 50px;
+    height: 80px;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+    box-sizing: border-box;
   }
   
