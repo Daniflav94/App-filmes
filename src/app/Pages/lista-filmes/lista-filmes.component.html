@@ -5,9 +5,12 @@
             <p class="sub">Está em busca de um novo filme para assistir? Encontre nas listas abaixo:</p>
             <mat-tab-group>
                 <mat-tab label="Listas">
-                    <section class="subtitulo-lista">
-                        <img src="/assets/barra.png" height="25px">
-                        <h2>Melhores Avaliados</h2>
+                    <section class="header-lista">
+                        <div class="subtitulo-lista">
+                            <img src="/assets/barra.png" height="25px">
+                            <h2>Melhores Avaliados</h2>
+                        </div>                       
+                        <button class="btn-acoes" (click)="listarTodosPopulares()">Ver mais</button>
                     </section>
                     <section class="cards">
                         <button class="seta-esquerda" (click)="voltar()"><img src="/assets/seta-esquerda.png"
@@ -40,12 +43,16 @@
                         <button *ngIf="this.final < this.listaTopFilmes.results.length" class="seta-direita"
                             (click)="avancar()"><img src="/assets/seta-direita.png" width="35px"></button>
                     </section>
-                    <section class="subtitulo-lista">
-                        <img src="../../../assets/barra.png" height="25px">
-                        <h2>Os Mais Populares</h2>
-                    </section>
 
-                    <!--LISTA POPULARES-->
+                      <!--LISTA POPULARES-->
+                    <section class="header-lista">
+                        <div class="subtitulo-lista">
+                            <img src="/assets/barra.png" height="25px">
+                            <h2>Os Mais Populares</h2>
+                        </div>                       
+                        <button class="btn-acoes" (click)="listarTodosPopulares()">Ver mais</button>
+                    </section>
+   
                     <section class="cards">
                         <button class="seta-esquerda" (click)="voltar2()"><img src="/assets/seta-esquerda.png"
                                 width="35px"></button>

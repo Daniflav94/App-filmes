@@ -27,19 +27,37 @@
 ::ng-deep .mat-tab-label{
     opacity: 1!important;
     color: rgb(219, 222, 224);
-    width: 10%;
- 
+    width: 10%; 
 }
-
-    
+ 
 ::ng-deep .mat-ink-bar {
     background-color: var(--yellow) !important;
 }
 
+.header-lista{
+    display: flex;
+    width: 92%;
+    height: 80px;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.btn-acoes{
+    background-color: var(--black);
+    color: var(--blue);
+    cursor: pointer;
+    border: none;
+}
+
+.btn-acoes:hover{
+    color: rgb(19, 103, 230);
+}
+
+
 .subtitulo-lista{
     display: flex;
     align-items: center;
-    margin-top: 50px;
 }
 
 .cards{

@@ -24,11 +24,13 @@ export class ListaFilmesComponent implements OnInit {
 
   listaTopFilmes!: Results
   listaPopulares!: Results
+  listaPopularesCompleta: FilmeLista[] = []
   listaFavoritos: FilmeLista[] = []
   listaSalvos: FilmeLista[] = []
   listaGeneros!: Genre
   filtrados: FilmeLista[] = []
   listaFilmes!: Results
+  verMais: boolean = false
  
   filmeJaAdicionado: boolean = false
   filmeJaSalvo: boolean = false
@@ -144,13 +146,25 @@ export class ListaFilmesComponent implements OnInit {
   }
 
   public listarPopulares(): void {
-    this.filmesService.listarFilmesPopulares().subscribe(
-      (lista) => {
-        this.listaPopulares = lista
-        this.verificarFavoritos(lista)
-        this.verificarSalvos(lista)
-      }
-    )
+      this.filmesService.listarFilmesPopulares(1).subscribe(
+        (lista) => {
+          this.listaPopulares = lista
+          this.verificarFavoritos(lista)
+          this.verificarSalvos(lista)         
+        }
+      )           
+  }
+
+  public listarTodosPopulares(): void {
+    this.verMais = true
+    for (let index = 1; index < 5; index++) {
+      this.filmesService.listarFilmesPopulares(index).subscribe(
+        (lista) => {
+         lista.results.map(filme => {
+          this.listaPopularesCompleta.push(filme)
+         })
+        })
+    }
   }
 
   public listarGeneros(): void {

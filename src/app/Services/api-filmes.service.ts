@@ -24,8 +24,8 @@ export class ApiFilmesService {
 
 
 
-  listarFilmesPopulares() {
-    return this.http.get<Results>(this.baseURL + 'popular?' + this.apiKey + '&page=1')
+  listarFilmesPopulares(page: number) {
+    return this.http.get<Results>(this.baseURL + 'popular?' + this.apiKey + '&page=' + page)
   }
 
   listarMelhoresAvaliados() {
