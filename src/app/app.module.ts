@@ -18,6 +18,7 @@ import { LoginComponent } from './Pages/login/login.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { CadastroComponent } from './Pages/cadastro/cadastro.component';
 import { ListaAssistirDepoisComponent } from './Pages/lista-assistir-depois/lista-assistir-depois.component';
+import { CarrosselComponent } from './Components/carrossel/carrossel.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { ListaAssistirDepoisComponent } from './Pages/lista-assistir-depois/list
     HeaderComponent,
     CadastroComponent,
     ListaAssistirDepoisComponent,
+    CarrosselComponent
 
   ],
   imports: [

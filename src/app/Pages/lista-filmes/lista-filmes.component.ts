@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
 import { FilmeLista } from 'src/app/Interfaces/FilmeLista';
 import { Genre } from 'src/app/Interfaces/genre';
 import { Results } from 'src/app/Interfaces/Results';
@@ -46,6 +47,9 @@ export class ListaFilmesComponent implements OnInit {
   final = 6
   inicio2 = 0
   final2 = 6
+
+  lowValue: number = 0;
+  highValue: number = 12;
 
   ngOnInit(): void {
     this.session = localStorage.getItem('session')
@@ -209,7 +213,7 @@ export class ListaFilmesComponent implements OnInit {
   public filtrarGenero(genero: number): void {
     this.filtrados = []
 
-    for (let index = 1; index < 55; index++) {
+    for (let index = 1; index < 40; index++) {
       this.filmesService.discoverMovies(index).subscribe((lista) => {
         this.verificarFavoritos(lista)
         this.verificarSalvos(lista)
@@ -261,6 +265,12 @@ export class ListaFilmesComponent implements OnInit {
       this.inicio2 += 6
       this.final2 += 6
     }
+  }
+
+  public getPaginatorData(event: PageEvent): PageEvent {
+    this.lowValue = event.pageIndex * event.pageSize;
+    this.highValue = this.lowValue + event.pageSize;
+    return event;
   }
 
 }

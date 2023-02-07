@@ -7,7 +7,6 @@
     width: 95%;
     color: rgb(235, 235, 235);
     box-sizing: border-box;
-    align-self: center;
 }
 
 .titulo-lista{
@@ -36,7 +35,7 @@
 
 .header-lista{
     display: flex;
-    width: 91%;
+    width: 90%;
     height: 80px;
     justify-content: space-between;
     align-items: center;
@@ -204,4 +203,13 @@
 .focus{
     background-color: var(--yellow);
     color: black;
+}
+
+mat-paginator{
+    background-color: var(--black);
+    border: 1px solid var(--gray1);
+    border-radius: 5px;
+    color: aliceblue;
+    width: 90%;
+    margin-top: 20px;
 }

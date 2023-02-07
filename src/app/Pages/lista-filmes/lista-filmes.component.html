@@ -1,16 +1,18 @@
 <app-header>
     <ng-container>
         <div class="container">
+            <app-carrossel></app-carrossel>
             <h1 class="titulo-lista">O que assistir</h1>
             <p class="sub">Está em busca de um novo filme para assistir? Encontre nas listas abaixo:</p>
             <mat-tab-group>
-                <mat-tab label="Listas">
+                <mat-tab label="Listas" >
                     <section class="header-lista" *ngIf="!verMaisPopulares">
                         <div class="subtitulo-lista">
                             <img src="/assets/barra.png" height="25px">
                             <h2>Melhores Avaliados</h2>
-                        </div>                       
-                        <button *ngIf="!verMaisMelhores" class="btn-acoes" (click)="listarTodosMelhoresAvaliados()">Ver mais</button>
+                        </div>
+                        <button *ngIf="!verMaisMelhores" class="btn-acoes" (click)="listarTodosMelhoresAvaliados()">Ver
+                            mais</button>
                         <button *ngIf="verMaisMelhores" class="btn-acoes" (click)="voltarHome()">Voltar</button>
                     </section>
                     <section class="cards" *ngIf="!verMaisMelhores && !verMaisPopulares">
@@ -45,7 +47,8 @@
                             (click)="avancar()"><img src="/assets/seta-direita.png" width="35px"></button>
                     </section>
                     <section class="cards" *ngIf="verMaisMelhores">
-                        <div class="card-filme" *ngFor="let filme of listaTopFilmesCompleta">
+                        <div class="card-filme"
+                            *ngFor="let filme of listaTopFilmesCompleta | slice: lowValue : highValue">
                             <a [routerLink]="'/filmes/' + filme.id"><img
                                     [src]="'https://image.tmdb.org/t/p/original/' + filme.poster_path"
                                     class="poster"></a>
@@ -70,18 +73,22 @@
                                 </button>
                             </div>
                         </div>
+                        <mat-paginator [length]="listaTopFilmesCompleta.length" [pageSizeOptions]="[12, 24, 48]"
+                            aria-label="Select page" (page)="getPaginatorData($event)">
+                        </mat-paginator>
                     </section>
 
-                      <!--LISTA POPULARES-->
+                    <!--LISTA POPULARES-->
                     <section class="header-lista" *ngIf="!verMaisMelhores">
                         <div class="subtitulo-lista">
                             <img src="/assets/barra.png" height="25px">
                             <h2>Os Mais Populares</h2>
-                        </div>                       
-                        <button *ngIf="!verMaisPopulares" class="btn-acoes" (click)="listarTodosPopulares()">Ver mais</button>
+                        </div>
+                        <button *ngIf="!verMaisPopulares" class="btn-acoes" (click)="listarTodosPopulares()">Ver
+                            mais</button>
                         <button *ngIf="verMaisPopulares" class="btn-acoes" (click)="voltarHome()">Voltar</button>
                     </section>
-   
+
                     <section class="cards" *ngIf="!verMaisMelhores && !verMaisPopulares">
                         <button class="seta-esquerda" (click)="voltar2()"><img src="/assets/seta-esquerda.png"
                                 width="35px"></button>
@@ -113,7 +120,8 @@
                             (click)="avancar2()"><img src="/assets/seta-direita.png" width="35px"></button>
                     </section>
                     <section class="cards" *ngIf="verMaisPopulares">
-                        <div class="card-filme" *ngFor="let filme of listaPopularesCompleta">
+                        <div class="card-filme"
+                            *ngFor="let filme of listaPopularesCompleta | slice: lowValue : highValue">
                             <a [routerLink]="'/filmes/' + filme.id"><img
                                     [src]="'https://image.tmdb.org/t/p/original/' + filme.poster_path"
                                     class="poster"></a>
@@ -138,6 +146,9 @@
                                 </button>
                             </div>
                         </div>
+                        <mat-paginator [length]="listaPopularesCompleta.length" [pageSizeOptions]="[12, 24, 48]"
+                            aria-label="Select page" (page)="getPaginatorData($event)">
+                        </mat-paginator>
                     </section>
                 </mat-tab>
                 <mat-tab label="Gêneros">
@@ -148,7 +159,7 @@
                         </div>
                     </div>
                     <div class="cards">
-                        <div class="card-filme" *ngFor="let filme of filtrados">
+                        <div class="card-filme" *ngFor="let filme of filtrados | slice: lowValue : highValue">
                             <a [routerLink]="'/filmes/' + filme.id"><img
                                     [src]="'https://image.tmdb.org/t/p/original/' + filme.poster_path"
                                     class="poster"></a>
@@ -173,6 +184,9 @@
                             </div>
                         </div>
                     </div>
+                    <mat-paginator *ngIf="filtrados.length > 0" [length]="filtrados.length" [pageSizeOptions]="[12, 24, 48]"
+                        aria-label="Select page" (page)="getPaginatorData($event)">
+                    </mat-paginator>
 
                 </mat-tab>
             </mat-tab-group>
