@@ -1,0 +1,12 @@
+<a [routerLink]="'/filmes/' + listaFilmes[indexImagemAtiva].id"><div class="item"[style.backgroundImage]="
+'url(' + imagens[indexImagemAtiva] + ')'
+" >
+    <div class="titulo">{{listaFilmes[indexImagemAtiva].title}}</div>
+    <div class="resenha">{{listaFilmes[indexImagemAtiva].overview}}</div>
+</div></a>
+<div class="botoes-controle">
+    <button
+      *ngFor="let imagem of imagens; index as i"
+      [class.ativo]="i === indexImagemAtiva"
+      (click)="pararTimer(); ativarImagem(i)"></button>
+  </div>

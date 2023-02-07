@@ -1,4 +1,5 @@
 export interface FilmeLista {
+    original_title: string;
     title: string;
     poster_path: string;
     backdrop_path: string;
