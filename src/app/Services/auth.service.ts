@@ -33,19 +33,25 @@ export class AuthService {
     const promise = this.firebaseAuth.signInWithPopup(provider)
     const auth = getAuth();
     const user = auth.currentUser;
-
-    let usuarioJaExiste: boolean = false
-    this.listarUsuarios().subscribe(listaUsuarios => {
-      listaUsuarios.map((usuario: User) => {
-        if (usuario.email == user?.email) {
-          usuarioJaExiste = true
+    if (user != null) {
+      const usuario= {
+        displayName: user.displayName,
+        email: user.email,
+        photoURL: user.photoURL,
+        uid: user.uid
+      }
+      let usuarioJaExiste: boolean = false
+      this.listarUsuarios().subscribe(listaUsuarios => {
+        listaUsuarios.map((usuario: User) => {
+          if (usuario.email == user?.email) {
+            usuarioJaExiste = true
+          }
+        })
+        if (usuarioJaExiste == false) {
+          this.salvarUsuario(usuario)
         }
       })
-      if (usuarioJaExiste == false) {
-        this.salvarUsuario()
-      }
-    })
-    
+    }
     /*  if(this.token.request_token != ''){
        this.apiTMDB.createSession(this.token).subscribe(resposta => {
          localStorage.setItem('session', resposta.session_id)
@@ -69,36 +75,17 @@ export class AuthService {
     )
   }
 
-  public salvarUsuario(): Observable<any> {
-    const auth = getAuth();
-    const user = auth.currentUser;
-    if (user != null) {
-      const usuario = {
-        displayName: user.displayName,
-        email: user.email,
-        photoURL: user.photoURL,
-        uid: user.uid
-      }
-
-      const promise = this.firestore.collection('users').add(usuario)
-      return from(promise).pipe(
-        catchError(error => {
-          console.error(error)
-          this.notification.showmessage("Erro ao salvar usuário")
-          return EMPTY
-        })
-      )
-    } else {
-      const promise = this.firestore.collection('users').add(user)
-      return from(promise).pipe(
-        catchError(error => {
-          console.error(error)
-          this.notification.showmessage("Erro ao salvar usuário")
-          return EMPTY
-        })
-      )
-    }
+  public salvarUsuario(usuario: any): Observable<any> {
+    const promise = this.firestore.collection('users').add(usuario)
+    return from(promise).pipe(
+      catchError(error => {
+        console.error(error)
+        this.notification.showmessage("Erro ao salvar usuário")
+        return EMPTY
+      })
+    )
   }
+
 
 
   public listarUsuarios(): Observable<any> {
@@ -118,6 +105,7 @@ export class AuthService {
       })
     )
   }
+
 
   public autenticarPorEmaileSenha(user: User): Observable<any> {
     const { email, senha } = user;
@@ -156,8 +144,8 @@ export class AuthService {
   }
 
   public criarUsuarioEmaileSenha(user: User): Observable<any> {
-    const { email, senha } = user;
-    this.salvarUsuario()
+    const { email, senha, displayName } = user;
+    this.salvarUsuario(user)
 
     const promise = this.firebaseAuth.createUserWithEmailAndPassword(email, senha)
     return from(promise).pipe(
