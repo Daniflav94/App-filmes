@@ -1,20 +1,30 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 110px;
+}
+
 h1{
     color: aliceblue;
-    margin-top: 50px;
+    margin-top: 20px;
     text-align: center;
     font-size: 18px;
+    width: 100%;
 }
+
 .subtitulo-lista{
     display: flex;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 30px;
     color: aliceblue;
     margin-bottom: 30px;
 }
 
 .header-section{
-    margin-bottom: 10px;
-    width: 900px;
+    margin-bottom: 20px;
+    width: 58%;
 }
 
 .btn-acoes{
@@ -34,13 +44,12 @@ h1{
     padding: 50px 100px;
 }
 
-.lista-filmes{
+.lista-filmes {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: auto;
     flex-wrap: wrap;
     box-sizing: border-box;
-    margin: 80px 0;
 }
 
 .card-filme{
@@ -189,7 +198,8 @@ mat-paginator{
     border: 1px solid var(--gray1);
     border-radius: 5px;
     color: aliceblue;
-    width: 890px;
+    width: 880px;
+    margin-top: 20px;
 }
 
 ::ng-deep #mat-select-value-1{

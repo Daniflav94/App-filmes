@@ -26,7 +26,6 @@
   .botoes-controle button.ativo {
     background: #ff0000;
     cursor: default;
-    margin-bottom: 50px;
   }
 
   a{
@@ -57,5 +56,6 @@
     overflow: hidden !important;
     text-overflow: ellipsis;
     box-sizing: border-box;
+    max-height: 8.5ch;
   }
   

@@ -15,7 +15,7 @@ export class CarrosselComponent implements OnInit, OnDestroy {
     private filmesService: ApiFilmesService
   ) { }
 
-  listaFilmes!: FilmeLista[]
+  listaFilmes: FilmeLista[] = []
   imagens: string[] = []
    // Guarda a referência do temporizador.
   // Assim conseguimos interromper o temporizador
@@ -44,10 +44,14 @@ export class CarrosselComponent implements OnInit, OnDestroy {
 
   listarFilmes(): void {
     this.filmesService.listarFilmesNosCinemas().subscribe(lista => {
-      this.listaFilmes = lista.results
-      lista.results.map(filme => {
-        this.imagens.push('https://image.tmdb.org/t/p/original/' + filme.backdrop_path)
+      lista.results.map((filme: FilmeLista) => {
+        console.log(lista)
+        if(filme.overview != ''){
+          this.listaFilmes.push(filme)   
+            this.imagens.push('https://image.tmdb.org/t/p/original/' + filme.backdrop_path)
+        }
       })
+      
     })
   }
 

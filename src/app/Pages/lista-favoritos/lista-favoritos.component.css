@@ -1,12 +1,15 @@
 .container {
     display: flex;
     width: 100%;
-    margin-top: 60px;
+    margin-top: 110px;
+    justify-content: center;
 }
 
 h1 {
     color: aliceblue;
-
+    margin-top: 80px;
+    text-align: center;
+    width: 100%;
 }
 
 .posters {
@@ -36,7 +39,7 @@ h1 {
 .lista-filmes {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: auto;
     flex-wrap: wrap;
     box-sizing: border-box;
 }

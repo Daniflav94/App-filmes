@@ -53,7 +53,7 @@ export class ListaAssistirDepoisComponent implements OnInit {
     this.listaAssistirDepois.splice(index, 1)
     filme.assistido = true
     this.salvosService.editarFilmeSalvo(filme).subscribe()
-    this.listarFilmes()
+    this.listaAssistidos.push(filme)
   }
 
   public deletarFilme(id: string, filme: FilmeLista): void{

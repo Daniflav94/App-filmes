@@ -6,6 +6,7 @@ import { Filme } from 'src/app/Interfaces/Filme';
 import { FilmeLista } from 'src/app/Interfaces/FilmeLista';
 import { FavoritosService } from 'src/app/Services/favoritos.service';
 import { NotificationService } from 'src/app/Services/notificacao.service';
+import { SalvosService } from 'src/app/Services/salvos.service';
 
 
 @Component({
@@ -18,7 +19,8 @@ export class ListaFavoritosComponent implements OnInit {
   constructor(
     private favoritosService: FavoritosService,
     private notificacao: NotificationService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private salvosService: SalvosService
   ) { }
 
   listaFavoritos: FilmeLista[] = []
@@ -39,11 +41,19 @@ export class ListaFavoritosComponent implements OnInit {
     )
   }
 
-  public deletarFilmeFavorito(id: string): void{
+  public deletarFilmeFavorito(id: string, filme: FilmeLista): void{
     this.favoritosService.deletarFilmeFavorito(id).subscribe(
       (resposta) => {
         this.notificacao.showmessage("Filme excluído da sua lista de favoritos!")
         this.listarFavoritos()
+        this.salvosService.listarFilmesSalvos().subscribe(lista => {
+          lista.map((film: FilmeLista) => {
+            if(film.id == filme.id){
+              film.isFavorite = false
+              this.salvosService.editarFilmeSalvo(film).subscribe()
+            }
+          })
+        })
       }
     )
   }

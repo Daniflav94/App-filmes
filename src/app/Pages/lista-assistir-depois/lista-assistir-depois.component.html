@@ -1,6 +1,6 @@
 <app-header>
     <ng-container>
-        <section class="lista-filmes">
+        <section class="container">
             <section class="header-section">
                 <div class="subtitulo-lista">
                     <img src="/assets/barra.png" height="25px">
@@ -13,7 +13,7 @@
                     <button class="btn-acoes" (click)="visualizarAssistidos()" *ngIf="verAssistidos">Voltar</button>
                 </div>
             </section>
-            <section *ngIf="verAssistidos == false">
+            <section *ngIf="verAssistidos == false" class="lista-filmes">
                 <div *ngIf="listaAssistirDepois.length == 0">
                     <h1>Nenhum filme por aqui...</h1>
                 </div>
@@ -92,7 +92,7 @@
                         </div>
                     </div>
                 </div>
-                <mat-paginator [length]="listaFavoritos.length" [pageSize]="5" [pageSizeOptions]="[5, 20, 50]"
+                <mat-paginator *ngIf="listaAssistidos.length > 0" [length]="listaAssistidos.length" [pageSize]="5" [pageSizeOptions]="[5, 20, 50]"
                     aria-label="Select page" (page)="getPaginatorData($event)">
                 </mat-paginator>
             </section>

@@ -11,22 +11,31 @@
 
 .titulo-lista{
     color:var(--yellow);
-    margin-bottom: 20px;
+    margin: 50px 0 20px 100px;
 }
 
 .sub{
     color: rgb(205, 205, 205);
     margin-bottom: 30px;
+    margin-left: 100px;
 }
 
 ::ng-deep .mat-tab-label .mat-tab-label-content {
-    font-size: large;    
+    font-size: large; 
+      
 }
 
 ::ng-deep .mat-tab-label{
     opacity: 1!important;
     color: rgb(219, 222, 224);
     width: 10%; 
+    margin-left: 80px; 
+}
+
+::ng-deep .mat-tab-content{
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
  
 ::ng-deep .mat-ink-bar {
@@ -35,11 +44,12 @@
 
 .header-lista{
     display: flex;
-    width: 90%;
+    max-width: 85rem;
     height: 80px;
     justify-content: space-between;
     align-items: center;
     margin-top: 50px;
+    margin-left: 100px; 
 }
 
 .btn-acoes{
@@ -63,9 +73,9 @@
     display: flex;
     flex-wrap: wrap;
     box-sizing: border-box;
-    margin: 20px 30px;
+    margin: 20px 100px;
     width: auto;
-
+    align-self: center;
 }
 
 .seta-esquerda{
@@ -188,7 +198,7 @@
     flex-wrap: wrap;
     justify-content: center;
     width: 50%;
-    margin: 50px 300px;
+    margin: 50px 400px;
 }
 
 .genero{
