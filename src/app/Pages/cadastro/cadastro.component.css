@@ -1,10 +1,5 @@
 .background{
-    background-image: url(../../../assets/img/movie-poster-people-1698949-wallhere.com.jpg);
-    -webkit-filter: blur(4px);
-    filter: blur(4px);
-    -moz-filter: blur(4px);
-    -o-filter: blur(4px);
-    -ms-filter: blur(4px);
+    background-color: rgba(0, 0, 0, 0.462);
     background-repeat:no-repeat;
     position: fixed;
     left: 0;
@@ -16,8 +11,9 @@
 }
 
 .login-container{
-    width: 100%;
-    height: 100%;
+    background-image: url(../../../assets/img/movie-poster-people-1698949-wallhere.com.jpg);
+    width: 100vw;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -74,6 +70,20 @@ input{
     cursor: pointer;
 }
 
+.btn-google{
+    display: flex;
+    padding: 5px;
+    height: 42px;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-google img{
+    margin-right: 15px;
+}
 
 .cadastre-se{
     display: flex;

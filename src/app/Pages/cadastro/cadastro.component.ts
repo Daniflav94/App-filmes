@@ -21,6 +21,7 @@ export class CadastroComponent implements OnInit {
     private notification: NotificationService
   ) { 
     this.formLogin = fb.group({
+      displayName: ["", [Validators.required]],
       email: ["", [Validators.required, Validators.email]],
       senha: ["", [Validators.required]]
     })

@@ -45,7 +45,6 @@ export class CarrosselComponent implements OnInit, OnDestroy {
   listarFilmes(): void {
     this.filmesService.listarFilmesNosCinemas().subscribe(lista => {
       lista.results.map((filme: FilmeLista) => {
-        console.log(lista)
         if(filme.overview != ''){
           this.listaFilmes.push(filme)   
             this.imagens.push('https://image.tmdb.org/t/p/original/' + filme.backdrop_path)

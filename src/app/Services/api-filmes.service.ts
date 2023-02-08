@@ -33,7 +33,7 @@ export class ApiFilmesService {
   }
 
   listarFilmesNosCinemas() {
-    return this.http.get<Results>(this.baseURL + 'now_playing?' + this.apiKey + '&page=1')
+    return this.http.get<Results>(this.baseURL + 'now_playing?' + this.apiKey + '&page=1&region=BR')
   }
 
   filtrarFilmes(nomeFilme: string) {
