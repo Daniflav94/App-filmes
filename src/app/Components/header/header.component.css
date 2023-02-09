@@ -137,6 +137,12 @@ button{
     cursor: pointer;
 }
 
+::ng-deep .mat-menu-content{
+    width: 280px;
+    height: 180px;
+
+}
+
 .titulo-menu{
     text-align: center;
     color: aliceblue;
@@ -146,7 +152,9 @@ button{
 
 .menu{
     padding: 10px;
-    text-align: center;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 mat-divider{

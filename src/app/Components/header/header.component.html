@@ -32,21 +32,16 @@
                 </form>
             </li>            
             <li class="usuario">           
-                <p class="nome-usuario">Olá, <span>{{usuario[0].displayName || 'usuário' }}</span></p>
-                <button [matMenuTriggerFor]="menu"><img src="/assets/img/1000_F_477056624_XAKvgSV5jgHHDEOyoyBAuOuPBJYySzHR (2).jpg"></button>
+                <p class="nome-usuario">Olá, <span>{{usuario.displayName || 'usuário' }}</span></p>
+                <button [matMenuTriggerFor]="menu"><img [src]="usuario.photoURL"></button>
                 <mat-menu #menu="matMenu">
                     <p class="titulo-menu">Mudar avatar</p>
                     <mat-divider></mat-divider>
                     <div class="menu">
-                        <img [src]="avatar1" class="avatar">
-                        <img [src]="avatar2" class="avatar">
-                        <img [src]="avatar3" class="avatar">
-                        <img [src]="avatar4" class="avatar">
-                        <img [src]="avatar5" class="avatar">
-                        <img [src]="avatar6" class="avatar">
-                        <img [src]="avatar7" class="avatar">
-                        <img [src]="avatar8" class="avatar">
-                    </div>
+                        <div *ngFor="let avatar of avatares, index as i" (click)="mudarAvatar(avatar)">
+                            <img src="{{avatar}}" class="avatar">                        
+                        </div>
+                    </div>                   
                   </mat-menu>
             </li>
             <li>

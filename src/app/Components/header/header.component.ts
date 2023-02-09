@@ -37,14 +37,7 @@ export class HeaderComponent implements OnInit {
   filmeJaAdicionado: boolean = false
   filmeJaSalvo: boolean = false
   usuario!: any
-  avatar1: string = '/assets/img/1000_F_477056624_XAKvgSV5jgHHDEOyoyBAuOuPBJYySzHR (2).jpg'
-  avatar2: string = '/assets/img/1000_F_477056624_XAKvgSV5jgHHDEOyoyBAuOuPBJYySzHR (3).jpg'
-  avatar3: string = '/assets/img/1000_F_477056624_XAKvgSV5jgHHDEOyoyBAuOuPBJYySzHR (4).jpg'
-  avatar4: string = '/assets/img/1000_F_477056624_XAKvgSV5jgHHDEOyoyBAuOuPBJYySzHR (5).jpg'
-  avatar5: string = '/assets/img/1000_F_477056624_XAKvgSV5jgHHDEOyoyBAuOuPBJYySzHR (6).jpg'
-  avatar6: string = '/assets/img/1000_F_477056624_XAKvgSV5jgHHDEOyoyBAuOuPBJYySzHR (7).jpg'
-  avatar7: string = '/assets/img/1000_F_477056624_XAKvgSV5jgHHDEOyoyBAuOuPBJYySzHR (8).jpg'
-  avatar8: string = '/assets/img/1000_F_477056624_XAKvgSV5jgHHDEOyoyBAuOuPBJYySzHR (9).jpg'
+  avatares: string[] = ['/assets/img/1000_F_477056624_XAKvgSV5jgHHDEOyoyBAuOuPBJYySzHR (2).jpg','/assets/img/1000_F_477056624_XAKvgSV5jgHHDEOyoyBAuOuPBJYySzHR (3).jpg', '/assets/img/1000_F_477056624_XAKvgSV5jgHHDEOyoyBAuOuPBJYySzHR (4).jpg', '/assets/img/1000_F_477056624_XAKvgSV5jgHHDEOyoyBAuOuPBJYySzHR (5).jpg', '/assets/img/1000_F_477056624_XAKvgSV5jgHHDEOyoyBAuOuPBJYySzHR (6).jpg', '/assets/img/1000_F_477056624_XAKvgSV5jgHHDEOyoyBAuOuPBJYySzHR (7).jpg', '/assets/img/1000_F_477056624_XAKvgSV5jgHHDEOyoyBAuOuPBJYySzHR (8).jpg', '/assets/img/1000_F_477056624_XAKvgSV5jgHHDEOyoyBAuOuPBJYySzHR (9).jpg']
 
   pesquisar(pesquisa: string) {
     this.filmeService.filtrarFilmes(pesquisa).subscribe(
@@ -145,10 +138,14 @@ export class HeaderComponent implements OnInit {
 
   public getUser(): void {
     this.authService.listarUsuarios().subscribe(resposta => {
-      this.usuario = resposta
-
-      console.log(resposta)
+      this.usuario = resposta[0]
+     
     })
+  }
+
+  public mudarAvatar(avatar: string): void {
+    this.usuario.photoURL = avatar
+    this.authService.editarUsuario(this.usuario).subscribe()
   }
 
   public logout(): void {

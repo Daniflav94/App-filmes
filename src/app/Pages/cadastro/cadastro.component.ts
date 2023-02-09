@@ -33,6 +33,7 @@ export class CadastroComponent implements OnInit {
   cadastrar():void{
     if(this.formLogin.valid){
       const user: User = this.formLogin.value
+      user.photoURL = '/assets/img/1000_F_477056624_XAKvgSV5jgHHDEOyoyBAuOuPBJYySzHR (2).jpg'
       this.authService.criarUsuarioEmaileSenha(user).subscribe(resposta => {
         this.notification.showmessage("Cadastro realizado!")
         this.router.navigate(["/login"])
