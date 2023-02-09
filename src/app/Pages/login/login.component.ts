@@ -11,7 +11,7 @@ import { NotificationService } from 'src/app/Services/notificacao.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  
   public formLogin: FormGroup;
 
   constructor(
@@ -31,13 +31,27 @@ export class LoginComponent implements OnInit {
   }
 
   public entrar(): void{
+    let usuario: any
     if(this.formLogin.valid){
       const credenciais: User = this.formLogin.value
       this.authService.autenticarPorEmaileSenha(credenciais).subscribe(resposta => {
         this.router.navigate(["/filmes"])  
         let usuario = resposta.user
         console.log(usuario)
-        localStorage.setItem("uidUser", usuario.uid)     
+        localStorage.setItem("uidUser", usuario.uid)
+       
+        this.authService.listarUsuarios().subscribe(resposta => {
+          this.authService.getCurrentUser().subscribe(resp => {
+            resposta.map((user: User) => {
+              if(resp?.email == user.email){
+                localStorage.setItem("user", usuario)
+                usuario.displayName = user.displayName
+                usuario.photoURL = user.photoURL
+                usuario.uid = user.uid
+              }
+            })        
+          })     
+        })     
       })
     }
     else{
@@ -46,10 +60,24 @@ export class LoginComponent implements OnInit {
   }
 
   public entrarComGoogle(): void{
+    let usuario: any
     this.authService.autenticarPeloGoogle().subscribe(resposta => {
       this.router.navigate(["/filmes"])
       const usuario = resposta.user
       localStorage.setItem("uidUser", usuario.uid)
+        this.authService.listarUsuarios().subscribe(resposta => {
+          this.authService.getCurrentUser().subscribe(resp => {
+            resposta.map((user: User) => {
+              if(resp?.email == user.email){
+                localStorage.setItem("user-photo", user.photoURL as string)
+                localStorage.setItem("user-name", user.displayName as string)
+                usuario.displayName = user.displayName
+                usuario.photoURL = user.photoURL
+                usuario.uid = user.uid
+              }
+            })        
+          })     
+        })     
     })
   }
 

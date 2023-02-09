@@ -12,7 +12,7 @@
                 <div class="cards">
                     <div class="card-filme" *ngFor="let filme of listaFavoritos | slice: lowValue : highValue">
                         <a [routerLink]="'/filmes/' + filme.id"><img
-                                [src]="'https://image.tmdb.org/t/p/original/' + filme.poster_path" class="poster"></a>
+                                [src]="'https://image.tmdb.org/t/p/original/' + filme.poster_path" class="poster" loading="lazy"></a>
                         <div class="conteudo-card">
                             <div class="header">
                                 <div class="titulo-filme">

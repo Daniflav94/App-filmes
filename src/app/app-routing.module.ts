@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HeaderComponent } from './Components/header/header.component';
 import { AuthGuard } from './Guards/auth.guard';
 import { TestarNumeroGuard } from './Guards/testar-numero.guard';
 import { CadastroComponent } from './Pages/cadastro/cadastro.component';
@@ -43,6 +44,10 @@ const rotas: Routes = [
 {
   path: 'cadastro',
   component: CadastroComponent,
+},
+{
+  path: 'header',
+  component: HeaderComponent,
 }
 
 ];

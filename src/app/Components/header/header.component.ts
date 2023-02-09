@@ -27,12 +27,14 @@ export class HeaderComponent implements OnInit {
     private router: Router
   ) { }
   
-  usuario: Usuario = {
+  /* usuario: any = {
     displayName: '',
     photoURL: '',
-    uid: '',
-    email: ''
-  }
+  } */
+
+  usuarioPhoto: any = localStorage.getItem('user-photo')
+  usuarioName: any = localStorage.getItem('user-name')
+  usuario: any
 
   ngOnInit(): void {
     this.getUser()
@@ -147,24 +149,23 @@ export class HeaderComponent implements OnInit {
   }
 
   public getUser(): void {
-  
     this.authService.listarUsuarios().subscribe(resposta => {
       this.authService.getCurrentUser().subscribe(resp => {
         resposta.map((user: User) => {
           if(resp?.email == user.email){
             this.usuario.displayName = user.displayName
             this.usuario.photoURL = user.photoURL
+            this.usuario.uid = user.uid
+            localStorage.setItem("user", this.usuario)
           }
         })        
       })     
     })
   }
 
- 
-
-
   public mudarAvatar(avatar: string): void {
-    this.usuario.photoURL = avatar
+    this.usuarioPhoto = avatar
+    localStorage.setItem("user-photo", this.usuarioPhoto)
     this.authService.editarUsuario(this.usuario).subscribe()
   }
 

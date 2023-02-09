@@ -88,7 +88,6 @@ export class AuthService {
   }
 
   public listarUsuarios(): Observable<any> {
-    const uidUser = localStorage.getItem('uidUser')
     const promise = this.firestore.collection('users').get()
     return from(promise).pipe(
       map(resposta => {
@@ -128,8 +127,9 @@ export class AuthService {
   public editarUsuario(user: any){
     const promise = this.firestore.collection('users').doc(user.uid).update(user)
     return from(promise).pipe(
-      catchError(() => {
+      catchError((error) => {
         this.notification.showmessage("Erro ao editar.")
+        console.error(error)
         return EMPTY;
       })
       )

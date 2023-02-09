@@ -2,12 +2,12 @@
     <nav>
         <ul>
             <li>
-                <a [routerLink]="'/filmes'" (click)="limparPesquisa()">
+                <a routerLink="/filmes" (click)="limparPesquisa()">
                     <img src="../assets/pipoca.png" width="50px">
                 </a>
             </li>           
             <li>
-                <a [routerLink]="'/favoritos'" (click)="limparPesquisa()">
+                <a routerLink="/favoritos" (click)="limparPesquisa()">
                     <button class="favoritos">
                         <img src="../assets/coracaoVazio.png" width="20px">
                         <p>Favoritos</p>
@@ -15,7 +15,7 @@
                 </a>
             </li>
             <li>
-                <a [routerLink]="'/salvos'" (click)="limparPesquisa()">
+                <a routerLink="/salvos" (click)="limparPesquisa()">
                     <button class="salvos">
                         <img src="../assets/salvar-amarelo.png" width="18px">
                         <p>Assistir depois</p>
@@ -32,8 +32,8 @@
                 </form>
             </li>            
             <li class="usuario">           
-                <p class="nome-usuario">Olá, <span>{{usuario.displayName}}</span></p>
-                <button [matMenuTriggerFor]="menu"><img [src]="usuario? usuario.photoURL : '/assets/img/1000_F_477056624_XAKvgSV5jgHHDEOyoyBAuOuPBJYySzHR (2).jpg'"  ></button>
+                <p class="nome-usuario">{{usuarioName}}</p>
+                <button [matMenuTriggerFor]="menu"><img [src]="usuarioPhoto" loading="eager"></button>
                 <mat-menu #menu="matMenu">
                     <p class="titulo-menu">Mudar avatar</p>
                     <mat-divider></mat-divider>

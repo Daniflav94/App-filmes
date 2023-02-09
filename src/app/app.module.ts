@@ -20,6 +20,7 @@ import { CadastroComponent } from './Pages/cadastro/cadastro.component';
 import { ListaAssistirDepoisComponent } from './Pages/lista-assistir-depois/lista-assistir-depois.component';
 import { CarrosselComponent } from './Components/carrossel/carrossel.component';
 import { ResenhaPipe } from './Pipes/resenha.pipe';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { ResenhaPipe } from './Pipes/resenha.pipe';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    LazyLoadImageModule
   ],
   providers: [],
   bootstrap: [AppComponent]
