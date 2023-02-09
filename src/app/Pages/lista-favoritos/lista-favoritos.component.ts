@@ -36,7 +36,6 @@ export class ListaFavoritosComponent implements OnInit {
     this.favoritosService.listarFavoritos().subscribe(
       (filmes) => {
         this.listaFavoritos = filmes
-        console.log(this.listaFavoritos)
       }
     )
   }

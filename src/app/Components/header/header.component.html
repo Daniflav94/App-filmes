@@ -32,8 +32,8 @@
                 </form>
             </li>            
             <li class="usuario">           
-                <p class="nome-usuario">Olá, <span>{{usuario.displayName || 'usuário' }}</span></p>
-                <button [matMenuTriggerFor]="menu"><img [src]="usuario.photoURL"></button>
+                <p class="nome-usuario">Olá, <span>{{usuario.displayName}}</span></p>
+                <button [matMenuTriggerFor]="menu"><img [src]="usuario? usuario.photoURL : '/assets/img/1000_F_477056624_XAKvgSV5jgHHDEOyoyBAuOuPBJYySzHR (2).jpg'"  ></button>
                 <mat-menu #menu="matMenu">
                     <p class="titulo-menu">Mudar avatar</p>
                     <mat-divider></mat-divider>
@@ -54,6 +54,7 @@
 
     </nav>
 </header>
+
 
 <main class="container" *ngIf="pesquisa">
     <section>

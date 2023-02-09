@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { mergeMap } from 'rxjs';
 import { FilmeLista } from 'src/app/Interfaces/FilmeLista';
 import { Results } from 'src/app/Interfaces/Results';
 import { User } from 'src/app/Interfaces/user';
+import { Usuario } from 'src/app/Interfaces/usuario';
 import { ApiFilmesService } from 'src/app/Services/api-filmes.service';
 import { AuthService } from 'src/app/Services/auth.service';
 import { FavoritosService } from 'src/app/Services/favoritos.service';
@@ -24,9 +26,17 @@ export class HeaderComponent implements OnInit {
     private authService: AuthService,
     private router: Router
   ) { }
+  
+  usuario: Usuario = {
+    displayName: '',
+    photoURL: '',
+    uid: '',
+    email: ''
+  }
 
   ngOnInit(): void {
     this.getUser()
+
   }
 
   listaPesquisa!: Results
@@ -36,7 +46,7 @@ export class HeaderComponent implements OnInit {
   nomeFilme: string = ''
   filmeJaAdicionado: boolean = false
   filmeJaSalvo: boolean = false
-  usuario!: any
+  
   avatares: string[] = ['/assets/img/1000_F_477056624_XAKvgSV5jgHHDEOyoyBAuOuPBJYySzHR (2).jpg','/assets/img/1000_F_477056624_XAKvgSV5jgHHDEOyoyBAuOuPBJYySzHR (3).jpg', '/assets/img/1000_F_477056624_XAKvgSV5jgHHDEOyoyBAuOuPBJYySzHR (4).jpg', '/assets/img/1000_F_477056624_XAKvgSV5jgHHDEOyoyBAuOuPBJYySzHR (5).jpg', '/assets/img/1000_F_477056624_XAKvgSV5jgHHDEOyoyBAuOuPBJYySzHR (6).jpg', '/assets/img/1000_F_477056624_XAKvgSV5jgHHDEOyoyBAuOuPBJYySzHR (7).jpg', '/assets/img/1000_F_477056624_XAKvgSV5jgHHDEOyoyBAuOuPBJYySzHR (8).jpg', '/assets/img/1000_F_477056624_XAKvgSV5jgHHDEOyoyBAuOuPBJYySzHR (9).jpg']
 
   pesquisar(pesquisa: string) {
@@ -137,11 +147,21 @@ export class HeaderComponent implements OnInit {
   }
 
   public getUser(): void {
+  
     this.authService.listarUsuarios().subscribe(resposta => {
-      this.usuario = resposta[0]
-     
+      this.authService.getCurrentUser().subscribe(resp => {
+        resposta.map((user: User) => {
+          if(resp?.email == user.email){
+            this.usuario.displayName = user.displayName
+            this.usuario.photoURL = user.photoURL
+          }
+        })        
+      })     
     })
   }
+
+ 
+
 
   public mudarAvatar(avatar: string): void {
     this.usuario.photoURL = avatar

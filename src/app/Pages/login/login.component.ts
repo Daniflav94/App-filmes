@@ -33,12 +33,11 @@ export class LoginComponent implements OnInit {
   public entrar(): void{
     if(this.formLogin.valid){
       const credenciais: User = this.formLogin.value
-      localStorage.getItem('token')
       this.authService.autenticarPorEmaileSenha(credenciais).subscribe(resposta => {
-        const usuario = resposta.user
-        console.log(usuario)
-        localStorage.setItem("uidUser", usuario.uid)
         this.router.navigate(["/filmes"])  
+        let usuario = resposta.user
+        console.log(usuario)
+        localStorage.setItem("uidUser", usuario.uid)     
       })
     }
     else{

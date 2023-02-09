@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { catchError, EMPTY, from, map, Observable } from 'rxjs';
+import { catchError, EMPTY, from, map, Observable, tap } from 'rxjs';
 import { GoogleAuthProvider, getAuth, updateProfile } from 'firebase/auth';
 import { NotificationService } from './notificacao.service';
 import { User } from '../Interfaces/user';
@@ -8,6 +8,7 @@ import { ApiFilmesService } from './api-filmes.service';
 import { Token } from '../Interfaces/token';
 import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Usuario } from '../Interfaces/usuario';
 
 
 
@@ -24,9 +25,6 @@ export class AuthService {
     private router: Router
   ) { }
 
-  token: Token = {
-    request_token: ''
-  }
 
   public autenticarPeloGoogle(): Observable<any> {
     const provider = new GoogleAuthProvider()
@@ -75,7 +73,7 @@ export class AuthService {
     )
   }
 
-  public salvarUsuario(usuario: any): Observable<any> {
+  public salvarUsuario(usuario: Usuario): Observable<any> {
     const promise = this.firestore.collection('users').add({
       uidUser:localStorage.getItem('uidUser'),
         ...usuario
@@ -91,7 +89,7 @@ export class AuthService {
 
   public listarUsuarios(): Observable<any> {
     const uidUser = localStorage.getItem('uidUser')
-    const promise = this.firestore.collection('users',ref => ref.where('uidUser', '==', uidUser)).get()
+    const promise = this.firestore.collection('users').get()
     return from(promise).pipe(
       map(resposta => {
         return resposta.docs.map(doc => {
@@ -103,6 +101,21 @@ export class AuthService {
       catchError(error => {
         console.error(error)
         this.notification.showmessage("Erro ao listar usuários")
+        return EMPTY
+      })
+    )
+  }
+
+  public getUser(uid: string): Observable<any>{
+    const promise = this.firestore.collection('users').doc(uid).get()
+    return from(promise).pipe(
+      map(doc => {
+        const user: User = doc.data() as User
+        return user
+      }),
+      catchError(error => {
+        this.notification.showmessage("Erro ao buscar dados de usuário")
+        console.error(error)
         return EMPTY
       })
     )
@@ -123,7 +136,18 @@ export class AuthService {
   }
 
   public autenticarPorEmaileSenha(user: User): Observable<any> {
-    const { email, senha } = user;
+    const auth = getAuth();
+    const user2 = auth.currentUser;
+    if(user2 != null){
+      const usuario= {
+        displayName: user.displayName,
+        email: user.email,
+        photoURL: user.photoURL,
+        uidUser: user2.uid
+      }
+      this.editarUsuario(usuario)
+    }  
+    const { email, senha, displayName } = user;
     const promise = this.firebaseAuth.signInWithEmailAndPassword(email, senha)
 
     /*  console.log(this.token)
@@ -158,8 +182,8 @@ export class AuthService {
 
   }
 
-  public criarUsuarioEmaileSenha(user: User): Observable<any> {
-    const { email, senha, displayName } = user;
+  public criarUsuarioEmaileSenha(user: any): Observable<any> {
+    const { email, senha } = user;
     this.salvarUsuario(user)
 
     const promise = this.firebaseAuth.createUserWithEmailAndPassword(email, senha)
