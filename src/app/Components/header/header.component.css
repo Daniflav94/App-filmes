@@ -110,20 +110,22 @@ input:focus{
 .nome-usuario{
     color: rgb(239, 239, 239);
     font-weight: 500;
+    font-size: 14px;
 }
 
 .usuario img{
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    margin-left: 20px;
+    margin-left: 15px;
     object-fit: cover;
     cursor: pointer;
 }
 
-.usuario button{
+button{
     background-color: transparent;
     border: none;
+    cursor: pointer;
 }
 
 .avatar{
@@ -144,6 +146,12 @@ input:focus{
 
 .menu{
     padding: 10px;
+    text-align: center;
+}
+
+mat-divider{
+    background-color: rgb(69, 69, 69);
+    margin: 10px 0;
 }
 
 

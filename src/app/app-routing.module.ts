@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './Guards/auth.guard';
 import { TestarNumeroGuard } from './Guards/testar-numero.guard';
 import { CadastroComponent } from './Pages/cadastro/cadastro.component';
 import { FilmeComponent } from './Pages/filme/filme.component';
@@ -28,14 +29,16 @@ const rotas: Routes = [
 {
   path: 'favoritos',
   component: ListaFavoritosComponent,
+  canActivate: [AuthGuard]
 },
 {
   path: 'salvos',
   component: ListaAssistirDepoisComponent,
+  canActivate: [AuthGuard]
 },
 {
   path: 'login',
-  component: LoginComponent,
+  component: LoginComponent
 },
 {
   path: 'cadastro',

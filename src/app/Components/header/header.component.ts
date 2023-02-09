@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FilmeLista } from 'src/app/Interfaces/FilmeLista';
 import { Results } from 'src/app/Interfaces/Results';
 import { User } from 'src/app/Interfaces/user';
@@ -20,7 +21,8 @@ export class HeaderComponent implements OnInit {
     private favoritosService: FavoritosService,
     private notificacao: NotificationService,
     private salvosService: SalvosService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -35,8 +37,16 @@ export class HeaderComponent implements OnInit {
   filmeJaAdicionado: boolean = false
   filmeJaSalvo: boolean = false
   usuario!: any
+  avatar1: string = '/assets/img/1000_F_477056624_XAKvgSV5jgHHDEOyoyBAuOuPBJYySzHR (2).jpg'
+  avatar2: string = '/assets/img/1000_F_477056624_XAKvgSV5jgHHDEOyoyBAuOuPBJYySzHR (3).jpg'
+  avatar3: string = '/assets/img/1000_F_477056624_XAKvgSV5jgHHDEOyoyBAuOuPBJYySzHR (4).jpg'
+  avatar4: string = '/assets/img/1000_F_477056624_XAKvgSV5jgHHDEOyoyBAuOuPBJYySzHR (5).jpg'
+  avatar5: string = '/assets/img/1000_F_477056624_XAKvgSV5jgHHDEOyoyBAuOuPBJYySzHR (6).jpg'
+  avatar6: string = '/assets/img/1000_F_477056624_XAKvgSV5jgHHDEOyoyBAuOuPBJYySzHR (7).jpg'
+  avatar7: string = '/assets/img/1000_F_477056624_XAKvgSV5jgHHDEOyoyBAuOuPBJYySzHR (8).jpg'
+  avatar8: string = '/assets/img/1000_F_477056624_XAKvgSV5jgHHDEOyoyBAuOuPBJYySzHR (9).jpg'
 
-  pesquisar(pesquisa: string){
+  pesquisar(pesquisa: string) {
     this.filmeService.filtrarFilmes(pesquisa).subscribe(
       (filmes) => {
         this.listaPesquisa = filmes
@@ -47,7 +57,7 @@ export class HeaderComponent implements OnInit {
     )
   }
 
-  limparPesquisa(){
+  limparPesquisa() {
     this.listaPesquisa.results = []
     this.pesquisa = false
     this.nomeFilme = ''
@@ -134,13 +144,19 @@ export class HeaderComponent implements OnInit {
   }
 
   public getUser(): void {
-    this.authService.getCurrentUser().subscribe(resposta => {
-      if(resposta != null){
-        this.usuario = resposta
-      }
-      
-  console.log(resposta)
+    this.authService.listarUsuarios().subscribe(resposta => {
+      this.usuario = resposta
+
+      console.log(resposta)
     })
+  }
+
+  public logout(): void {
+    this.authService.logout().subscribe(() => {
+      this.notificacao.showmessage("Até logo!")
+      this.router.navigate(["/login"])
+    }
+    )
   }
 
 }

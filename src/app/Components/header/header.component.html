@@ -32,15 +32,28 @@
                 </form>
             </li>            
             <li class="usuario">           
-                <p class="nome-usuario">Olá, <span>{{usuario?.displayName || 'usuário' }}</span></p>
+                <p class="nome-usuario">Olá, <span>{{usuario[0].displayName || 'usuário' }}</span></p>
                 <button [matMenuTriggerFor]="menu"><img src="/assets/img/1000_F_477056624_XAKvgSV5jgHHDEOyoyBAuOuPBJYySzHR (2).jpg"></button>
                 <mat-menu #menu="matMenu">
                     <p class="titulo-menu">Mudar avatar</p>
+                    <mat-divider></mat-divider>
                     <div class="menu">
-                        <img src="../../../assets/img/1000_F_477056624_XAKvgSV5jgHHDEOyoyBAuOuPBJYySzHR (3).jpg" class="avatar">
-                        <img src="../../../assets/img/1000_F_477056624_XAKvgSV5jgHHDEOyoyBAuOuPBJYySzHR (2).jpg" class="avatar">
+                        <img [src]="avatar1" class="avatar">
+                        <img [src]="avatar2" class="avatar">
+                        <img [src]="avatar3" class="avatar">
+                        <img [src]="avatar4" class="avatar">
+                        <img [src]="avatar5" class="avatar">
+                        <img [src]="avatar6" class="avatar">
+                        <img [src]="avatar7" class="avatar">
+                        <img [src]="avatar8" class="avatar">
                     </div>
                   </mat-menu>
+            </li>
+            <li>
+                <button (click)="logout()">
+                    <img src="/assets/sair.png" width="25px" matTooltip="Sair"
+                matTooltipPosition="right">
+                </button>
             </li>
         </ul>
 

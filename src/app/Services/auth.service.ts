@@ -76,7 +76,10 @@ export class AuthService {
   }
 
   public salvarUsuario(usuario: any): Observable<any> {
-    const promise = this.firestore.collection('users').add(usuario)
+    const promise = this.firestore.collection('users').add({
+      uidUser:localStorage.getItem('uidUser'),
+        ...usuario
+    })
     return from(promise).pipe(
       catchError(error => {
         console.error(error)
@@ -87,7 +90,8 @@ export class AuthService {
   }
 
   public listarUsuarios(): Observable<any> {
-    const promise = this.firestore.collection('users').get()
+    const uidUser = localStorage.getItem('uidUser')
+    const promise = this.firestore.collection('users',ref => ref.where('uidUser', '==', uidUser)).get()
     return from(promise).pipe(
       map(resposta => {
         return resposta.docs.map(doc => {
@@ -108,7 +112,7 @@ export class AuthService {
     return from(this.firebaseAuth.currentUser)
   }
 
-  public editarUsuario(user: User){
+  public editarUsuario(user: any){
     const promise = this.firestore.collection('users').doc(user.uid).update(user)
     return from(promise).pipe(
       catchError(() => {
