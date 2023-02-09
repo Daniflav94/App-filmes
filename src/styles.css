@@ -26,3 +26,7 @@ body {
 .mat-select-value{
     color: aliceblue;
 }
+
+.mat-menu-panel{
+    background-color: var(--gray2);
+}

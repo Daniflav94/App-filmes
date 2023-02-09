@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FilmeLista } from 'src/app/Interfaces/FilmeLista';
 import { Results } from 'src/app/Interfaces/Results';
+import { User } from 'src/app/Interfaces/user';
 import { ApiFilmesService } from 'src/app/Services/api-filmes.service';
+import { AuthService } from 'src/app/Services/auth.service';
 import { FavoritosService } from 'src/app/Services/favoritos.service';
 import { NotificationService } from 'src/app/Services/notificacao.service';
 import { SalvosService } from 'src/app/Services/salvos.service';
@@ -17,10 +19,12 @@ export class HeaderComponent implements OnInit {
     private filmeService: ApiFilmesService,
     private favoritosService: FavoritosService,
     private notificacao: NotificationService,
-    private salvosService: SalvosService
+    private salvosService: SalvosService,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
+    this.getUser()
   }
 
   listaPesquisa!: Results
@@ -30,6 +34,7 @@ export class HeaderComponent implements OnInit {
   nomeFilme: string = ''
   filmeJaAdicionado: boolean = false
   filmeJaSalvo: boolean = false
+  usuario!: any
 
   pesquisar(pesquisa: string){
     this.filmeService.filtrarFilmes(pesquisa).subscribe(
@@ -126,6 +131,16 @@ export class HeaderComponent implements OnInit {
 
         }
       })
+  }
+
+  public getUser(): void {
+    this.authService.getCurrentUser().subscribe(resposta => {
+      if(resposta != null){
+        this.usuario = resposta
+      }
+      
+  console.log(resposta)
+    })
   }
 
 }

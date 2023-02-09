@@ -19,6 +19,7 @@ import { HeaderComponent } from './Components/header/header.component';
 import { CadastroComponent } from './Pages/cadastro/cadastro.component';
 import { ListaAssistirDepoisComponent } from './Pages/lista-assistir-depois/lista-assistir-depois.component';
 import { CarrosselComponent } from './Components/carrossel/carrossel.component';
+import { ResenhaPipe } from './Pipes/resenha.pipe';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { CarrosselComponent } from './Components/carrossel/carrossel.component';
     HeaderComponent,
     CadastroComponent,
     ListaAssistirDepoisComponent,
-    CarrosselComponent
+    CarrosselComponent,
+    ResenhaPipe
 
   ],
   imports: [

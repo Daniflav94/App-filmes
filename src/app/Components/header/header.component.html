@@ -1,18 +1,11 @@
 <header>
     <nav>
         <ul>
-            <a [routerLink]="'/filmes'" (click)="limparPesquisa()">
-                <img src="../assets/pipoca.png" width="50px">
-            </a>
             <li>
-                <form (ngSubmit)="pesquisar(nomeFilme)">
-                    <input type="text" placeholder="Buscar por Filme" [(ngModel)]="nomeFilme" name="nomeFilme">
-                    <button type="submit" class="botao-pesquisa">
-                        <mat-icon>search</mat-icon>
-                    </button>
-
-                </form>
-            </li>
+                <a [routerLink]="'/filmes'" (click)="limparPesquisa()">
+                    <img src="../assets/pipoca.png" width="50px">
+                </a>
+            </li>           
             <li>
                 <a [routerLink]="'/favoritos'" (click)="limparPesquisa()">
                     <button class="favoritos">
@@ -20,7 +13,6 @@
                         <p>Favoritos</p>
                     </button>
                 </a>
-
             </li>
             <li>
                 <a [routerLink]="'/salvos'" (click)="limparPesquisa()">
@@ -29,7 +21,26 @@
                         <p>Assistir depois</p>
                     </button>
                 </a>
+            </li>
+            <li class="pesquisa">
+                <form (ngSubmit)="pesquisar(nomeFilme)">
+                    <input type="text" placeholder="Buscar por Filme" [(ngModel)]="nomeFilme" name="nomeFilme">
+                    <button type="submit" class="botao-pesquisa">
+                        <mat-icon>search</mat-icon>
+                    </button>
 
+                </form>
+            </li>            
+            <li class="usuario">           
+                <p class="nome-usuario">Olá, <span>{{usuario?.displayName || 'usuário' }}</span></p>
+                <button [matMenuTriggerFor]="menu"><img src="/assets/img/1000_F_477056624_XAKvgSV5jgHHDEOyoyBAuOuPBJYySzHR (2).jpg"></button>
+                <mat-menu #menu="matMenu">
+                    <p class="titulo-menu">Mudar avatar</p>
+                    <div class="menu">
+                        <img src="../../../assets/img/1000_F_477056624_XAKvgSV5jgHHDEOyoyBAuOuPBJYySzHR (3).jpg" class="avatar">
+                        <img src="../../../assets/img/1000_F_477056624_XAKvgSV5jgHHDEOyoyBAuOuPBJYySzHR (2).jpg" class="avatar">
+                    </div>
+                  </mat-menu>
             </li>
         </ul>
 

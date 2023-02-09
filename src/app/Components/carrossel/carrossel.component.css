@@ -12,6 +12,7 @@
     gap: 10px;
     justify-content: center;
     margin-top: 8px;
+    z-index: 2;
   }
   
   .botoes-controle button {
@@ -34,13 +35,14 @@
   }
 
   .texto{
-    height: 160px;
+    height: 135px;
     width: 100%;
     position: relative;
-    top: 68%;
-    padding: 20px 0 20px 50px;
+    top: 73%;
+    padding: 20px 0 0 50px;
     background-color: rgba(0, 0, 0, 0.335); 
     box-sizing: border-box;
+    z-index: 1;
   }
 
   .titulo{
@@ -51,7 +53,7 @@
   }
 
   .resenha{
-    width: 90%;
+    width: 95%;
     height: 80px;
     overflow: hidden !important;
     text-overflow: ellipsis;

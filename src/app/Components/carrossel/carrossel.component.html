@@ -1,9 +1,9 @@
-<a [routerLink]="'/filmes/' + listaFilmes[indexImagemAtiva].id"><div class="item"[style.backgroundImage]="
+<a [routerLink]="'/filmes/' + listaFilmes[indexImagemAtiva].id" class="item"><div class="item"[style.backgroundImage]="
 'url(' + imagens[indexImagemAtiva] + ')'
 " >
 <div class="texto">
     <div class="titulo">{{listaFilmes[indexImagemAtiva].title}}</div>
-    <div class="resenha">{{listaFilmes[indexImagemAtiva].overview}}</div>
+    <div class="resenha">{{listaFilmes[indexImagemAtiva].overview | resenha}}</div>
 </div>    
 
 </div></a>

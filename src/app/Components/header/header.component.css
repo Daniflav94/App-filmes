@@ -6,13 +6,12 @@ header{
     width: 100vw;
     height: 50px;
     z-index: 3;
-
 }
 
 nav{
     height: 70px;
     width: 100vw;
-    background-color: rgb(40, 40, 40);
+    background-color: var(--gray2);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -28,12 +27,13 @@ li{
     display: flex;
     align-items: center;
     list-style: none; 
+    margin-right: 2em;
 }
 
 .favoritos{
    color: rgb(255, 255, 255);
    font-weight: bold;
-   background-color: rgb(40, 40, 40);
+   background-color: var(--gray2);
    display: flex;
    border: none;
    border-radius: 5px;
@@ -56,7 +56,7 @@ a{
 .salvos{
     color: rgb(255, 255, 255);
     font-weight: bold;
-    background-color: rgb(40, 40, 40);
+    background-color: var(--gray2);
     display: flex;
     border: none;
     border-radius: 5px;
@@ -76,8 +76,8 @@ a{
      color: var(--yellow);
  }
 
-input{
-    width: 600px;
+.pesquisa input{
+    width: 450px;
     background-color: black;
     border: none;
     border-radius: 15px;
@@ -87,7 +87,6 @@ input{
 }
 
 form{
-    margin: 0 100px;
     display: flex;
     align-items: center;
 }
@@ -97,11 +96,56 @@ form{
     border: none;
     color: aliceblue;
     cursor: pointer;
+    margin-left: 10px;
 }
 
 input:focus{
     outline: 1px solid rgb(255, 233, 154);
 }
+
+.usuario{
+    display: flex;
+}
+
+.nome-usuario{
+    color: rgb(239, 239, 239);
+    font-weight: 500;
+}
+
+.usuario img{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    margin-left: 20px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.usuario button{
+    background-color: transparent;
+    border: none;
+}
+
+.avatar{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    margin-left: 10px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.titulo-menu{
+    text-align: center;
+    color: aliceblue;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.menu{
+    padding: 10px;
+}
+
 
 /*LISTA DE FILMES PESQUISA*/
 

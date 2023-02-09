@@ -86,8 +86,6 @@ export class AuthService {
     )
   }
 
-
-
   public listarUsuarios(): Observable<any> {
     const promise = this.firestore.collection('users').get()
     return from(promise).pipe(
@@ -106,6 +104,19 @@ export class AuthService {
     )
   }
 
+  public getCurrentUser() {
+    return from(this.firebaseAuth.currentUser)
+  }
+
+  public editarUsuario(user: User){
+    const promise = this.firestore.collection('users').doc(user.uid).update(user)
+    return from(promise).pipe(
+      catchError(() => {
+        this.notification.showmessage("Erro ao editar.")
+        return EMPTY;
+      })
+      )
+  }
 
   public autenticarPorEmaileSenha(user: User): Observable<any> {
     const { email, senha } = user;

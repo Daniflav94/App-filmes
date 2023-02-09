@@ -202,7 +202,7 @@ export class ListaFilmesComponent implements OnInit {
   }
 
   public listarFilmes(): void {
-    for (let index = 0; index < 2; index++) {
+    for (let index = 1; index < 2; index++) {
       this.filmesService.discoverMovies(index).subscribe((lista) => {
         this.listaFilmes = lista
 
