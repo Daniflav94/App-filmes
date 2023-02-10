@@ -106,9 +106,6 @@ input{
 @media only screen and (max-device-width: 900px) {
     .login-form{
         width: 90%;
-        background-color: transparent;
-        backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
-    border: 1px solid whitesmoke;
+        
     }
 }
