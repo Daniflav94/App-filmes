@@ -110,7 +110,7 @@
                                 <div class="avaliacao-e-favoritar">
                                     <div class="avaliacao">
                                         <img src="/assets/estrela.png" class="icone-estrela">
-                                        <p>{{filme.vote_average}}</p>
+                                        <p>{{filme.vote_average | number}}</p>
                                     </div>
                                     <div *ngIf="filme.isFavorite == undefined"><img src="/assets/coracaoVazio.png"
                                             width="23px" class="icone-coracao" (click)="favoritar(filme)"></div>
@@ -140,7 +140,7 @@
                                 <div class="avaliacao-e-favoritar">
                                     <div class="avaliacao">
                                         <img src="/assets/estrela.png" class="icone-estrela">
-                                        <p>{{ filme.vote_average }}</p>
+                                        <p>{{ filme.vote_average  | number}}</p>
                                     </div>
                                     <div *ngIf="filme.isFavorite == undefined || filme.isFavorite == false"><img
                                             src="/assets/coracaoVazio.png" width="23px" class="icone-coracao"
@@ -178,7 +178,7 @@
                                 <div class="avaliacao-e-favoritar">
                                     <div class="avaliacao">
                                         <img src="/assets/estrela.png" class="icone-estrela">
-                                        <p>{{filme.vote_average}}</p>
+                                        <p>{{filme.vote_average | number}}</p>
                                     </div>
                                     <div *ngIf="filme.isFavorite == undefined"><img src="/assets/coracaoVazio.png"
                                             width="23px" class="icone-coracao" (click)="favoritar(filme)"></div>

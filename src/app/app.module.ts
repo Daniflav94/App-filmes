@@ -22,6 +22,7 @@ import { CarrosselComponent } from './Components/carrossel/carrossel.component';
 import { ResenhaPipe } from './Pipes/resenha.pipe';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { IgxCarouselModule } from 'igniteui-angular';
+import { NumberPipe } from './Pipes/number.pipe';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { IgxCarouselModule } from 'igniteui-angular';
     CadastroComponent,
     ListaAssistirDepoisComponent,
     CarrosselComponent,
-    ResenhaPipe
+    ResenhaPipe,
+    NumberPipe
 
   ],
   imports: [

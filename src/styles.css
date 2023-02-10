@@ -25,6 +25,10 @@ body {
     color: var(--yellow) !important;
 }
 
+.warning{
+    background-color: var(--blue3);
+}
+
 .mat-select-value{
     color: aliceblue;
 }

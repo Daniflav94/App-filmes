@@ -1,11 +1,11 @@
 <header>
-    <nav>
+    <nav class="desktop mat-elevation-z4">
         <ul>
             <li>
                 <a routerLink="/filmes" (click)="limparPesquisa()">
                     <img src="../assets/pipoca.png" width="50px">
                 </a>
-            </li>           
+            </li>
             <li>
                 <a routerLink="/favoritos" (click)="limparPesquisa()">
                     <button class="favoritos">
@@ -30,28 +30,59 @@
                     </button>
 
                 </form>
-            </li>            
-            <li class="usuario">           
-                <p class="nome-usuario">{{usuarioName}}</p>
+            </li>
+            <li class="usuario">
+                <p class="nome-usuario">Olá, {{usuarioName}}</p>
                 <button [matMenuTriggerFor]="menu"><img [src]="usuarioPhoto" loading="eager"></button>
                 <mat-menu #menu="matMenu">
                     <p class="titulo-menu">Mudar avatar</p>
                     <mat-divider></mat-divider>
                     <div class="menu">
                         <div *ngFor="let avatar of avatares, index as i" (click)="mudarAvatar(avatar)">
-                            <img src="{{avatar}}" class="avatar">                        
+                            <img src="{{avatar}}" class="avatar">
                         </div>
-                    </div>                   
-                  </mat-menu>
+                    </div>
+                </mat-menu>
             </li>
             <li>
                 <button (click)="logout()">
-                    <img src="/assets/sair.png" width="25px" matTooltip="Sair"
-                matTooltipPosition="right">
+                    <img src="/assets/sair.png" width="25px" matTooltip="Sair" matTooltipPosition="right">
                 </button>
             </li>
         </ul>
 
+    </nav>
+
+    <nav class="mobile mat-elevation-z4">
+        <ul>
+            <li>
+                <a routerLink="/filmes" (click)="limparPesquisa()">
+                    <img src="../assets/pipoca.png" width="35px">
+                </a>
+            </li>
+            <li class="pesquisa-mobile">
+                <form (ngSubmit)="pesquisar(nomeFilme)">
+                    <input type="text" placeholder="Buscar por Filme" [(ngModel)]="nomeFilme" name="nomeFilme">
+                    <button type="submit" class="botao-pesquisa">
+                        <mat-icon>search</mat-icon>
+                    </button>
+
+                </form>
+            </li>
+            <li>
+                <button [matMenuTriggerFor]="menuPrincipal"><img src="/assets/menu-aberto.png" width="28px"></button>
+            </li>
+            <mat-menu #menuPrincipal="matMenu" class="menu">
+                <a mat-menu-item routerLink="/favoritos">Favoritos</a>
+                <a mat-menu-item routerLink="/salvos">Assistir depois</a>
+                <a mat-menu-item id="logout" (click)="logout()">Sair
+                    <button (click)="logout()">
+                        <img src="/assets/sair.png" width="15px">
+                    </button>
+                </a>
+
+            </mat-menu>
+        </ul>
     </nav>
 </header>
 
@@ -68,7 +99,7 @@
                 <div class="avaliacao-e-favoritar">
                     <div class="avaliacao">
                         <img src="/assets/estrela.png" class="icone-estrela">
-                        <p>{{filme.vote_average}}</p>
+                        <p >{{filme.vote_average | number}}</p>
                     </div>
                     <div *ngIf="filme.isFavorite == undefined"><img src="/assets/coracaoVazio.png" width="23px"
                             class="icone-coracao" (click)="favoritar(filme)"></div>

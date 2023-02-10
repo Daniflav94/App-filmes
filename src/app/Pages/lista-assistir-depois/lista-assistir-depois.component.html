@@ -40,7 +40,7 @@
                         <div>
                             <div class="avaliacao">
                                 <img src="/assets/estrela.png" width="15px" height="15px" class="icone-estrela">
-                                <p>{{filme.vote_average}}</p>
+                                <p>{{filme.vote_average | number}}</p>
                             </div>
                             <div class="informacoes">
                                 <p>{{filme.overview}}</p>
@@ -73,7 +73,7 @@
                         <div>
                             <div class="avaliacao">
                                 <img src="/assets/estrela.png" width="15px" height="15px" class="icone-estrela">
-                                <p>{{filme.vote_average}}</p>
+                                <p>{{filme.vote_average  | number}}</p>
                                 <button class="icone-estrela-azul" (click)="openDialog(filme)" matTooltip="Avaliar"
                                     matTooltipPosition="right">
                                     <div *ngIf="filme.voto == undefined"><img src="/assets/estrela-azul.png"
