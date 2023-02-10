@@ -7,6 +7,10 @@
     transition: all 0.5s ease-in-out;
   }
 
+  .item img{
+    opacity: 0.9;
+  }
+  
   .botoes-controle {
     display: flex;
     gap: 10px;
@@ -31,7 +35,7 @@
 
   a{
     text-decoration: none;
-    color: #ccc;
+    color: #d9d8d8;
   }
 
   .texto{
@@ -42,14 +46,15 @@
     padding: 20px 0 0 50px;
     background-color: rgba(0, 0, 0, 0.335); 
     box-sizing: border-box;
-    z-index: 1;
   }
+
 
   .titulo{
     font-size: 30px;
     font-weight: bold;
     text-align: start;
     margin-bottom: 10px;
+    z-index: 2;
   }
 
   .resenha{
@@ -59,5 +64,6 @@
     text-overflow: ellipsis;
     box-sizing: border-box;
     max-height: 8.5ch;
+    z-index: 2;
   }
   

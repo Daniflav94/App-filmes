@@ -23,6 +23,8 @@ export class ListaFilmesComponent implements OnInit {
 
   ) { }
 
+
+
   listaTopFilmes!: Results
   listaTopFilmesCompleta: FilmeLista[] = []
   listaPopulares!: Results
@@ -48,8 +50,13 @@ export class ListaFilmesComponent implements OnInit {
   inicio2 = 0
   final2 = 6
 
+  slidesContainer = document.getElementById("slides-container");
+  slide = document.querySelector(".slide");
+  prevButton = document.getElementById("slide-arrow-prev");
+  nextButton = document.getElementById("slide-arrow-next");
+
   lowValue: number = 0;
-  highValue: number = 12;
+  highValue: number = 18;
 
   ngOnInit(): void {
     this.session = localStorage.getItem('session')
@@ -250,6 +257,10 @@ export class ListaFilmesComponent implements OnInit {
     if (this.final < this.listaTopFilmes.results.length) {
       this.inicio += 6
       this.final += 6
+      const slideWidth = this.slide?.clientWidth
+      if(this.slidesContainer != null){
+        this.slidesContainer.scrollLeft += slideWidth as number;
+      }
     }
   }
 

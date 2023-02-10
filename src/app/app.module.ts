@@ -21,7 +21,7 @@ import { ListaAssistirDepoisComponent } from './Pages/lista-assistir-depois/list
 import { CarrosselComponent } from './Components/carrossel/carrossel.component';
 import { ResenhaPipe } from './Pipes/resenha.pipe';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
-
+import { IgxCarouselModule } from 'igniteui-angular';
 
 @NgModule({
   declarations: [
@@ -48,7 +48,8 @@ import { LazyLoadImageModule } from 'ng-lazyload-image';
     AngularFirestoreModule,
     AngularFireAuthModule,
     ReactiveFormsModule,
-    LazyLoadImageModule
+    LazyLoadImageModule,
+    IgxCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

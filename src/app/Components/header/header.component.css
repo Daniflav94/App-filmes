@@ -11,7 +11,7 @@ header{
 nav{
     height: 70px;
     width: 100vw;
-    background-color: var(--gray2);
+    background-color: var(--blue2);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -33,7 +33,7 @@ li{
 .favoritos{
    color: rgb(255, 255, 255);
    font-weight: bold;
-   background-color: var(--gray2);
+   background-color: var(--header);
    display: flex;
    border: none;
    border-radius: 5px;
@@ -49,14 +49,14 @@ a{
 
 .favoritos:hover{
     cursor: pointer;
-    background-color: var(--gray1);
+    background-color: var(--blue2);
     color: var(--yellow);
 }
 
 .salvos{
     color: rgb(255, 255, 255);
     font-weight: bold;
-    background-color: var(--gray2);
+    background-color: var(--header);
     display: flex;
     border: none;
     border-radius: 5px;
@@ -72,16 +72,16 @@ a{
  
  .salvos:hover{
      cursor: pointer;
-     background-color: var(--gray1);
+     background-color: var(--blue2);
      color: var(--yellow);
  }
 
 .pesquisa input{
     width: 450px;
-    background-color: black;
+    background-color: var(--blue3);
     border: none;
     border-radius: 15px;
-    color: rgb(209, 207, 207);
+    color: var(--font);
     height: 28px;
     padding: 0 30px;
 }
@@ -92,7 +92,7 @@ form{
 }
 
 .botao-pesquisa{
-    background-color: rgb(40, 40, 40);
+    background-color: var(--blue2);
     border: none;
     color: aliceblue;
     cursor: pointer;
@@ -158,7 +158,7 @@ button{
 }
 
 mat-divider{
-    background-color: rgb(69, 69, 69);
+    background-color: var(--blue3);
     margin: 10px 0;
 }
 
@@ -189,7 +189,7 @@ mat-divider{
 }
 
 .card-filme{
-    background-color: rgb(37, 37, 37);
+    background-color: var(--blue3);
     border: none;
     width: 180px;
     height: 400px;
@@ -251,7 +251,7 @@ mat-divider{
 }
 
 .assistir-mais-tarde{   
-    background-color: var(--gray1);
+    background-color: var(--blue2);
     color: var(--blue);
     font-weight: bold;
     font-size: 12px;
@@ -269,5 +269,5 @@ mat-divider{
 }
 
 .assistir-mais-tarde:hover{
-    background-color: rgb(61, 60, 60);
+    opacity: 0.8;
 }

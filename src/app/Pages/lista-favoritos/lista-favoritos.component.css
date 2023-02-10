@@ -6,7 +6,7 @@
 }
 
 h1 {
-    color: aliceblue;
+    color: whitesmoke;
     margin-top: 80px;
     text-align: center;
     width: 100%;
@@ -32,7 +32,7 @@ h1 {
     display: flex;
     align-items: center;
     margin-top: 30px;
-    color: aliceblue;
+    color: whitesmoke;
     margin-bottom: 30px;
 }
 
@@ -46,14 +46,14 @@ h1 {
 
 .card-filme {
     display: flex;
-    background-color: rgb(40, 40, 40);
+    background-color: var(--blue2);
     border: none;
     width: 850px;
     height: 160px;
     border-radius: 5px;
     box-sizing: border-box;
     margin-bottom: 20px;
-    color: aliceblue;
+    color: var(--font);
 }
 
 .poster {
@@ -87,7 +87,7 @@ h1 {
 
 .titulo-filme p {
     font-size: 15px;
-    color: rgb(225, 233, 240);
+    color: whitesmoke;
     font-weight: bold;
     margin-right: 10px;
 }
@@ -121,7 +121,7 @@ h1 {
     cursor: pointer;
     display: flex;
     justify-content: center;
-    background-color: var(--gray2);
+    background-color: transparent;
     border: none;
     border-radius: 4px;
     padding: 5px;
@@ -136,12 +136,12 @@ h1 {
 }
 
 .icone-estrela-azul:hover {
-    background-color: var(--gray1);
+    opacity: 0.8;
 }
 
 mat-paginator{
-    background-color: var(--black);
-    border: 1px solid var(--gray1);
+    background-color: transparent;
+    border: 1px solid #26405c;
     border-radius: 5px;
     color: aliceblue;
     width: 850px;

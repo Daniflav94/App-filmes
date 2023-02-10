@@ -55,7 +55,7 @@ button {
     color: rgb(197, 197, 197);
     font-size: 13px;
     font-weight: bold;
-    background-color: var(--gray1);
+    background-color: #25415e;
     padding: 10px 0;
     border: none;
     border-radius: 5px;
