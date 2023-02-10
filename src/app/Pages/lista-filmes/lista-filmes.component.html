@@ -18,11 +18,11 @@
                         <button *ngIf="verMaisMelhores" class="btn-acoes" (click)="voltarHome()">Voltar</button>
                     </section>
                     
-                    <section class="cards slider-wrapper" *ngIf="!verMaisMelhores && !verMaisPopulares">
-                        <button class="seta-esquerda" id="slide-arrow-prev" (click)="voltar()"><img src="/assets/seta-esquerda.png"
+                    <section class="carrossel" *ngIf="!verMaisMelhores && !verMaisPopulares">
+                        <div class="filmes">
+                            <button class="seta-esquerda"  (click)="voltar()"><img src="/assets/seta-esquerda.png"
                                 width="35px"></button>
-                                <div class="slides-container" id="slides-container">
-                                    <div class="card-filme slide" *ngFor="let filme of listaTopFilmes.results | slice: inicio:final">
+                                    <div class="card-filme" *ngFor="let filme of listaTopFilmes.results | slice: inicio:final">
                                         <a [routerLink]="'/filmes/' + filme.id"><img
                                                 [src]="'https://image.tmdb.org/t/p/original/' + filme.poster_path"
                                                 class="poster"></a>
@@ -46,11 +46,14 @@
                                                     Assistir depois</div>
                                             </button>
                                         </div>
-                                    </div>
                                 </div>
                         
                         <button *ngIf="this.final < this.listaTopFilmes.results.length" id="slide-arrow-next" class="seta-direita"
                             (click)="avancar()"><img src="/assets/seta-direita.png" width="35px"></button>
+                        
+                        </div>
+                            
+                        
                     </section>
                     <section class="cards" *ngIf="verMaisMelhores">
                         <div class="card-filme slide-left"
@@ -95,8 +98,9 @@
                         <button *ngIf="verMaisPopulares" class="btn-acoes" (click)="voltarHome()">Voltar</button>
                     </section>
 
-                    <section class="cards" *ngIf="!verMaisMelhores && !verMaisPopulares">
-                        <button class="seta-esquerda" (click)="voltar2()"><img src="/assets/seta-esquerda.png"
+                    <section class="carrossel" *ngIf="!verMaisMelhores && !verMaisPopulares">
+                        <div class="filmes">
+                            <button class="seta-esquerda" (click)="voltar2()"><img src="/assets/seta-esquerda.png"
                                 width="35px"></button>
                         <div class="card-filme" *ngFor="let filme of listaPopulares.results | slice: inicio2:final2">
                             <a [routerLink]="'/filmes/' + filme.id"><img
@@ -124,6 +128,7 @@
                         </div>
                         <button *ngIf="this.final2 < this.listaTopFilmes.results.length" class="seta-direita"
                             (click)="avancar2()"><img src="/assets/seta-direita.png" width="35px"></button>
+                        </div>
                     </section>
                     <section class="cards" *ngIf="verMaisPopulares">
                         <div class="card-filme"

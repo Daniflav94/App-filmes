@@ -7,6 +7,7 @@ import { ApiFilmesService } from 'src/app/Services/api-filmes.service';
 import { FavoritosService } from 'src/app/Services/favoritos.service';
 import { NotificationService } from 'src/app/Services/notificacao.service';
 import { SalvosService } from 'src/app/Services/salvos.service';
+import Swiper from 'swiper';
 
 @Component({
   selector: 'app-lista-filmes',
@@ -22,7 +23,6 @@ export class ListaFilmesComponent implements OnInit {
     private salvosService: SalvosService
 
   ) { }
-
 
 
   listaTopFilmes!: Results
@@ -46,9 +46,9 @@ export class ListaFilmesComponent implements OnInit {
   coracaoCheio: string = "../../../assets/coracaoCheio.png"
 
   inicio = 0
-  final = 6
+  final = 7
   inicio2 = 0
-  final2 = 6
+  final2 = 7
 
   slidesContainer = document.getElementById("slides-container");
   slide = document.querySelector(".slide");
@@ -247,9 +247,9 @@ export class ListaFilmesComponent implements OnInit {
 
 
   voltar() {
-    if (this.inicio != 0 && this.final != 6) {
-      this.inicio -= 6
-      this.final -= 6
+    if (this.inicio != 0 && this.final != 7) {
+      this.inicio -= 7
+      this.final -= 7
     }
   }
 
@@ -265,9 +265,9 @@ export class ListaFilmesComponent implements OnInit {
   }
 
   voltar2() {
-    if (this.inicio2 != 0 && this.final2 != 6) {
-      this.inicio2 -= 6
-      this.final2 -= 6
+    if (this.inicio2 != 0 && this.final2 != 7) {
+      this.inicio2 -= 7
+      this.final2 -= 7
     }
   }
 

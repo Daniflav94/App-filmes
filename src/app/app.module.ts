@@ -49,10 +49,11 @@ import { IgxCarouselModule } from 'igniteui-angular';
     AngularFireAuthModule,
     ReactiveFormsModule,
     LazyLoadImageModule,
-    IgxCarouselModule
+    IgxCarouselModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
 })
 export class AppModule { }
 

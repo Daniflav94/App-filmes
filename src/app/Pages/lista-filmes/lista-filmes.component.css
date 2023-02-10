@@ -46,7 +46,7 @@
     display: flex;
     max-width: 1300px;
     height: 80px;
-    justify-content: space-between;
+    justify-content: start;
     align-items: center;
     margin-top: 50px;
     margin-left: 100px; 
@@ -57,6 +57,7 @@
     color: var(--blue);
     cursor: pointer;
     border: none;
+    margin-left: 30px;
 }
 
 .btn-acoes:hover{
@@ -107,12 +108,11 @@
 .card-filme{
     background-color: var(--blue3);
     border: none;
-    width: 180px;
+    width: 180px!important;
     height: 400px;
     border-radius: 5px;
     box-sizing: border-box;
-    margin: 10px;
-    
+    margin: 8px;
 }
 
 .poster{
@@ -229,23 +229,23 @@ mat-paginator{
     margin-top: 20px;
 }
 
-.slider-wrapper {
-    margin: 1rem;
-    position: relative;
-    overflow: hidden;
-  }
+.carrossel{
+    width: 100vw;
+    height: 420px;
+    overflow-x: hidden;
+}
 
-  .slides-container {
-    width: 100%;
+.filmes{
     display: flex;
-    overflow: hidden;
     scroll-behavior: smooth;
-    list-style: none;
     margin: 0;
-    padding: 0;
-  }
-
-  
+    justify-content: center;
+}
 
 
-  
+
+
+
+
+
+
