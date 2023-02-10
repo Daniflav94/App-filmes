@@ -82,10 +82,12 @@ a {
   .texto {
     height: 60px;
     top: 70%;
+    padding: 17px 10px;
   }
   
   .titulo {
-    font-size: 19px;
+    font-size: 18px;
+    margin-left: 20px;
   }
   
   .resenha {
