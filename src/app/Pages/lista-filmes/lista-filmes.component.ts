@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { FilmeLista } from 'src/app/Interfaces/FilmeLista';
 import { Genre } from 'src/app/Interfaces/genre';
@@ -255,8 +255,8 @@ export class ListaFilmesComponent implements OnInit {
 
   avancar() {
     if (this.final < this.listaTopFilmes.results.length) {
-      this.inicio += 6
-      this.final += 6
+      this.inicio += 7
+      this.final += 7
       const slideWidth = this.slide?.clientWidth
       if(this.slidesContainer != null){
         this.slidesContainer.scrollLeft += slideWidth as number;
@@ -273,8 +273,8 @@ export class ListaFilmesComponent implements OnInit {
 
   avancar2() {
     if (this.final2 < this.listaTopFilmes.results.length) {
-      this.inicio2 += 6
-      this.final2 += 6
+      this.inicio2 += 7
+      this.final2 += 7
     }
   }
 
@@ -282,6 +282,20 @@ export class ListaFilmesComponent implements OnInit {
     this.lowValue = event.pageIndex * event.pageSize;
     this.highValue = this.lowValue + event.pageSize;
     return event;
+  }
+
+  public voltarAoTopo(): void{
+    window.scrollTo(0, 0)
+  }
+
+  @HostListener('window:scroll') onWindowScroll(): void{
+    const botao = document.querySelector(".btn-voltar")
+    if(window.scrollY  > 2.5){
+      botao?.classList.add("visible")
+      
+    }else {
+      botao?.classList.remove("visible")
+    }
   }
 
 }

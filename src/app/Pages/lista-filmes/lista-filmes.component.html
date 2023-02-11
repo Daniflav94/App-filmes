@@ -82,9 +82,9 @@
                             
                         
                     </section>
-                    <section class="cards" *ngIf="verMaisMelhores">
+                    <section class="cards lista-desktop" *ngIf="verMaisMelhores">
                         <div class="card-filme"
-                            *ngFor="let filme of listaTopFilmesCompleta">
+                            *ngFor="let filme of listaTopFilmesCompleta | slice: lowValue : highValue">
                             <a [routerLink]="'/filmes/' + filme.id"><img
                                     [src]="'https://image.tmdb.org/t/p/original/' + filme.poster_path"
                                     class="poster"></a>
@@ -112,6 +112,38 @@
                         <mat-paginator [length]="listaTopFilmesCompleta.length" [pageSizeOptions]="[18, 24, 48]"
                             aria-label="Select page" (page)="getPaginatorData($event)">
                         </mat-paginator>
+                    </section>
+
+                    <section class="cards lista-mobile"  *ngIf="verMaisMelhores">
+    
+                        <div class="card-filme" id="topo"
+                            *ngFor="let filme of listaTopFilmesCompleta">
+                            <a [routerLink]="'/filmes/' + filme.id"><img
+                                    [src]="'https://image.tmdb.org/t/p/original/' + filme.poster_path"
+                                    class="poster"></a>
+                            <div class="conteudo-card">
+                                <div class="avaliacao-e-favoritar">
+                                    <div class="avaliacao">
+                                        <img src="/assets/estrela.png" class="icone-estrela">
+                                        <p>{{ filme.vote_average }}</p>
+                                    </div>
+                                    <div *ngIf="filme.isFavorite == undefined || filme.isFavorite == false"><img
+                                            src="/assets/coracaoVazio.png" width="23px" class="icone-coracao"
+                                            (click)="favoritar(filme)"></div>
+                                    <div *ngIf="filme.isFavorite == true"><img src="/assets/coracaoCheio.png"
+                                            width="23px" class="icone-coracao"></div>
+                                </div>
+                                <p class="titulo-filme">{{ filme.title }}</p>
+                                <button class="assistir-mais-tarde" (click)="salvar(filme)">
+                                    <div *ngIf="filme.isSave == undefined"><img src="/assets/salvar.png" width="16px">
+                                        Assistir depois</div>
+                                    <div *ngIf="filme.isSave == true"><img src="/assets/salvar-cheio.png" width="16px">
+                                        Assistir depois</div>
+                                </button>
+                            </div>
+                        </div>
+                      
+                        <button (click)="voltarAoTopo()" class="btn-voltar"><img src="/assets/pra-cima.png" width="30px"></button>
                     </section>
 
                     <!--LISTA POPULARES-->
@@ -185,7 +217,7 @@
                         </div>
                         
                     </section>
-                    <section class="cards" *ngIf="verMaisPopulares">
+                    <section class="cards lista-desktop" *ngIf="verMaisPopulares">
                         <div class="card-filme"
                             *ngFor="let filme of listaPopularesCompleta | slice: lowValue : highValue">
                             <a [routerLink]="'/filmes/' + filme.id"><img
@@ -215,6 +247,36 @@
                         <mat-paginator [length]="listaPopularesCompleta.length" [pageSizeOptions]="[18, 24, 48]"
                             aria-label="Select page" (page)="getPaginatorData($event)">
                         </mat-paginator>
+                    </section>
+
+                    <section class="cards lista-mobile" *ngIf="verMaisPopulares">
+                        <div class="card-filme"
+                            *ngFor="let filme of listaPopularesCompleta ">
+                            <a [routerLink]="'/filmes/' + filme.id"><img
+                                    [src]="'https://image.tmdb.org/t/p/original/' + filme.poster_path"
+                                    class="poster"></a>
+                            <div class="conteudo-card">
+                                <div class="avaliacao-e-favoritar">
+                                    <div class="avaliacao">
+                                        <img src="/assets/estrela.png" class="icone-estrela">
+                                        <p>{{ filme.vote_average  | number}}</p>
+                                    </div>
+                                    <div *ngIf="filme.isFavorite == undefined || filme.isFavorite == false"><img
+                                            src="/assets/coracaoVazio.png" width="23px" class="icone-coracao"
+                                            (click)="favoritar(filme)"></div>
+                                    <div *ngIf="filme.isFavorite == true"><img src="/assets/coracaoCheio.png"
+                                            width="23px" class="icone-coracao"></div>
+                                </div>
+                                <p class="titulo-filme">{{ filme.title }}</p>
+                                <button class="assistir-mais-tarde" (click)="salvar(filme)">
+                                    <div *ngIf="filme.isSave == undefined"><img src="/assets/salvar.png" width="16px">
+                                        Assistir depois</div>
+                                    <div *ngIf="filme.isSave == true"><img src="/assets/salvar-cheio.png" width="16px">
+                                        Assistir depois</div>
+                                </button>
+                            </div>
+                        </div>
+                        <button (click)="voltarAoTopo()" class="btn-voltar"><img src="/assets/pra-cima.png" width="30px"></button>
                     </section>
                 </mat-tab>
                 <mat-tab label="Gêneros">

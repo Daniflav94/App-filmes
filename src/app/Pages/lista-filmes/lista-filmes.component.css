@@ -243,6 +243,11 @@ mat-paginator {
     justify-content: center;
 }
 
+.filmes-mobile, .lista-mobile{
+    display: none;
+}
+
+
 @media only screen and (max-device-width: 900px) {
     .titulo-lista {
         margin: 30px 0 20px 30px;
@@ -255,8 +260,26 @@ mat-paginator {
         width: 80%;
     }
 
-    .filmes-desktop {
+    .filmes-desktop, .lista-desktop {
         display: none;
+    }
+
+    .lista-mobile{
+        display: flex;
+    }
+
+    .btn-voltar{        
+        visibility: hidden;
+    }
+
+    .visible{
+        visibility: visible;
+        position: fixed;
+        bottom: 10px;
+        right: 0;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
     }
 
     .header-lista {
@@ -325,5 +348,10 @@ mat-paginator {
         justify-content: flex-start;
         overflow-x: scroll;
         -webkit-overflow-scrolling: touch;
+    }
+
+    mat-paginator {
+        width: 100%;
+        margin-top: 20px;
     }
 }
