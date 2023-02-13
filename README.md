@@ -13,6 +13,7 @@ Para acessar a aplicação, o usuário deve se cadastrar e fazer login ou fazer 
 Foram feitas diversas requisições para a API do The Movie DB para obter as listas de filmes e suas informações completas.
 
 Todas as páginas possuem uma navBar que exibe o nome do usuário logado e um avatar padrão que pode ser alterado. Também possui um input para pesquisar filmes pelo nome e as listas de favoritos e salvos para assistir depois do usuário. A página inicial renderiza listas de lançamentos, filmes com melhores avaliações e filmes mais populares. Possui uma aba de Gêneros que faz uma filtragem nos filmes pelo gênero que foi selecionado. Caso o usuário queira visualizar mais informações de um filme, é possível clicar no poster e será redirecionado para uma página com informações completas do filme desejado. Todos os cards dos filmes possuem botão de favoritar e salvar, as listas podem ser visualizadas clicando nos botões correspondentes na navbar. Caso o usuário queira, pode remover um filme salvo clicando no ícone de lixeira e também pode fazer sua própria avaliação do filme clicando na estrela azul. Na lista de assistir depois, há um botão de assistido que salva esse filme em outra lista, caso o usuário queira ver seu histórico de filmes assistidos.
+A aplicação está responsiva e pode ser acessada via mobile ou tablets.
 
 ### Tecnologias
 - Angular (front-end);
@@ -27,3 +28,8 @@ Todas as páginas possuem uma navBar que exibe o nome do usuário logado e um av
 <img src="https://user-images.githubusercontent.com/99519903/218524804-9bb41ded-9c42-49eb-9a2e-cd736cbce998.png" width="750" height="auto"/>
 <img src="https://user-images.githubusercontent.com/99519903/218525013-9f2f789d-62ec-4176-b834-a4466b64583f.png" width="750" height="auto"/>
 <img src="https://user-images.githubusercontent.com/99519903/218525209-d455cd54-f47c-45e0-a2a2-22e9963e18a4.png" width="750" height="auto"/>
+
+#### Versão mobile
+<img src="https://user-images.githubusercontent.com/99519903/218527740-beb9221e-2a8a-455b-9c82-44c2580d0e6f.png" width="750" height="auto"/>
+
+
