@@ -153,10 +153,8 @@ export class HeaderComponent implements OnInit {
       this.authService.getCurrentUser().subscribe(resp => {
         resposta.map((user: User) => {
           if(resp?.email == user.email){
-            this.usuario.displayName = user.displayName
-            this.usuario.photoURL = user.photoURL
-            this.usuario.uid = user.uid
-            localStorage.setItem("user", this.usuario)
+            this.usuarioName = user.displayName
+            this.usuarioPhoto = user.photoURL
           }
         })        
       })     

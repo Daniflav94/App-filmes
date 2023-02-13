@@ -136,17 +136,7 @@ export class AuthService {
   }
 
   public autenticarPorEmaileSenha(user: User): Observable<any> {
-    const auth = getAuth();
-    const user2 = auth.currentUser;
-    if(user2 != null){
-      const usuario= {
-        displayName: user.displayName,
-        email: user.email,
-        photoURL: user.photoURL,
-        uidUser: user2.uid
-      }
-      this.editarUsuario(usuario)
-    }  
+    
     const { email, senha, displayName } = user;
     const promise = this.firebaseAuth.signInWithEmailAndPassword(email, senha)
 
@@ -199,6 +189,8 @@ export class AuthService {
   public logout() {
     const promise = this.firebaseAuth.signOut()
     localStorage.removeItem('uidUser');
+    localStorage.removeItem('user-name');
+    localStorage.removeItem('user-photo');
     return from(promise)
   }
 

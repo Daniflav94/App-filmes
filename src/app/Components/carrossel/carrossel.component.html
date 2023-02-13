@@ -1,15 +1,17 @@
-<a [routerLink]="'/filmes/' + listaFilmes[indexImagemAtiva].id" class="item"><div class="item"[style.backgroundImage]="
+<a [routerLink]="'/filmes/' + listaFilmes[indexImagemAtiva].id" class="item">
+    <div class="item" [style.backgroundImage]="
 'url(' + imagens[indexImagemAtiva] + ')'
 " loading="lazy">
-<div class="texto">
-    <div class="titulo">{{listaFilmes[indexImagemAtiva].title}}</div>
-    <div class="resenha">{{listaFilmes[indexImagemAtiva].overview | resenha}}</div>
-</div>    
+        <div class="texto">
+            <div class="titulo">{{listaFilmes[indexImagemAtiva].title}}</div>
+            <div class="resenha">{{listaFilmes[indexImagemAtiva].overview | resenha}}</div>
+        </div>
 
-</div></a>
+    </div>
+</a>
 <div class="botoes-controle">
-    <button
-      *ngFor="let imagem of imagens; index as i"
-      [class.ativo]="i === indexImagemAtiva"
-      (click)="pararTimer(); ativarImagem(i)"></button>
-  </div>
+    <button *ngFor="let imagem of imagens; index as i" [class.ativo]="i === indexImagemAtiva"
+        (click)="pararTimer(); ativarImagem(i)"></button>
+</div>
+
+<img *ngFor="let imagem of imagens" [src]="imagem" width="1" height="1" style="opacity: 0; position: fixed" />

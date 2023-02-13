@@ -31,7 +31,6 @@ export class LoginComponent implements OnInit {
   }
 
   public entrar(): void{
-    let usuario: any
     if(this.formLogin.valid){
       const credenciais: User = this.formLogin.value
       this.authService.autenticarPorEmaileSenha(credenciais).subscribe(resposta => {
@@ -43,11 +42,9 @@ export class LoginComponent implements OnInit {
         this.authService.listarUsuarios().subscribe(resposta => {
           this.authService.getCurrentUser().subscribe(resp => {
             resposta.map((user: User) => {
-              if(resp?.email == user.email){
-                localStorage.setItem("user", usuario)
-                usuario.displayName = user.displayName
-                usuario.photoURL = user.photoURL
-                usuario.uid = user.uid
+              if(resp?.email == user.email){               
+                localStorage.setItem("user-name", user.displayName as string)
+                localStorage.setItem("user-photo", user.photoURL as string)
               }
             })        
           })     
