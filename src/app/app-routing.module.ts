@@ -20,12 +20,13 @@ const rotas: Routes = [
 },
 {
     path: 'filmes',
-    component: ListaFilmesComponent
+    component: ListaFilmesComponent,
+    canActivate: [AuthGuard]
 },
 {
     path: 'filmes/:idFilme',
     component: FilmeComponent,
-    canActivate: [TestarNumeroGuard]
+    canActivate: [TestarNumeroGuard, AuthGuard]
 },
 {
   path: 'favoritos',

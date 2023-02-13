@@ -62,7 +62,7 @@ export class ListaAssistirDepoisComponent implements OnInit {
         this.notificacao.showmessage("Filme excluído da sua lista de favoritos!")
         const index = this.listaAssistirDepois.indexOf(filme)
       this.listaAssistirDepois.splice(index, 1)
-        this.listarFilmes()
+        
       }
     )
   }
