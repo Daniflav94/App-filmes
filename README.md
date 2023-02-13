@@ -21,15 +21,18 @@ A aplicação está responsiva e pode ser acessada via mobile ou tablets.
 
 ### Imagens
 
-<img src="https://user-images.githubusercontent.com/99519903/218526292-6efe3d38-53af-4461-9ad1-97667f66608f.png" width="750" height="auto"/>
-<img src="https://user-images.githubusercontent.com/99519903/218523948-d794789a-2927-4f33-b287-e7b1fd81b5af.png" width="750" height="auto"/>
-<img src="https://user-images.githubusercontent.com/99519903/218522058-0e208b38-d6c3-49b7-9285-5b10cd9bfb9d.png" width="750" height="auto"/>
-<img src="https://user-images.githubusercontent.com/99519903/218524582-a2c9ff05-a002-4fbe-9607-a54da9d746a4.png" width="750" height="auto"/>
-<img src="https://user-images.githubusercontent.com/99519903/218524804-9bb41ded-9c42-49eb-9a2e-cd736cbce998.png" width="750" height="auto"/>
-<img src="https://user-images.githubusercontent.com/99519903/218525013-9f2f789d-62ec-4176-b834-a4466b64583f.png" width="750" height="auto"/>
-<img src="https://user-images.githubusercontent.com/99519903/218525209-d455cd54-f47c-45e0-a2a2-22e9963e18a4.png" width="750" height="auto"/>
+<img src="https://user-images.githubusercontent.com/99519903/218526292-6efe3d38-53af-4461-9ad1-97667f66608f.png" width="700" height="auto"/>
+<img src="https://user-images.githubusercontent.com/99519903/218531583-46757a9a-964b-4b9e-af01-37563750307d.png" width="700" height="auto"/>
+<img src="https://user-images.githubusercontent.com/99519903/218523948-d794789a-2927-4f33-b287-e7b1fd81b5af.png" width="700" height="auto"/>
+<img src="https://user-images.githubusercontent.com/99519903/218522058-0e208b38-d6c3-49b7-9285-5b10cd9bfb9d.png" width="700" height="auto"/>
+<img src="https://user-images.githubusercontent.com/99519903/218524582-a2c9ff05-a002-4fbe-9607-a54da9d746a4.png" width="700" height="auto"/>
+<img src="https://user-images.githubusercontent.com/99519903/218524804-9bb41ded-9c42-49eb-9a2e-cd736cbce998.png" width="700" height="auto"/>
+<img src="https://user-images.githubusercontent.com/99519903/218525013-9f2f789d-62ec-4176-b834-a4466b64583f.png" width="700" height="auto"/>
+<img src="https://user-images.githubusercontent.com/99519903/218525209-d455cd54-f47c-45e0-a2a2-22e9963e18a4.png" width="700" height="auto"/>
 
 #### Versão mobile
-<img src="https://user-images.githubusercontent.com/99519903/218527740-beb9221e-2a8a-455b-9c82-44c2580d0e6f.png" width="750" height="auto"/>
+
+<img src="https://user-images.githubusercontent.com/99519903/218531202-87da94ec-3dd3-47da-9f65-b9f6ed6777cb.png" width="750" height="auto"/>
+
 
 
