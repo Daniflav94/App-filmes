@@ -1,28 +1,26 @@
-# TmdbFilmes
+# Filmes
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.7.
+Aplicação web que consome a API do The Movie DB.
 
-## Development server
+Link deploy: https://api-filmes-1c278.web.app
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Objetivo
+Criar uma aplicação de filmes personalizável, onde o usuário pode se cadastrar e fazer login, salvar filmes, avaliar, favoritar e fazer pesquisas.
 
-## Code scaffolding
+### Descrição
+Para acessar a aplicação, o usuário deve se cadastrar e fazer login ou fazer a autenticação pelo Google, devido ao guard de autenticação não será possível acessar sem se autenticar. Quando é feita a autenticação se for o primeiro login do usuário ele será salvo no banco de dados.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Foram feitas diversas requisições para a API do The Movie DB para obter as listas de filmes e suas informações completas.
 
-## Build
+Todas as páginas possuem uma navBar que exibe o nome do usuário logado e um avatar padrão que pode ser alterado. Também possui um input para pesquisar filmes pelo nome e as listas de favoritos e salvos para assistir depois do usuário. A página inicial renderiza listas de lançamentos, filmes com melhores avaliações e filmes mais populares. Possui uma aba de Gêneros que faz uma filtragem nos filmes pelo gênero que foi selecionado. Caso o usuário queira visualizar mais informações de um filme, é possível clicar no poster e será redirecionado para uma página com informações completas do filme desejado. Todos os cards dos filmes possuem botão de favoritar e salvar, as listas podem ser visualizadas clicando nos botões correspondentes na navbar. Caso o usuário queira, pode remover um filme salvo clicando no ícone de lixeira e também pode fazer sua própria avaliação do filme clicando na estrela azul. Na lista de assistir depois, há um botão de assistido que salva esse filme em outra lista, caso o usuário queira ver seu histórico de filmes assistidos.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Tecnologias
+- Angular (front-end);
+- Firebase (back-end).
 
-## Running unit tests
+### Imagens
+![APP Filmes](https://user-images.githubusercontent.com/99519903/218520369-6ead5e33-b13d-46e1-83e4-0ced73fad3bd.png)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-# API-filmes
