@@ -306,7 +306,7 @@ mat-paginator {
         background-color: var(--blue3);
         border: none;
         width: 164px;
-        height: 350px;
+        height: 320px;
         border-radius: 5px;
         box-sizing: border-box;
         margin: 5px;
@@ -351,7 +351,16 @@ mat-paginator {
     }
 
     mat-paginator {
-        width: 100%;
-        margin-top: 20px;
+        visibility: hidden;
     }
+
+    .generos {
+        width: 80%;
+        margin: 50px 50px 0 50px;
+    }
+
+    .carrossel {
+        height: auto;
+    }
+    
 }

@@ -152,13 +152,13 @@ img {
 
     .container {
         align-items: flex-start;
-        width: 100%;
+        width: 100vw;
     }
 
     .fundo-poster {
         object-fit: contain;
         left: 0;
-        top: 30px;
+        top: 50px;
         width: 100%;
         height: auto;
         opacity: 0.7;
@@ -176,7 +176,7 @@ img {
 
     .titulo {
         position: relative;
-        font-size: 23px;
+        font-size: 22px;
         margin-bottom: 25px;
         width: 80%;
 
@@ -201,6 +201,7 @@ img {
         margin-bottom: 15px;
         font-size: 13px;
         flex-direction: column;
+        line-height: 20px;
     }
 
     .separador {
@@ -229,7 +230,7 @@ img {
 
     .atores {
         display: flex;
-        justify-content: center;
+        justify-content: start;
         color: white;
         width: 90%;
         height: auto;
@@ -273,11 +274,12 @@ img {
     .onde-assistir {
         display: flex;
         flex-direction: row;
+        justify-content: start;
         color: aliceblue;
         padding: 20px;
         overflow-x: scroll;
         -webkit-overflow-scrolling: touch;
-        width: 100%;
+        width: 90%;
     }
 
     .logos {
@@ -286,6 +288,10 @@ img {
         height: 50px;
         margin-right: 8px;
         object-fit: cover;
+    }
+
+    div{
+        width: 100%;
     }
 
 }

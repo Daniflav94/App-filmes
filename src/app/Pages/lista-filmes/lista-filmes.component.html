@@ -286,7 +286,7 @@
                                 (click)="filtrarGenero(genero.id)">{{genero.name}}</p>
                         </div>
                     </div>
-                    <div class="cards">
+                    <div class="cards lista-desktop">
                         <div class="card-filme" *ngFor="let filme of filtrados | slice: lowValue : highValue">
                             <a [routerLink]="'/filmes/' + filme.id"><img
                                     [src]="'https://image.tmdb.org/t/p/original/' + filme.poster_path"
@@ -315,6 +315,33 @@
                     <mat-paginator *ngIf="filtrados.length > 0" [length]="filtrados.length" [pageSizeOptions]="[18, 24, 48]"
                         aria-label="Select page" (page)="getPaginatorData($event)">
                     </mat-paginator>
+                    <div class="cards lista-mobile">
+                        <div class="card-filme" *ngFor="let filme of filtrados">
+                            <a [routerLink]="'/filmes/' + filme.id"><img
+                                    [src]="'https://image.tmdb.org/t/p/original/' + filme.poster_path"
+                                    class="poster"></a>
+                            <div class="conteudo-card">
+                                <div class="avaliacao-e-favoritar">
+                                    <div class="avaliacao">
+                                        <img src="/assets/estrela.png" class="icone-estrela">
+                                        <p>{{filme.vote_average | number}}</p>
+                                    </div>
+                                    <div *ngIf="filme.isFavorite == undefined"><img src="/assets/coracaoVazio.png"
+                                            width="23px" class="icone-coracao" (click)="favoritar(filme)"></div>
+                                    <div *ngIf="filme.isFavorite == true"><img src="/assets/coracaoCheio.png"
+                                            width="23px" class="icone-coracao"></div>
+                                </div>
+                                <p class="titulo-filme">{{ filme.title }}</p>
+                                <button class="assistir-mais-tarde" (click)="salvar(filme)">
+                                    <div *ngIf="filme.isSave == undefined"><img src="/assets/salvar.png" width="16px">
+                                        Assistir depois</div>
+                                    <div *ngIf="filme.isSave == true"><img src="/assets/salvar-cheio.png" width="16px">
+                                        Assistir depois</div>
+                                </button>
+                                <button (click)="voltarAoTopo()" class="btn-voltar"><img src="/assets/pra-cima.png" width="30px"></button>
+                            </div>
+                        </div>
+                    </div>
 
                 </mat-tab>
             </mat-tab-group>
