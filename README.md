@@ -1,4 +1,4 @@
-# Filmes
+# APP-Filmes
 
 Aplicação web que consome a API do The Movie DB.
 
@@ -20,7 +20,8 @@ Todas as páginas possuem uma navBar que exibe o nome do usuário logado e um av
 
 ### Imagens
 ![APP Filmes](https://user-images.githubusercontent.com/99519903/218520369-6ead5e33-b13d-46e1-83e4-0ced73fad3bd.png)
-
+![APP Filmes(2)](https://user-images.githubusercontent.com/99519903/218523948-d794789a-2927-4f33-b287-e7b1fd81b5af.png)
+![APP Filmes(1)](https://user-images.githubusercontent.com/99519903/218522058-0e208b38-d6c3-49b7-9285-5b10cd9bfb9d.png)
 
 
 
