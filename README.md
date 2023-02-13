@@ -19,10 +19,11 @@ Todas as páginas possuem uma navBar que exibe o nome do usuário logado e um av
 - Firebase (back-end).
 
 ### Imagens
-<img src="https://user-images.githubusercontent.com/99519903/218520369-6ead5e33-b13d-46e1-83e4-0ced73fad3bd.png" width="550" height="auto"/>
-<img src="https://user-images.githubusercontent.com/99519903/218523948-d794789a-2927-4f33-b287-e7b1fd81b5af.png" width="550" height="auto"/>
-<img src="https://user-images.githubusercontent.com/99519903/218522058-0e208b38-d6c3-49b7-9285-5b10cd9bfb9d.png" width="550" height="auto"/>
-<img src="https://user-images.githubusercontent.com/99519903/218524582-a2c9ff05-a002-4fbe-9607-a54da9d746a4.png" width="550" height="auto"/>
-<img src="https://user-images.githubusercontent.com/99519903/218524804-9bb41ded-9c42-49eb-9a2e-cd736cbce998.png" width="550" height="auto"/>
-<img src="https://user-images.githubusercontent.com/99519903/218525013-9f2f789d-62ec-4176-b834-a4466b64583f.png" width="550" height="auto"/>
-<img src="https://user-images.githubusercontent.com/99519903/218525209-d455cd54-f47c-45e0-a2a2-22e9963e18a4.png" width="550" height="auto"/>
+
+<img src="https://user-images.githubusercontent.com/99519903/218526292-6efe3d38-53af-4461-9ad1-97667f66608f.png" width="750" height="auto"/>
+<img src="https://user-images.githubusercontent.com/99519903/218523948-d794789a-2927-4f33-b287-e7b1fd81b5af.png" width="750" height="auto"/>
+<img src="https://user-images.githubusercontent.com/99519903/218522058-0e208b38-d6c3-49b7-9285-5b10cd9bfb9d.png" width="750" height="auto"/>
+<img src="https://user-images.githubusercontent.com/99519903/218524582-a2c9ff05-a002-4fbe-9607-a54da9d746a4.png" width="750" height="auto"/>
+<img src="https://user-images.githubusercontent.com/99519903/218524804-9bb41ded-9c42-49eb-9a2e-cd736cbce998.png" width="750" height="auto"/>
+<img src="https://user-images.githubusercontent.com/99519903/218525013-9f2f789d-62ec-4176-b834-a4466b64583f.png" width="750" height="auto"/>
+<img src="https://user-images.githubusercontent.com/99519903/218525209-d455cd54-f47c-45e0-a2a2-22e9963e18a4.png" width="750" height="auto"/>
