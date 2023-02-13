@@ -30,7 +30,7 @@ A aplicação está responsiva e pode ser acessada via mobile ou tablets.
 <img src="https://user-images.githubusercontent.com/99519903/218525013-9f2f789d-62ec-4176-b834-a4466b64583f.png" width="700" height="auto"/>
 <img src="https://user-images.githubusercontent.com/99519903/218525209-d455cd54-f47c-45e0-a2a2-22e9963e18a4.png" width="700" height="auto"/>
 
-#### Versão mobile
+### **Versão mobile
 
 <img src="https://user-images.githubusercontent.com/99519903/218531202-87da94ec-3dd3-47da-9f65-b9f6ed6777cb.png" width="750" height="auto"/>
 
