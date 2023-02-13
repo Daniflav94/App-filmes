@@ -155,6 +155,7 @@ export class HeaderComponent implements OnInit {
           if(resp?.email == user.email){
             this.usuarioName = user.displayName
             this.usuarioPhoto = user.photoURL
+            this.usuario = user
           }
         })        
       })     

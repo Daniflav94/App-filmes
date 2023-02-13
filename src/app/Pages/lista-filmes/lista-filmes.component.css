@@ -108,22 +108,21 @@
 .card-filme {
     background-color: var(--blue3);
     border: none;
-    width: 180px;
-    height: 400px;
+    width: 170px;
+    height: 350px;
     border-radius: 5px;
     box-sizing: border-box;
     margin: 8px;
-
 }
 
 .poster {
     width: 100%;
-    height: 65%;
+    height: 72%;
     border-radius: 5px 5px 0 0;
 }
 
 .conteudo-card {
-    height: 35%;
+    height: 25%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -132,7 +131,7 @@
 .avaliacao {
     display: flex;
     width: 90%;
-    height: 20px;
+    height: auto;
     align-items: center;
     color: var(--font);
     font-size: 15px;
@@ -147,7 +146,7 @@
     align-items: center;
     justify-content: space-between;
     width: 90%;
-    height: 50px;
+    height: auto;
     padding: 0 10px;
     margin-top: 5px;
 }
@@ -178,7 +177,7 @@
     border: none;
     border-radius: 5px;
     padding: 8px;
-    margin: 10px;
+    margin: 0 8px 8px 8px;
     cursor: pointer;
 }
 
