@@ -164,7 +164,9 @@ export class HeaderComponent implements OnInit {
 
   public mudarAvatar(avatar: string): void {
     this.usuarioPhoto = avatar
-    localStorage.setItem("user-photo", this.usuarioPhoto)
+    this.usuario.photoURL = avatar
+    localStorage.removeItem('user-photo');
+    localStorage.setItem("user-photo", avatar)
     this.authService.editarUsuario(this.usuario).subscribe()
   }
 
