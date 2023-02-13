@@ -2,7 +2,7 @@
 
 Aplicação web que consome a API do The Movie DB.
 
-Link deploy: https://api-filmes-1c278.web.app
+Link deploy: https://api-filmes-1c278.web.app/login
 
 ### Objetivo
 Criar uma aplicação de filmes personalizável, onde o usuário pode se cadastrar e fazer login, salvar filmes, avaliar, favoritar e fazer pesquisas.
