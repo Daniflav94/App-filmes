@@ -31,7 +31,7 @@ export class ListaFavoritosComponent implements OnInit {
   ngOnInit(): void {
     this.listarFavoritos()
   }
-  
+
   private listarFavoritos(): void{
     this.favoritosService.listarFavoritos().subscribe(
       (filmes) => {
@@ -59,8 +59,8 @@ export class ListaFavoritosComponent implements OnInit {
 
   public openDialog(filme: FilmeLista) {
     this.dialog.open(DialogVotoComponent, {
-      width: "500px",
-      height: "280px",
+      width: "520px",
+      height: "320px",
       data: filme
     })
   }

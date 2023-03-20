@@ -42,7 +42,7 @@ export class ListaAssistirDepoisComponent implements OnInit {
         if(filme.assistido == true){
           this.listaAssistidos.push(filme)
         }else{
-          this.listaAssistirDepois.push(filme)         
+          this.listaAssistirDepois.push(filme)
         }
       });
     })
@@ -62,7 +62,7 @@ export class ListaAssistirDepoisComponent implements OnInit {
         this.notificacao.showmessage("Filme excluído da sua lista de favoritos!")
         const index = this.listaAssistirDepois.indexOf(filme)
       this.listaAssistirDepois.splice(index, 1)
-        
+
       }
     )
   }
@@ -73,18 +73,18 @@ export class ListaAssistirDepoisComponent implements OnInit {
 
   public openDialog(filme: FilmeLista) {
     this.dialog.open(DialogVotoComponent, {
-      width: "500px",
-      height: "280px",
+      width: "520px",
+      height: "320px",
       data: filme
     })
   }
 
   public favoritar(filmeFavorito: FilmeLista): void {
     filmeFavorito.isFavorite = true
-    
+
       this.favoritosService.adicionarFavorito(filmeFavorito).subscribe(
         (resposta) => {
-          this.notificacao.showmessage("Filme inserido na lista de favoritos!")       
+          this.notificacao.showmessage("Filme inserido na lista de favoritos!")
         }
       )
       this.salvosService.editarFilmeSalvo(filmeFavorito).subscribe()
@@ -104,11 +104,11 @@ export class ListaAssistirDepoisComponent implements OnInit {
             for(let listaFilme of listaFilmes.results){
               if(filme.id === listaFilme.id){
                 listaFilme.isFavorite = true
-              }            
+              }
             }
-            
+
           }
-        })    
+        })
     }
 
     public getPaginatorData(event: PageEvent): PageEvent {

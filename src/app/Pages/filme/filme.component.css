@@ -230,7 +230,7 @@ img {
 
     .atores {
         display: flex;
-        justify-content: start;
+        justify-content: flex-start;
         color: white;
         width: 90%;
         height: auto;
@@ -274,7 +274,7 @@ img {
     .onde-assistir {
         display: flex;
         flex-direction: row;
-        justify-content: start;
+        justify-content: flex-start;
         color: aliceblue;
         padding: 20px;
         overflow-x: scroll;
