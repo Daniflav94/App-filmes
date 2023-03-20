@@ -12,7 +12,7 @@ Para acessar a aplicação, o usuário deve se cadastrar e fazer login ou fazer 
 
 Foram feitas diversas requisições para a API do The Movie DB para obter as listas de filmes e suas informações completas.
 
-Todas as páginas possuem uma navBar que exibe o nome do usuário logado e um avatar padrão que pode ser alterado. Também possui um input para pesquisar filmes pelo nome e as listas de favoritos e salvos para assistir depois do usuário. A página inicial renderiza listas de lançamentos, filmes com melhores avaliações e filmes mais populares. Possui uma aba de Gêneros que faz uma filtragem nos filmes pelo gênero que foi selecionado. Caso o usuário queira visualizar mais informações de um filme, é possível clicar no poster e será redirecionado para uma página com informações completas do filme desejado. Todos os cards dos filmes possuem botão de favoritar e salvar, as listas podem ser visualizadas clicando nos botões correspondentes na navbar. Caso o usuário queira, pode remover um filme salvo clicando no ícone de lixeira e também pode fazer sua própria avaliação do filme clicando na estrela azul. Na lista de assistir depois, há um botão de assistido que salva esse filme em outra lista, caso o usuário queira ver seu histórico de filmes assistidos.
+Todas as páginas possuem uma navBar que exibe o nome do usuário logado e um avatar padrão que pode ser alterado. Também possui um input para pesquisar filmes pelo nome e as listas salvas pelo usuário de favoritos e salvos para assistir depois . A página inicial renderiza listas de lançamentos, filmes com melhores avaliações e filmes mais populares. Possui uma aba de Gêneros que faz uma filtragem nos filmes pelo gênero que foi selecionado. Caso o usuário queira visualizar mais informações de um filme, é possível clicar no poster e será redirecionado para uma página com informações completas do filme desejado. Todos os cards dos filmes possuem botão de favoritar e salvar, as listas podem ser visualizadas clicando nos botões correspondentes na navbar. Caso o usuário queira, pode remover um filme salvo clicando no ícone de lixeira e também pode fazer sua própria avaliação do filme clicando na estrela azul. Na lista de assistir depois, há um botão de assistido que salva esse filme em outra lista, caso o usuário queira ver seu histórico de filmes assistidos.
 A aplicação está responsiva e pode ser acessada via mobile ou tablets.
 
 ### Tecnologias
@@ -20,6 +20,7 @@ A aplicação está responsiva e pode ser acessada via mobile ou tablets.
 - Firebase (back-end).
 
 ### Imagens
+
 <img src="https://user-images.githubusercontent.com/99519903/218531937-18045eb6-fd07-4942-bf60-6942db667f0d.png" width="700" height="auto"/>
 <img src="https://user-images.githubusercontent.com/99519903/218526292-6efe3d38-53af-4461-9ad1-97667f66608f.png" width="700" height="auto"/>
 <img src="https://user-images.githubusercontent.com/99519903/218531583-46757a9a-964b-4b9e-af01-37563750307d.png" width="700" height="auto"/>
@@ -32,7 +33,8 @@ A aplicação está responsiva e pode ser acessada via mobile ou tablets.
 
 ### **Versão mobile
 
-<img src="https://user-images.githubusercontent.com/99519903/218531202-87da94ec-3dd3-47da-9f65-b9f6ed6777cb.png" width="750" height="auto"/>
+<img src="https://user-images.githubusercontent.com/99519903/218536051-35353388-69dd-4412-b2de-4bf7fb6c9d29.png" width="750" height="auto"/>
+
 
 
 
