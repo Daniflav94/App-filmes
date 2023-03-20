@@ -16,7 +16,7 @@ export class ApiFilmesService {
 
   private readonly filtroURL: string = 'https://api.themoviedb.org/3/search/movie?api_key=d0d17cbea03e1e751061b001e857b4fb&language=pt-BR&query='
   private readonly baseURL = 'https://api.themoviedb.org/3/movie/'
-  private readonly apiKey = 'api_key=818306944e112ccf75d496086ac6c42e&language=pt-BR/'
+  private readonly apiKey = '*'
 
   constructor(
     private http: HttpClient

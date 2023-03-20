@@ -108,4 +108,8 @@ input{
         width: 90%;
         
     }
+
+    .btn-google{
+        display: none;
+    }
 }

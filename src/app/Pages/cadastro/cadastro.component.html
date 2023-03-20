@@ -1,7 +1,7 @@
 <div class="background"></div>
 <div class="login-container">
     <div class="login-form">
-        <h1>Entrar</h1>
+        <h1>Cadastrar</h1>
         <img src="../../../assets/pipoca.png" width="50px">
         <form [formGroup]="formLogin">
             <input type="text" placeholder="Usuário" formControlName="displayName">
@@ -9,7 +9,7 @@
             <input type="password" placeholder="Senha" formControlName="senha">
             <button class="btn" (click)="cadastrar()">Cadastrar</button>
         </form>
-              
+
         <div class="cadastre-se">
             <span><a routerLink="/login">Voltar para Login</a></span>
         </div>
