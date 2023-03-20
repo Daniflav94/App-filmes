@@ -21,9 +21,16 @@ body {
     background: radial-gradient(circle, rgb(24, 43, 61) 19%, rrgb(29, 51, 73)53%, rgb(29, 50, 71) 83%);
 }
 
-.mat-simple-snackbar-action {
-    color: var(--yellow) !important;
+.mat-mdc-snack-bar-container {
+  --mat-mdc-snack-bar-button-color: yellow;
+  --mdc-snackbar-container-color: var(--blue2);
+  --mdc-snackbar-supporting-text-color: whitesmoke;
 }
+
+.mdc-tab__text-label{
+  color: whitesmoke!important;
+}
+
 
 .warning{
     background-color: var(--blue3);
@@ -33,7 +40,7 @@ body {
     color: aliceblue;
 }
 
-.mat-menu-panel{
+.mat-mdc-menu-panel{
     background-color: var(--blue2);
 }
 

@@ -292,7 +292,7 @@ export class ListaFilmesComponent implements OnInit {
     const botao = document.querySelector(".btn-voltar")
     if(window.scrollY  > 2.5){
       botao?.classList.add("visible")
-      
+
     }else {
       botao?.classList.remove("visible")
     }
