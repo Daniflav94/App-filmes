@@ -1,0 +1,32 @@
+@import './variaveis.css';
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Open+Sans:wght@300;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+}
+
+html,
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: var(--black);
+    width: 100vw;
+    height: (100vh - 70px);
+    display: flex;
+}
+
+.mat-dialog-container {
+    background-color: rgb(36, 35, 35);
+}
+
+.mat-simple-snackbar-action {
+    color: var(--yellow) !important;
+}
+
+.mat-select-value{
+    color: aliceblue;
+}
+
+.mat-menu-panel{
+    background-color: var(--gray2);
+}
