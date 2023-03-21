@@ -19,13 +19,16 @@ export class CadastroComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private notification: NotificationService
-  ) { 
+  ) {
     this.formLogin = fb.group({
       displayName: ["", [Validators.required]],
       email: ["", [Validators.required, Validators.email]],
-      senha: ["", [Validators.required]]
+      senha: ["", [Validators.required, Validators.minLength(5)]]
     })
   }
+
+  verSenha: boolean = false
+  tipoInput: string = 'password'
 
   ngOnInit(): void {
   }
@@ -39,7 +42,16 @@ export class CadastroComponent implements OnInit {
         this.router.navigate(["/login"])
       })
     }
-    
+  }
+
+  mudarTipoInput(): void{
+    if(this.tipoInput == 'password'){
+      this.tipoInput = 'text'
+      this.verSenha = true
+    }else{
+      this.tipoInput = 'password'
+      this.verSenha = false
+    }
   }
 
 }

@@ -17,7 +17,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    
+    padding: 30px;
+
 }
 
 .login-form{
@@ -26,7 +27,7 @@
     align-items: center;
     justify-content: center;
     width: 370px;
-    height: 470px;
+    height: 480px;
     background: rgb(23, 41, 60);
     background: radial-gradient(circle, rgb(24, 43, 61) 19%, rrgb(29, 51, 73)53%, rgb(29, 50, 71) 83%);
     margin-top: 230px;
@@ -44,7 +45,7 @@ h1{
 form{
     width: 70%;
     height: auto;
-    padding: 20px;
+    padding: 18px;
     display: flex;
     flex-direction: column;
 }
@@ -56,7 +57,31 @@ input{
     height: 30px;
     color: rgb(218, 224, 230);
     padding: 5px;
-    margin-bottom: 20px;
+    margin-top: 17px;
+
+}
+
+.senha input{
+  width: 96%;
+}
+
+.senha{
+  position: relative;
+}
+
+.validacao{
+  color: rgb(248, 57, 57);
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.olho{
+  width: 18px;
+  position: absolute;
+  top: 30px;
+  left: 230px;
+  margin: 0;
+  cursor: pointer;
 }
 
 .btn{
@@ -65,25 +90,11 @@ input{
     height: 42px;
     padding: 5px;
     border-radius: 5px;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
+    margin-top: 17px;
     text-transform: uppercase;
     font-weight: bold;
     cursor: pointer;
-}
-
-.btn-google{
-    display: flex;
-    padding: 5px;
-    height: 42px;
-    border-radius: 5px;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.btn-google img{
-    margin-right: 15px;
 }
 
 .cadastre-se{
@@ -106,6 +117,6 @@ input{
 @media only screen and (max-device-width: 900px) {
     .login-form{
         width: 90%;
-        
+
     }
 }

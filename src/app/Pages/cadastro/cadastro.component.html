@@ -4,10 +4,29 @@
         <h1>Cadastrar</h1>
         <img src="../../../assets/pipoca.png" width="50px">
         <form [formGroup]="formLogin">
-            <input type="text" placeholder="Usuário" formControlName="displayName">
-            <input type="email" placeholder="E-mail" formControlName="email">
-            <input type="password" placeholder="Senha" formControlName="senha">
-            <button class="btn" (click)="cadastrar()">Cadastrar</button>
+            <input type="text" placeholder="Usuário" formControlName="displayName" required>
+            <div class="validacao" *ngIf="formLogin.get('displayName')?.errors?.['required'] && formLogin.get('displayName')?.touched">
+              Nome de usuário obrigatório!
+            </div>
+            <input type="email" placeholder="E-mail" formControlName="email" required>
+            <div class="validacao" *ngIf="formLogin.get('email')?.errors?.['required'] && formLogin.get('email')?.touched">
+              E-mail obrigatório!
+            </div>
+            <div class="validacao" *ngIf="formLogin.get('email')?.errors?.['email'] && formLogin.get('email')?.touched">
+              Formato de e-mail inválido!
+            </div>
+            <div class="senha">
+              <input [type]="tipoInput" placeholder="Senha" formControlName="senha" required>
+              <div class="validacao" *ngIf="formLogin.get('senha')?.errors?.['required'] && formLogin.get('senha')?.touched">
+                Senha obrigatória!
+              </div>
+              <div class="validacao" *ngIf="formLogin.get('senha')?.errors?.['minLength'] && formLogin.get('senha')?.touched">
+                A senha deve possuir no mínimo 5 caracteres!
+              </div>
+              <img *ngIf="!verSenha" src="/assets/olho.png" alt="" class="olho" (click)="mudarTipoInput()">
+              <img *ngIf="verSenha" src="/assets/olho (1).png" alt="" class="olho" (click)="mudarTipoInput()">
+            </div>
+            <button class="btn" (click)="cadastrar()" [disabled]="!formLogin.valid">Cadastrar</button>
         </form>
 
         <div class="cadastre-se">
