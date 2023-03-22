@@ -80,8 +80,7 @@ a {
   }
 
   .botoes-controle{
-    width: 80%;
-    margin: 8px auto;
+    visibility: hidden;
   }
 
   .texto {

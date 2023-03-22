@@ -11,7 +11,7 @@ import { NotificationService } from 'src/app/Services/notificacao.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  
+
   public formLogin: FormGroup;
 
   constructor(
@@ -19,36 +19,38 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private notification: NotificationService
-  ) { 
+  ) {
     this.formLogin = fb.group({
       email: ["", [Validators.required, Validators.email]],
       senha: ["", [Validators.required]]
     })
   }
+  verSenha: boolean = false
+  tipoInput: string = 'password'
 
   ngOnInit(): void {
-   
+
   }
 
   public entrar(): void{
     if(this.formLogin.valid){
       const credenciais: User = this.formLogin.value
       this.authService.autenticarPorEmaileSenha(credenciais).subscribe(resposta => {
-        this.router.navigate(["/filmes"])  
+        this.router.navigate(["/filmes"])
         let usuario = resposta.user
         console.log(usuario)
         localStorage.setItem("uidUser", usuario.uid)
-       
+
         this.authService.listarUsuarios().subscribe(resposta => {
           this.authService.getCurrentUser().subscribe(resp => {
             resposta.map((user: User) => {
-              if(resp?.email == user.email){               
+              if(resp?.email == user.email){
                 localStorage.setItem("user-name", user.displayName as string)
                 localStorage.setItem("user-photo", user.photoURL as string)
               }
-            })        
-          })     
-        })     
+            })
+          })
+        })
       })
     }
     else{
@@ -72,10 +74,20 @@ export class LoginComponent implements OnInit {
                 usuario.photoURL = user.photoURL
                 usuario.uid = user.uid
               }
-            })        
-          })     
-        })     
+            })
+          })
+        })
     })
+  }
+
+  mudarTipoInput(): void{
+    if(this.tipoInput == 'password'){
+      this.tipoInput = 'text'
+      this.verSenha = true
+    }else{
+      this.tipoInput = 'password'
+      this.verSenha = false
+    }
   }
 
 }

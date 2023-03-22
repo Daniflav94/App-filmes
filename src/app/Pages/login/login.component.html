@@ -5,8 +5,13 @@
         <img src="../../../assets/pipoca.png" width="50px">
         <form [formGroup]="formLogin">
             <input type="email" placeholder="E-mail" formControlName="email">
-            <input type="password" placeholder="Senha" formControlName="senha">
+            <div class="senha">
+              <input [type]="tipoInput" placeholder="Senha" formControlName="senha">
+            <img *ngIf="!verSenha" src="/assets/olho.png" alt="" class="olho" (click)="mudarTipoInput()">
+            <img *ngIf="verSenha" src="/assets/olho (1).png" alt="" class="olho" (click)="mudarTipoInput()">
+            </div>
             <button class="btn" (click)="entrar()">Entrar</button>
+
             <!-- <button  class="btn-google" (click)="entrarComGoogle()">
                 <img src="/assets/google.png" width="20px">
                 <p class="titulo-google">Fazer login</p>

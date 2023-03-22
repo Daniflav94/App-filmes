@@ -17,7 +17,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
 }
 
 .login-form{
@@ -103,13 +103,33 @@ input{
     color: rgb(224, 223, 223);
 }
 
+.olho{
+  width: 18px;
+  position: absolute;
+  top: 12px;
+  left: 230px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.senha input{
+  width: 96%;
+}
+.senha{
+  position: relative;
+}
+
 @media only screen and (max-device-width: 900px) {
     .login-form{
         width: 90%;
-        
+
     }
 
     .btn-google{
         display: none;
+    }
+
+    .olho{
+      left: 210px;
     }
 }

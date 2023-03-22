@@ -25,7 +25,7 @@
                                     <div class="card-filme" *ngFor="let filme of listaTopFilmes.results | slice: inicio:final">
                                         <a [routerLink]="'/filmes/' + filme.id"><img
                                                 [src]="'https://image.tmdb.org/t/p/original/' + filme.poster_path"
-                                                class="poster"></a>
+                                                class="poster" loading="lazy"></a>
                                         <div class="conteudo-card">
                                             <div class="avaliacao-e-favoritar">
                                                 <div class="avaliacao">
@@ -56,7 +56,7 @@
                                     <div class="card-filme" *ngFor="let filme of listaTopFilmes.results">
                                         <a [routerLink]="'/filmes/' + filme.id"><img
                                                 [src]="'https://image.tmdb.org/t/p/original/' + filme.poster_path"
-                                                class="poster"></a>
+                                                class="poster" loading="lazy"></a>
                                         <div class="conteudo-card">
                                             <div class="avaliacao-e-favoritar">
                                                 <div class="avaliacao">
@@ -86,7 +86,7 @@
                             *ngFor="let filme of listaTopFilmesCompleta">
                             <a [routerLink]="'/filmes/' + filme.id"><img
                                     [src]="'https://image.tmdb.org/t/p/original/' + filme.poster_path"
-                                    class="poster"></a>
+                                    class="poster" loading="lazy"></a>
                             <div class="conteudo-card">
                                 <div class="avaliacao-e-favoritar">
                                     <div class="avaliacao">
@@ -117,7 +117,7 @@
                             *ngFor="let filme of listaTopFilmesCompleta">
                             <a [routerLink]="'/filmes/' + filme.id"><img
                                     [src]="'https://image.tmdb.org/t/p/original/' + filme.poster_path"
-                                    class="poster"></a>
+                                    class="poster" loading="lazy"></a>
                             <div class="conteudo-card">
                                 <div class="avaliacao-e-favoritar">
                                     <div class="avaliacao">
@@ -137,10 +137,10 @@
                                     <div *ngIf="filme.isSave == true"><img src="/assets/salvar-cheio.png" width="16px">
                                         Assistir depois</div>
                                 </button>
+                                <button (click)="voltarAoTopo()" class="btn-voltar"><img src="/assets/pra-cima.png" width="30px"></button>
                             </div>
                         </div>
 
-                        <button (click)="voltarAoTopo()" class="btn-voltar"><img src="/assets/pra-cima.png" width="30px"></button>
                     </section>
 
                     <!--LISTA POPULARES-->
@@ -161,7 +161,7 @@
                         <div class="card-filme" *ngFor="let filme of listaPopulares.results | slice: inicio2:final2">
                             <a [routerLink]="'/filmes/' + filme.id"><img
                                     [src]="'https://image.tmdb.org/t/p/original/' + filme.poster_path"
-                                    class="poster"></a>
+                                    class="poster" loading="lazy"></a>
                             <div class="conteudo-card">
                                 <div class="avaliacao-e-favoritar">
                                     <div class="avaliacao">
@@ -189,7 +189,7 @@
                             <div class="card-filme" *ngFor="let filme of listaPopulares.results">
                                 <a [routerLink]="'/filmes/' + filme.id"><img
                                         [src]="'https://image.tmdb.org/t/p/original/' + filme.poster_path"
-                                        class="poster"></a>
+                                        class="poster" loading="lazy"></a>
                                 <div class="conteudo-card">
                                     <div class="avaliacao-e-favoritar">
                                         <div class="avaliacao">
@@ -219,7 +219,7 @@
                             *ngFor="let filme of listaPopularesCompleta">
                             <a [routerLink]="'/filmes/' + filme.id"><img
                                     [src]="'https://image.tmdb.org/t/p/original/' + filme.poster_path"
-                                    class="poster"></a>
+                                    class="poster" loading="lazy"></a>
                             <div class="conteudo-card">
                                 <div class="avaliacao-e-favoritar">
                                     <div class="avaliacao">
@@ -249,7 +249,7 @@
                             *ngFor="let filme of listaPopularesCompleta ">
                             <a [routerLink]="'/filmes/' + filme.id"><img
                                     [src]="'https://image.tmdb.org/t/p/original/' + filme.poster_path"
-                                    class="poster"></a>
+                                    class="poster" loading="lazy"></a>
                             <div class="conteudo-card">
                                 <div class="avaliacao-e-favoritar">
                                     <div class="avaliacao">
@@ -269,9 +269,10 @@
                                     <div *ngIf="filme.isSave == true"><img src="/assets/salvar-cheio.png" width="16px">
                                         Assistir depois</div>
                                 </button>
+                                <button (click)="voltarAoTopo()" class="btn-voltar"><img src="/assets/pra-cima.png" width="30px"></button>
                             </div>
                         </div>
-                        <button (click)="voltarAoTopo()" class="btn-voltar"><img src="/assets/pra-cima.png" width="30px"></button>
+
                     </section>
                 </mat-tab>
                 <mat-tab label="Gêneros">
@@ -285,7 +286,7 @@
                         <div class="card-filme" *ngFor="let filme of filtrados">
                             <a [routerLink]="'/filmes/' + filme.id"><img
                                     [src]="'https://image.tmdb.org/t/p/original/' + filme.poster_path"
-                                    class="poster"></a>
+                                    class="poster" loading="lazy"></a>
                             <div class="conteudo-card">
                                 <div class="avaliacao-e-favoritar">
                                     <div class="avaliacao">
@@ -312,7 +313,7 @@
                         <div class="card-filme" *ngFor="let filme of filtrados">
                             <a [routerLink]="'/filmes/' + filme.id"><img
                                     [src]="'https://image.tmdb.org/t/p/original/' + filme.poster_path"
-                                    class="poster"></a>
+                                    class="poster" loading="lazy"></a>
                             <div class="conteudo-card">
                                 <div class="avaliacao-e-favoritar">
                                     <div class="avaliacao">
