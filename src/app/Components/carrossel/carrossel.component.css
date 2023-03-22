@@ -71,7 +71,7 @@ a {
 
 @media only screen and (max-device-width: 900px) {
   .item {
-    height: 200px;    
+    height: 200px;
   }
 
   .botoes-controle button {
@@ -79,17 +79,22 @@ a {
     width: 12px;
   }
 
+  .botoes-controle{
+    width: 80%;
+    margin: 8px auto;
+  }
+
   .texto {
     height: 60px;
     top: 70%;
     padding: 17px 10px;
   }
-  
+
   .titulo {
     font-size: 17px;
     margin-left: 20px;
   }
-  
+
   .resenha {
     display: none;
   }

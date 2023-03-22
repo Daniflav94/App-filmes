@@ -194,6 +194,6 @@ mat-paginator {
         border: 1px solid #26405c;
         border-radius: 5px;
         color: aliceblue;
-        width: 420px;
+        width: 100%;
     }
 }

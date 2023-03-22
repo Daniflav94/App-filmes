@@ -41,6 +41,14 @@ export class DialogVotoComponent implements OnInit {
 
   ngOnInit(): void {
     this.session = localStorage.getItem('session')
+    this.verificarTamanhoTela()
+  }
+
+  verificarTamanhoTela(){
+    var largura = window.screen.width;
+    if(largura < 500){
+      this.dialogRef.updateSize('90%', '38%');
+    }
   }
 
   onNoClick(): void {
@@ -296,19 +304,19 @@ export class DialogVotoComponent implements OnInit {
     if (this.nota != 0) {
       this.filme.voto = this.nota
       this.notification.showmessage("Filme avaliado!")
-        this.favoritosService.editarFilmeFavorito(this.filme).subscribe(resposta => {         
+        this.favoritosService.editarFilmeFavorito(this.filme).subscribe(resposta => {
           setTimeout(function () {
             location.reload();
           }, 2000)
         })
-      
-        this.salvosService.editarFilmeSalvo(this.filme).subscribe(resposta => { 
+
+        this.salvosService.editarFilmeSalvo(this.filme).subscribe(resposta => {
           setTimeout(function () {
             location.reload();
           }, 2000)
         })
-          
-      
+
+
     }
   }
 }

@@ -32,6 +32,15 @@ body {
   color: whitesmoke!important;
 }
 
+.mdc-list-item__primary-text{
+  color: aliceblue!important;
+
+}
+
+.mat-mdc-menu-content, .mat-mdc-menu-content .mat-mdc-menu-item .mdc-list-item__primary-text{
+  font-size: 12px;
+}
+
 
 .warning{
     background-color: var(--blue3);
@@ -47,4 +56,8 @@ body {
 
 .mat-tooltip{
     background-color: var(--blue3);
+}
+
+.mdc-icon-button{
+  fill: aliceblue!important;
 }

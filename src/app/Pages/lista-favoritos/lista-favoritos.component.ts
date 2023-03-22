@@ -58,6 +58,8 @@ export class ListaFavoritosComponent implements OnInit {
   }
 
   public openDialog(filme: FilmeLista) {
+
+
     this.dialog.open(DialogVotoComponent, {
       width: "520px",
       height: "320px",

@@ -267,7 +267,7 @@ mat-paginator {
         display: flex;
     }
 
-    .btn-voltar{        
+    .btn-voltar{
         visibility: hidden;
     }
 
@@ -293,7 +293,7 @@ mat-paginator {
     }
 
     .subtitulo-lista h2 {
-        font-size: 18px;       
+        font-size: 18px;
     }
 
     .cards {
@@ -304,27 +304,27 @@ mat-paginator {
     .card-filme {
         background-color: var(--blue3);
         border: none;
-        width: 164px;
+        width: 150px;
         height: 320px;
         border-radius: 5px;
         box-sizing: border-box;
         margin: 5px;
-        
+
     }
-    
+
     .poster {
-        width: 164px;
+        width: 150px;
         height: 70%;
         border-radius: 5px 5px 0 0;
     }
-    
+
     .conteudo-card {
         height: 30%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
     }
-    
+
     .avaliacao {
         display: flex;
         width: 100%;
@@ -361,5 +361,5 @@ mat-paginator {
     .carrossel {
         height: auto;
     }
-    
+
 }

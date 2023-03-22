@@ -310,14 +310,11 @@ mat-divider {
         height: 50px;
     }
 
-    ::ng-deep .mat-menu-content{       
+    ::ng-deep .mat-menu-content{
         width: auto;
         height: auto;
     }
 
-    ::ng-deep .mat-menu-item{
-        color: var(--font);
-    }
 
     .titulo-pesquisa{
         padding: 0;
@@ -330,9 +327,9 @@ mat-divider {
         flex-wrap: wrap;
         box-sizing: border-box;
         padding: 0 30px;
-    
+
     }
-    
+
     .card-filme {
         background-color: var(--blue3);
         border: none;
@@ -342,20 +339,20 @@ mat-divider {
         box-sizing: border-box;
         margin: 5px;
     }
-    
+
     .poster {
         width: 100%;
         height: 65%;
         border-radius: 5px 5px 0 0;
     }
-    
+
     .conteudo-card {
         height: 35%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
     }
-    
+
     .avaliacao {
         display: flex;
         width: 90%;
@@ -364,10 +361,10 @@ mat-divider {
         color: rgb(215, 215, 215);
         font-size: 14px;
     }
-    
+
     .titulo-filme {
         display: none;
     }
-    
+
 
 }
