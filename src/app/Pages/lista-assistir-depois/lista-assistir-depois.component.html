@@ -50,12 +50,13 @@
                     </div>
 
                 </div>
+                <button (click)="voltarAoTopo()" class="btn-voltar"><img src="/assets/pra-cima.png" width="40px"></button>
             </section>
             <section *ngIf="verAssistidos">
                 <div *ngIf="listaAssistidos.length == 0">
                     <h1>Nenhum filme por aqui...</h1>
                 </div>
-                <div class="card-filme" *ngFor="let filme of listaAssistidos| slice: lowValue : highValue">
+                <div class="card-filme" *ngFor="let filme of listaAssistidos">
                     <a [routerLink]="'/filmes/' + filme.id"><img
                             [src]="'https://image.tmdb.org/t/p/original/' + filme.poster_path" class="poster"></a>
                     <div class="conteudo-card">
@@ -92,9 +93,7 @@
                         </div>
                     </div>
                 </div>
-                <mat-paginator *ngIf="listaAssistidos.length > 0" [length]="listaAssistidos.length" [pageSize]="5" [pageSizeOptions]="[5, 20, 50]"
-                    aria-label="Select page" (page)="getPaginatorData($event)">
-                </mat-paginator>
+                <button (click)="voltarAoTopo()" class="btn-voltar"><img src="/assets/pra-cima.png" width="40px"></button>
             </section>
 
         </section>

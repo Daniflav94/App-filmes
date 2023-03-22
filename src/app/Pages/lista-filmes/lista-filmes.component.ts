@@ -55,8 +55,6 @@ export class ListaFilmesComponent implements OnInit {
   prevButton = document.getElementById("slide-arrow-prev");
   nextButton = document.getElementById("slide-arrow-next");
 
-  lowValue: number = 0;
-  highValue: number = 18;
 
   ngOnInit(): void {
     this.session = localStorage.getItem('session')
@@ -245,7 +243,6 @@ export class ListaFilmesComponent implements OnInit {
 
   }
 
-
   voltar() {
     if (this.inicio != 0 && this.final != 7) {
       this.inicio -= 7
@@ -278,19 +275,14 @@ export class ListaFilmesComponent implements OnInit {
     }
   }
 
-  public getPaginatorData(event: PageEvent): PageEvent {
-    this.lowValue = event.pageIndex * event.pageSize;
-    this.highValue = this.lowValue + event.pageSize;
-    return event;
-  }
 
   public voltarAoTopo(): void{
-    window.scrollTo(0, 0)
+    window.scroll(0, 0)
   }
 
   @HostListener('window:scroll') onWindowScroll(): void{
     const botao = document.querySelector(".btn-voltar")
-    if(window.scrollY  > 2.5){
+    if(window.scrollY  > 7.5){
       botao?.classList.add("visible")
 
     }else {

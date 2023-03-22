@@ -193,13 +193,18 @@ h1{
     cursor: pointer;
 }
 
-mat-paginator{
-    background-color: transparent;
-    border: 1px solid #26405c;
-    border-radius: 5px;
-    color: aliceblue;
-    width: 880px;
-    margin-top: 20px;
+.btn-voltar{
+  visibility: hidden;
+}
+
+.visible{
+  visibility: visible;
+  position: fixed;
+  bottom: 10px;
+  right: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 ::ng-deep #mat-select-value-1{
@@ -230,7 +235,7 @@ mat-paginator{
         box-sizing: border-box;
         margin: 0 5px 10px 10px;
         border-radius: 0;
-        
+
     }
 
     .poster {
@@ -239,13 +244,13 @@ mat-paginator{
         border-radius: 0;
         margin-right: 25px;
     }
-    
+
     .conteudo-card {
         height: 100%;
         align-self: center;
     }
-    
-    
+
+
     .header {
         display: flex;
         align-items: center;
@@ -254,7 +259,7 @@ mat-paginator{
         height: 30px;
         margin: 10px 0;
     }
-    
+
     .header span {
         display:none;
     }
@@ -266,20 +271,20 @@ mat-paginator{
     .btn-assistido{
         margin: 5px 0;
     }
-    
-    
+
+
     .titulo-filme p {
         margin-right: 5px;
         font-size: 13px;
         color: rgb(229, 226, 226);
     }
-    
+
     .informacoes p {
         font-size: 12.5px;
         height: 100px;
     }
-    
-    
+
+
     mat-paginator{
         background-color: transparent;
         border: 1px solid #26405c;

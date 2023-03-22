@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { DialogVotoComponent } from 'src/app/Components/dialogs/dialog-voto/dialog-voto.component';
@@ -32,8 +32,7 @@ export class ListaAssistirDepoisComponent implements OnInit {
   listaAssistidos: FilmeLista[] = []
   verAssistidos: boolean = false
   listaFavoritos: FilmeLista[] = []
-  lowValue: number = 0;
-  highValue: number = 5;
+
 
   public listarFilmes(): void {
     this.salvosService.listarFilmesSalvos().subscribe(lista => {
@@ -111,10 +110,19 @@ export class ListaAssistirDepoisComponent implements OnInit {
         })
     }
 
-    public getPaginatorData(event: PageEvent): PageEvent {
-      this.lowValue = event.pageIndex * event.pageSize;
-      this.highValue = this.lowValue + event.pageSize;
-      return event;
+
+  public voltarAoTopo(): void{
+    window.scroll(0, 0)
+  }
+
+  @HostListener('window:scroll') onWindowScroll(): void{
+    const botao = document.querySelector(".btn-voltar")
+    if(window.scrollY  > 7.5){
+      botao?.classList.add("visible")
+
+    }else {
+      botao?.classList.remove("visible")
     }
+  }
 
 }
