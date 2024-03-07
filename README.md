@@ -1,4 +1,4 @@
-# APP-Filmes
+# TMDB Filmes
 
 Aplicação web que consome a API do The Movie DB.
 
